@@ -17,12 +17,13 @@
     <h3 class="no-margin">Enhanced Protection <small class="beta">(beta)</small></h3>
     <div />
     <FlexContainer align_items="baseline" gap="0.5rem">
-      <h1 class="no-margin"><small>$0</small></h1>
+      <h1 class="no-margin"><small class="wide">€0</small></h1>
       <h3 class="no-margin oneline mono">/ month</h3>
       <span class="sm oneline">No credit card required!</span>
     </FlexContainer>
     <FlexContainer align_items="baseline" gap="0.5rem">
-      <h1 class="no-margin beta"><small>$0</small></h1>
+      <h3 class="no-margin strikethrough wide">€4</h3>
+      <h1 class="no-margin beta"><small class="wide">€0</small></h1>
       <h3 class="no-margin oneline mono">/ month</h3>
       <span class="sm oneline beta">Free upgrade during beta!</span>
     </FlexContainer>
@@ -59,7 +60,7 @@
   <GridContainer template_columns="1fr" bgColor="var(--new-layer-color)" color="var(--text-color)" padding="1rem" gap="0.5rem 2rem" rounded onlymobile border>
     <h3 class="no-margin">Basic Protection</h3>
     <FlexContainer align_items="baseline" gap="0.5rem">
-      <h1 class="no-margin"><small>$0</small></h1>
+      <h1 class="no-margin"><small class="wide">€0</small></h1>
       <h3 class="no-margin oneline mono">/ month</h3>
       <span class="sm oneline">No CC required!</span>
     </FlexContainer>
@@ -80,7 +81,8 @@
   <GridContainer template_columns="1fr" bgColor="var(--new-layer-color)" color="var(--text-color)" padding="1rem" gap="0.5rem 2rem" rounded onlymobile border>
     <h3 class="no-margin">Enhanced Protection</h3>
     <FlexContainer align_items="baseline" gap="0.5rem">
-      <h1 class="no-margin beta"><small>$0</small></h1>
+      <h3 class="no-margin strikethrough wide">€4</h3>
+      <h1 class="no-margin beta"><small class="wide">€0</small></h1>
       <h3 class="no-margin oneline mono">/ month</h3>
       <span class="sm oneline beta">during beta!</span>
     </FlexContainer>
@@ -109,7 +111,16 @@
   .beta {
     color: var(--info-color);
   }
+
   .strikethrough {
     text-decoration: line-through;
+  }
+
+  h3.strikethrough {
+    text-decoration-thickness: 0.15rem;
+  }
+
+  .wide {
+    letter-spacing: calc(var(--wide-letter-spacing) * 2);
   }
 </style>

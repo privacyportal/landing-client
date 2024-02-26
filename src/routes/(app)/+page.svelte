@@ -307,7 +307,7 @@
     <FlexContainer align_items="center" justify_content="center" padding="0" fullRow>
       <h3 class="no-margin"><small>Available Everywhere!</small></h3>
     </FlexContainer>
-    <FlexContainer align_items="center" justify_content="center" column gap="1rem">
+    <FlexContainer align_items="center" justify_content="center" column gap="1rem" mobileScale>
       <AspectRatio shadow ratio="2/1" width="100%" max_width="400px" background="linear-gradient(140deg, rgb(209 224 239) 0%, rgb(147 193 232) 100%)" nooverflow rounded>
         <AnyProvidersImg />
       </AspectRatio>
@@ -316,7 +316,7 @@
         <span>Mail Relay relay is compatible with all standard email providers. You don't need a special email account to use it.</span>
       </FlexContainer>
     </FlexContainer>
-    <FlexContainer align_items="center" justify_content="center" column gap="1rem">
+    <FlexContainer align_items="center" justify_content="center" column gap="1rem" mobileScale>
       <AspectRatio shadow ratio="2/1" width="100%" max_width="400px" background="linear-gradient(140deg, rgb(197 219 240) 0%, rgb(97 148 190) 100%)" nooverflow rounded>
         <AnyPlatformImg />
       </AspectRatio>
@@ -325,7 +325,7 @@
         <span>Our Web App relies on open web standards and can be used in the browser or installed as an app on your device.</span>
       </FlexContainer>
     </FlexContainer>
-    <FlexContainer align_items="center" justify_content="center" column gap="1rem">
+    <FlexContainer align_items="center" justify_content="center" column gap="1rem" mobileScale>
       <AspectRatio shadow ratio="2/1" width="100%" max_width="400px" background="linear-gradient(140deg, rgb(197 219 240) 0%, rgb(97 148 190) 100%)" nooverflow rounded>
         <AnyClientImg />
       </AspectRatio>
