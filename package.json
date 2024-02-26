@@ -1,0 +1,31 @@
+{
+  "name": "landing-client",
+  "version": "0.0.1",
+  "author": "Privacy Portal",
+  "license": "MIT",
+  "scripts": {
+    "dev": "vite dev --host --port 3300",
+    "build": "vite build",
+    "postbuild": "./scripts/postbuild.sh .svelte-kit/cloudflare",
+    "preview": "vite preview",
+    "lint": "prettier --ignore-path .gitignore --check --plugin-search-dir=. . && eslint --ignore-path .gitignore .",
+    "format": "prettier --ignore-path .gitignore --write --plugin-search-dir=. ."
+  },
+  "type": "module",
+  "dependencies": {
+    "lokijs": "^1.5.12"
+  },
+  "devDependencies": {
+    "@sveltejs/adapter-cloudflare": "^4.1.0",
+    "@sveltejs/kit": "^2.5.0",
+    "@sveltejs/vite-plugin-svelte": "^3.0.0",
+    "eslint": "^8.56.0",
+    "eslint-config-prettier": "^9.1.0",
+    "eslint-plugin-svelte": "^2.35.1",
+    "mdsvex": "^0.11.0",
+    "prettier": "^3.2.5",
+    "prettier-plugin-organize-imports": "^3.2.4",
+    "prettier-plugin-svelte": "^3.2.1",
+    "svelte": "^4.2.11"
+  }
+}

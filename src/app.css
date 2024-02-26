@@ -1,0 +1,267 @@
+*,
+*::before,
+*::after {
+  -webkit-box-sizing: border-box;
+  box-sizing: border-box;
+}
+
+:root {
+  /* border colors */
+  --border-color: #cccccc;
+  --dark-border-color: #777777;
+  --base-border-color: rgba(0, 0, 0, 0.1);
+  --base-light-border-color: rgba(255, 255, 255, 0.2);
+
+  /* specialized colors */
+  --icon-color: var(--text-color);
+  --landing-outer-bg-color: var(--base-color);
+  --app-outer-bg-color: #92a7b17a;
+  --tooltip-color: #000000a0;
+  --snackbar-color: #ffffff;
+  --snackbar-bg-color: rgba(90, 90, 90, 0.712); /* black background */
+  --link-color: rgba(255, 255, 255, 0.9);
+  --link-hover-color: #f5f5f7;
+  --modal-outer-bg-color: rgb(0, 0, 0, 0.7);
+  --blog-logo-color: #003f9c;
+  --blog-bg-color: #ecf5e6;
+  --blog-primary-label-color: #6289c3;
+  --blog-secondary-label-color: #aaaaaa;
+  --privacy-logo-color: #000000;
+  --header-bg-color: #ffffff;
+
+  /* these color names are theme independent */
+  --outer-bg-color: #92a7b17a;
+  --base-color: #f5f5f7;
+  --basic-color: #aaaaaa;
+  --disabled-color: #959595;
+  --dark-color: #444;
+  --primary-color: #00729c;
+  --transparent-primary-color: #00729cda;
+  --positive-color: #009c76;
+  --info-color: #9c7f00;
+  --warning-color: #e08a00;
+  --danger-color: #a11e16;
+  --transparent-dark-color: #111111da;
+
+  /* text colors */
+  --text-color: rgba(0, 0, 0, 0.7);
+  --text-opaque-color: rgba(0, 0, 0, 1);
+  --text-light-color: rgba(255, 255, 255, 0.9);
+  --text-light-opaque-color: rgba(255, 255, 255, 1);
+
+  /* layers add opacity over underlying colors */
+  --new-layer-color: rgba(0, 0, 0, 0.05);
+  --new-layer-x2-color: rgba(0, 0, 0, 0.1);
+  --new-layer-x4-color: rgba(0, 0, 0, 0.2);
+  --down-layer-color: rgba(255, 255, 255, 0.3);
+
+  /* dimensions */
+  --section-md-width: 870px;
+  --section-lg-width: 1800vw;
+
+  /* font */
+  --font-serif: 'Montserrat';
+  --font-mono: 'JetBrains Mono';
+  font-family: var(--font-serif);
+  font-size: 1rem;
+  font-weight: 400;
+}
+
+body {
+  margin: 0;
+  background-color: var(--landing-outer-bg-color);
+}
+
+#svelte {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  font-weight: 900;
+  letter-spacing: -0.0125em;
+  text-transform: none;
+}
+
+p,
+span {
+  font-weight: 400;
+}
+
+h1.disabled,
+h2.disabled,
+h3.disabled,
+h4.disabled,
+h5.disabled,
+h6.disabled,
+p.disabled,
+span.disabled {
+  color: var(--disabled-color);
+}
+
+th {
+  color: var(--text-color);
+}
+
+a {
+  color: var(--primary-color);
+  transition: 0.2s color ease;
+  text-decoration: none;
+}
+
+a:hover {
+  opacity: 1;
+  text-decoration: underline;
+}
+
+h1 {
+  font-size: 2rem;
+}
+
+h2 {
+  font-size: 1.3rem;
+}
+
+input,
+button {
+  font-size: inherit;
+  font-family: inherit;
+}
+
+button:focus:not(:focus-visible) {
+  outline: none;
+}
+
+.no-wrap {
+  white-space: nowrap;
+}
+
+.auto-wrap {
+  white-space: auto;
+}
+
+.auto-width {
+  width: auto;
+}
+
+.no-margin {
+  margin: 0px !important;
+}
+
+.rounded {
+  overflow: hidden;
+  border-radius: 6px;
+}
+
+.shadow {
+  box-shadow:
+    rgba(0, 0, 0, 0.05) 0px 10px 25px,
+    rgba(0, 0, 0, 0.15) 0px 6px 15px;
+}
+
+.inherit-color {
+  color: inherit;
+}
+
+.sm-v-margin {
+  margin: 0.5rem 0px !important;
+}
+
+.sm-h-padding {
+  padding-left: 0.5rem;
+  padding-right: 0.5rem;
+}
+
+hr.divider {
+  width: 100%;
+  border-top: 1px solid var(--border-color);
+  margin: 1rem 0px;
+}
+
+hr.divider.no-margin {
+  margin: 0px;
+}
+
+.oneline {
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  overflow: hidden;
+}
+
+.unselectable {
+  user-select: none;
+  -webkit-user-select: none; /* Safari */
+}
+
+span.note {
+  font-size: x-small;
+  filter: brightness(150%);
+}
+
+.mono {
+  font-family: var(--font-mono);
+}
+
+span.xs {
+  font-size: x-small;
+}
+
+span.sm {
+  font-size: small;
+}
+
+.align-self-end {
+  align-self: end;
+}
+
+.full-row {
+  grid-column: 1 / -1;
+}
+
+.full-column {
+  grid-row: 1 / -1;
+}
+
+.gridline {
+  grid-column: 1 / -1;
+  height: 1px;
+  background: var(--border-color);
+}
+
+.gridline-2 {
+  grid-column: 1 / -1;
+  height: 2px;
+  background: var(--base-border-color);
+}
+
+.clickable {
+  cursor: pointer;
+}
+
+.align-left {
+  text-align: left;
+}
+
+@media (min-width: 720px) {
+  h1 {
+    font-size: 2.4rem;
+  }
+}
+
+@media screen and (max-width: 979px) {
+  .no-mobile {
+    display: none !important;
+  }
+}
+
+@media screen and (min-width: 979.01px) {
+  .mobile {
+    display: none !important;
+  }
+}
