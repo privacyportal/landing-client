@@ -9,7 +9,7 @@
 {#if !hidden($page.url.pathname)}
   <footer>
     <div class="footer-container">
-      <span id="copyright-container">© PrivacyPortal {currYear}</span>
+      <span id="copyright-container">© Privacy Portal {currYear}</span>
       {#each $navItems as navItem}
         {#if navItem.footer !== false}
           <a href={navItem.path}>{navItem.name}</a>
