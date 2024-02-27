@@ -181,7 +181,7 @@
   </GridContainer>
 </FlexContainer>
 
-<FlexContainer column bgColor="var(--primary-color)" color="var(--text-light-color)">
+<FlexContainer id="mail-relay" column bgColor="var(--primary-color)" color="var(--text-light-color)">
   <FlexContainer column textCentered color="inherit" padding="6rem 0rem" gap="4rem" mobileScale>
     <h3 class="no-margin">Privacy for your email</h3>
 
