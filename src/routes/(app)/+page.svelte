@@ -313,7 +313,7 @@
       </AspectRatio>
       <FlexContainer column align_items="flex-start" width="min(100%, 400px)" gap="0.5rem">
         <h4 class="no-margin"><small>Any Email Provider</small></h4>
-        <span>Mail Relay relay is compatible with all standard email providers. You don't need a special email account to use it.</span>
+        <span>Mail Relay is compatible with all standard email providers. You don't need a special email account to use it.</span>
       </FlexContainer>
     </FlexContainer>
     <FlexContainer align_items="center" justify_content="center" column gap="1rem" mobileScale>
