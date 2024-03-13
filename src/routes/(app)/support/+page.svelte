@@ -6,6 +6,9 @@
   import GridContainer from '$lib/components/common/GridContainer.svelte';
   import ChevronLeftIcon from '$lib/components/materialIcons/ChevronLeftIcon.svelte';
   import { DOMAIN, SIGNUP_URL } from '$lib/modules/constants';
+  import { saveAs } from '$lib/modules/export';
+
+  let downloadingKey = {};
 
   const TUTORIALS = [
     {
@@ -57,6 +60,30 @@
       ]
     }
   ];
+
+  const PGP_KEYS = {
+    support: {
+      fingerprint: '52E5F618',
+      value:
+        '-----BEGIN PGP PUBLIC KEY BLOCK-----\n\nxjMEZHc9dBYJKwYBBAHaRw8BAQdA+mi1KgpckAMSuU6MCNRcXAxQGMjwXm6c\nCSDuovDWEKnNNXN1cHBvcnRAcHJpdmFjeXBvcnRhbC5vcmcgPHN1cHBvcnRA\ncHJpdmFjeXBvcnRhbC5vcmc+wowEEBYKAD4FgmR3PXQECwkHCAmQUPjnsUug\nE+sDFQgKBBYAAgECGQECmwMCHgEWIQRS5fYYVspfkiEDovxQ+OexS6AT6wAA\nFxcA/iQ4rg/SEbQIUUiNT2gvwlpxgPAvWib9o8MomjC0OC89AP9jGnVbQzjT\nfzUXu86nTdrWxzXD8r0zSPucCh8ZdxVvA844BGR3PXQSCisGAQQBl1UBBQEB\nB0AN/iljs1UB2M0u+Nb5pLprHZuy6D1U2JnOzDD5A0uTCQMBCAfCeAQYFggA\nKgWCZHc9dAmQUPjnsUugE+sCmwwWIQRS5fYYVspfkiEDovxQ+OexS6AT6wAA\nG70A/1JpTeGmJtM61Dtt41J7jWK56tlpmGqw9HhddSa8YY+bAQCMMrwphd5G\n/x2T/Crx/vXlXT3U93Y+ILAxe0o+w4TzBQ==\n=bQPi\n-----END PGP PUBLIC KEY BLOCK-----\n'
+    }
+  };
+
+  async function downloadPGPKey(type) {
+    downloadingKey[type] = true;
+    const { fingerprint, value } = PGP_KEYS[type];
+    try {
+      saveAs({
+        filename: `publickey - ${type}@${DOMAIN} - 0x${fingerprint}.asc`,
+        data: value,
+        type: 'application/pgp-keys'
+      });
+    } catch (err) {
+      console.error(err);
+    } finally {
+      delete downloadingKey[type];
+    }
+  }
 </script>
 
 <FlexContainer column bgColor="var(--primary-color)" color="var(--text-light-color)" align_items="center" justify_content="center" padding="50px 0 0 0">
@@ -213,6 +240,14 @@
   <FlexContainer column align_items="center" gap="0.5rem">
     <h5 class="no-margin">Didn't find your answer?</h5>
     <Button on:click={() => (window.location.href = `https://community.${DOMAIN}`)} margin="1rem 0 0 0" padding="0.7rem 1rem" basic rounded><strong>Ask the Community</strong></Button>
+    <FlexContainer width="auto" align_items="center" justify_content="center" gap="0.3rem" relative>
+      <Button on:click={() => (window.location.href = `mailto:support@privacyportal.org`)} padding="0.7rem 1rem" basic rounded><strong>Contact Support</strong></Button>
+      <div style="position: absolute; left: 105%;">
+        <Button on:click={() => downloadPGPKey('support')} height="35px" padding="0rem 0.5rem" gap="0.3rem" border rounded disabled={downloadingKey?.support}>
+          <span class="xs"><strong>PGP<br />Key</strong></span>
+        </Button>
+      </div>
+    </FlexContainer>
   </FlexContainer>
 </FlexContainer>
 

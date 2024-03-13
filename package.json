@@ -1,6 +1,6 @@
 {
   "name": "landing-client",
-  "version": "0.0.4",
+  "version": "0.0.5",
   "author": "Privacy Portal",
   "license": "MIT",
   "scripts": {
@@ -13,6 +13,7 @@
   },
   "type": "module",
   "dependencies": {
+    "file-saver": "^2.0.5",
     "lokijs": "^1.5.12"
   },
   "devDependencies": {
