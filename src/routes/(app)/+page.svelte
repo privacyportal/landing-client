@@ -303,38 +303,41 @@
     </GridContainer>
   </FlexContainer>
 
-  <GridContainer align_items="start" template_columns="repeat(3, 1fr)" mobile_template_columns="1fr" bgColor="var(--new-layer-x2-color)" color="inherit" padding="6rem 4rem" gap="4rem" mobileScale>
-    <FlexContainer align_items="center" justify_content="center" padding="0" fullRow>
+  <FlexContainer column align_items="stretch" justify_content="center" bgColor="var(--new-layer-x2-color)" color="inherit" padding="6rem 4rem" gap="4rem" mobileScale>
+    <FlexContainer align_items="center" justify_content="center" padding="0">
       <h3 class="no-margin"><small>Available Everywhere!</small></h3>
     </FlexContainer>
-    <FlexContainer align_items="center" justify_content="center" column gap="1rem" mobileScale>
-      <AspectRatio shadow ratio="2/1" width="100%" max_width="400px" background="linear-gradient(140deg, rgb(209 224 239) 0%, rgb(147 193 232) 100%)" nooverflow rounded>
-        <AnyProvidersImg />
-      </AspectRatio>
-      <FlexContainer column align_items="flex-start" width="min(100%, 400px)" gap="0.5rem">
-        <h4 class="no-margin"><small>Any Email Provider</small></h4>
-        <span>Mail Relay is compatible with all standard email providers. You don't need a special email account to use it.</span>
+
+    <GridContainer align_items="start" template_columns="repeat(3, 1fr)" mobile_template_columns="1fr" gap="4rem" mobileScale>
+      <FlexContainer align_items="center" justify_content="center" column gap="1rem" mobileScale>
+        <AspectRatio shadow ratio="2/1" width="100%" max_width="400px" background="linear-gradient(140deg, rgb(209 224 239) 0%, rgb(147 193 232) 100%)" nooverflow rounded>
+          <AnyProvidersImg />
+        </AspectRatio>
+        <FlexContainer column align_items="flex-start" width="min(100%, 400px)" gap="0.5rem">
+          <h4 class="no-margin"><small>Any Email Provider</small></h4>
+          <span>Mail Relay is compatible with all standard email providers. You don't need a special email account to use it.</span>
+        </FlexContainer>
       </FlexContainer>
-    </FlexContainer>
-    <FlexContainer align_items="center" justify_content="center" column gap="1rem" mobileScale>
-      <AspectRatio shadow ratio="2/1" width="100%" max_width="400px" background="linear-gradient(140deg, rgb(197 219 240) 0%, rgb(97 148 190) 100%)" nooverflow rounded>
-        <AnyPlatformImg />
-      </AspectRatio>
-      <FlexContainer column align_items="flex-start" width="min(100%, 400px)" gap="0.5rem">
-        <h4 class="no-margin"><small>Any Platform</small></h4>
-        <span>Our Web App relies on open web standards and can be used in the browser or installed as an app on your device.</span>
+      <FlexContainer align_items="center" justify_content="center" column gap="1rem" mobileScale>
+        <AspectRatio shadow ratio="2/1" width="100%" max_width="400px" background="linear-gradient(140deg, rgb(197 219 240) 0%, rgb(97 148 190) 100%)" nooverflow rounded>
+          <AnyPlatformImg />
+        </AspectRatio>
+        <FlexContainer column align_items="flex-start" width="min(100%, 400px)" gap="0.5rem">
+          <h4 class="no-margin"><small>Any Platform</small></h4>
+          <span>Our Web App relies on open web standards and can be used in the browser or installed as an app on your device.</span>
+        </FlexContainer>
       </FlexContainer>
-    </FlexContainer>
-    <FlexContainer align_items="center" justify_content="center" column gap="1rem" mobileScale>
-      <AspectRatio shadow ratio="2/1" width="100%" max_width="400px" background="linear-gradient(140deg, rgb(197 219 240) 0%, rgb(97 148 190) 100%)" nooverflow rounded>
-        <AnyClientImg />
-      </AspectRatio>
-      <FlexContainer column align_items="flex-start" width="min(100%, 400px)" gap="0.5rem">
-        <h4 class="no-margin"><small>Any Email Client</small></h4>
-        <span>You can use your preferred email App (e.g. Apple Mail, Thunderbird, K-9 Mail, ...). Web clients are also supported.</span>
+      <FlexContainer align_items="center" justify_content="center" column gap="1rem" mobileScale>
+        <AspectRatio shadow ratio="2/1" width="100%" max_width="400px" background="linear-gradient(140deg, rgb(197 219 240) 0%, rgb(97 148 190) 100%)" nooverflow rounded>
+          <AnyClientImg />
+        </AspectRatio>
+        <FlexContainer column align_items="flex-start" width="min(100%, 400px)" gap="0.5rem">
+          <h4 class="no-margin"><small>Any Email Client</small></h4>
+          <span>You can use your preferred email App (e.g. Apple Mail, Thunderbird, K-9 Mail, ...). Web clients are also supported.</span>
+        </FlexContainer>
       </FlexContainer>
-    </FlexContainer>
-  </GridContainer>
+    </GridContainer>
+  </FlexContainer>
 
   <FlexContainer column color="inherit" padding="6rem 4rem" gap="4rem" mobileScale>
     <FlexContainer column textCentered padding="0 10%">
