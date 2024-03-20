@@ -3,7 +3,10 @@
   import screenshotDesktop from '$lib/assets/mail-relay-desktop-screenshot.png';
   import JsonLd from '$lib/components/JsonLd.svelte';
   import SvelteHead from '$lib/components/SvelteHead.svelte';
+  import Chrome from '$lib/components/brandIcons/Chrome.svelte';
+  import Firefox from '$lib/components/brandIcons/Firefox.svelte';
   import Octocat from '$lib/components/brandIcons/Octocat.svelte';
+  import Pwa from '$lib/components/brandIcons/PWA.svelte';
   import XLogo from '$lib/components/brandIcons/XLogo.svelte';
   import AspectRatio from '$lib/components/common/AspectRatio.svelte';
   import Button from '$lib/components/common/Button.svelte';
@@ -21,7 +24,7 @@
   import EncryptMsgImg from '$lib/components/svgAssets/EncryptMsgImg.svelte';
   import HideEmailImg from '$lib/components/svgAssets/HideEmailImg.svelte';
   import config from '$lib/modules/config';
-  import { SIGNUP_URL } from '$lib/modules/constants';
+  import { APP_ENDPOINT, CHROME_EXTENSION_URL, FIREFOX_EXTENSION_URL, SIGNUP_URL } from '$lib/modules/constants';
   import Pricing from './Pricing.svelte';
 
   export let meta = config.meta;
@@ -337,6 +340,20 @@
         </FlexContainer>
       </FlexContainer>
     </GridContainer>
+
+    <FlexContainer align_items="center" justify_content="center">
+      <GridContainer width="auto" align_items="stretch" justify_items="stretch" template_columns="repeat(3, 1fr)" mobile_template_columns="1fr" gap="1rem" mobileScale>
+        <Button height="40px" width="100%" on:click={() => window.open(APP_ENDPOINT, '_blank')} dark border rounded padding="0.3rem 1rem" flexgrow
+          ><Pwa dimension="45px" /> <small>Web Application</small></Button
+        >
+        <Button height="40px" width="100%" on:click={() => window.open(CHROME_EXTENSION_URL, '_blank')} dark border rounded padding="0.3rem 1rem" flexgrow
+          ><Chrome dimension="25px" /> <small>Chrome Extension</small></Button
+        >
+        <Button height="40px" width="100%" on:click={() => window.open(FIREFOX_EXTENSION_URL, '_blank')} dark border rounded padding="0.3rem 1rem"
+          ><Firefox dimension="25px" /> <small>Firefox Extension</small></Button
+        >
+      </GridContainer>
+    </FlexContainer>
   </FlexContainer>
 
   <FlexContainer column color="inherit" padding="6rem 4rem" gap="4rem" mobileScale>
