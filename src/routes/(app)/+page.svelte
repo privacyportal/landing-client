@@ -236,7 +236,7 @@
       </AspectRatio>
       <FlexContainer column align_items="flex-start" width="min(100%, 400px)" gap="0.5rem">
         <h4 class="no-margin">Eliminate Spam</h4>
-        <span>With Privacy Addresses, stopping unsollicited mail is one click away.</span>
+        <span>With Privacy Addresses, stopping unsolicited mail is one click away.</span>
       </FlexContainer>
     </FlexContainer>
   </GridContainer>
