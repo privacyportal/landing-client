@@ -162,4 +162,9 @@
   .grid-col-2 {
     grid-column: 2;
   }
+
+  :global(img) {
+    max-width: 100%;
+    max-height: calc(100vh - 50px);
+  }
 </style>
