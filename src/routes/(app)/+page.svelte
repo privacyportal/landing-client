@@ -26,6 +26,7 @@
   import config from '$lib/modules/config';
   import { APP_ENDPOINT, CHROME_EXTENSION_URL, FIREFOX_EXTENSION_URL, SIGNUP_URL } from '$lib/modules/constants';
   import Pricing from './Pricing.svelte';
+  import SideBySide from './SideBySide.svelte';
 
   export let meta = config.meta;
 
@@ -405,6 +406,8 @@
         >
       </ExpandableArea>
     </GridContainer>
+
+    <SideBySide />
   </FlexContainer>
 </FlexContainer>
 
@@ -457,6 +460,12 @@
         assume that all emails under a custom domain belong to the domain owner.</span
       >
       <span>We provide domains owned by Privacy Portal and shared across all our users for better privacy.</span>
+    </ExpandableArea>
+    <ExpandableArea title="Are Privacy Addresses considered as temporary emails?" bgColor="var(--landing-outer-bg-color)">
+      <span
+        >No, Privacy Addresses do not expire and are designed be used as permanent aliases for your personal email address. That said, if no longer needed, a Privacy Address can be deactivated or
+        permanently deleted at any point in time.</span
+      >
     </ExpandableArea>
     <Button on:click={() => goto('/support#faq')} margin="1rem 0 0 0" padding="0.7rem 1rem" basic rounded><strong>More FAQs</strong></Button>
   </GridContainer>

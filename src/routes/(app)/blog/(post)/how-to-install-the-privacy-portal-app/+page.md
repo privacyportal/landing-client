@@ -4,14 +4,7 @@ description: 'A tutorial for downloading and installing the Privacy Portal app o
 author: 'Privacy-Portal'
 category: 'mail relay docs'
 genre: 'documentation'
-keywords:
-  [
-    'privacy portal tutorial',
-    'how to download privacy portal',
-    'how to install privacy portal',
-    'how to download the privacy portal app',
-    'how to install the privacy portal app'
-  ]
+keywords: ['privacy portal tutorial', 'how to download privacy portal', 'how to install privacy portal', 'how to download the privacy portal app', 'how to install the privacy portal app']
 date: '2024-05-10'
 ---
 
@@ -36,7 +29,6 @@ The Privacy Portal app can be installed on any device. It uses open web standard
 5. Find the Privacy Portal app on your Homescreen
 
 ![Find the app on your homescreen](/assets/blog/how-to-install-the-privacy-portal-app/ios/step_4.png)
-
 
 ## Install on Android
 
