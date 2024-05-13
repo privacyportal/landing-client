@@ -9,6 +9,7 @@
   export let template_rows = 'auto';
   export let align_items = 'auto';
   export let justify_items = 'auto';
+  export let mobile_justify_items = undefined;
   export let bgColor = 'auto';
   export let color = 'inherit';
   export let border = undefined;
@@ -40,6 +41,7 @@
   style:--grid-template-rows={template_rows}
   style:--align-items={align_items}
   style:--justify-items={justify_items}
+  style:--mobile-justify-items={mobile_justify_items || justify_items}
   class:mobile-scale={mobileScale}
   class:border
   class:rounded
@@ -86,6 +88,7 @@
   @media screen and (max-width: 979px) {
     .container {
       grid-template-columns: var(--mobile-grid-template-columns);
+      justify-items: var(--mobile-justify-items);
     }
 
     .container.mobile-scale {
