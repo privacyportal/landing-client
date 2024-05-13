@@ -14,6 +14,7 @@
     {
       category: 'Account Management',
       tutorials: [
+        { title: 'How to install the Privacy Portal app', url: '/blog/how-to-install-the-privacy-portal-app' },
         {
           title: 'How to upgrade your account to Enhanced Protection',
           url: '/blog/how-to-upgrade-to-enhanced-protection'
@@ -159,6 +160,12 @@
         for you. All that's left is to label it to quickly identify its purpose in the future.</span
       >
       <span>With Enhanced Protection, you get full control over Privacy Addresses.</span>
+    </ExpandableArea>
+    <ExpandableArea title="Are Privacy Addresses considered as temporary emails?">
+      <span
+        >No, Privacy Addresses do not expire and are designed be used as permanent aliases for your personal email address. That said, if no longer needed, a Privacy Address can be deactivated or
+        permanently deleted at any point in time.</span
+      >
     </ExpandableArea>
     <ExpandableArea title="How secure is Mail Relay?">
       <span
