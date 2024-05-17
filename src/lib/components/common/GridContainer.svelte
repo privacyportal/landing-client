@@ -1,4 +1,6 @@
 <script>
+  export let element = undefined;
+  export let id = undefined;
   export let gap = '0px';
   export let margin = 'auto';
   export let padding = '0px';
@@ -27,6 +29,8 @@
 </script>
 
 <div
+  bind:this={element}
+  {id}
   class={['container', ...(globalClass || [])].join(' ')}
   style:--gap={gap}
   style:--margin={margin}

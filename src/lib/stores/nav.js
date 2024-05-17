@@ -45,5 +45,6 @@ export const navItems = writable([
   { path: '/#pricing', name: 'Pricing', footer: false },
   { path: '/about', name: 'About' },
   { path: '/support', name: 'Support' },
-  { path: '/blog/1', name: 'Blog' }
+  { path: '/blog/1', name: 'Blog' },
+  { path: '/developers/api-docs', name: 'Developers' }
 ]);

@@ -54,6 +54,7 @@
   --new-layer-x2-color: rgba(0, 0, 0, 0.1);
   --new-layer-x4-color: rgba(0, 0, 0, 0.2);
   --down-layer-color: rgba(255, 255, 255, 0.3);
+  --down-layer-x2-color: rgba(255, 255, 255, 0.6);
 
   /* dimensions */
   --section-md-width: 870px;
