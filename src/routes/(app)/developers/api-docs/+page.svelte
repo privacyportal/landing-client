@@ -369,7 +369,7 @@
                     type: 'string',
                     example: 'openid name email',
                     description:
-                      'The scope can be used with "refresh_token" grant_type. It allows you to Relyiing Parties to reduce the scope of requested Access Token when needed. You can get the full list of supported scopes at https://api.privacyportal.org/.well-known/openid-configuration'
+                      'The scope can be used with "refresh_token" grant_type. It allows you to Relying Parties to reduce the scope of requested Access Token when needed. You can get the full list of supported scopes at https://api.privacyportal.org/.well-known/openid-configuration'
                   }
                 ],
                 example: {
