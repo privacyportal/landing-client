@@ -3,6 +3,7 @@
 
   export let type = 'button';
   export let disabled = undefined;
+  export let enabledStyle = undefined;
   export let mobile = undefined;
   export let noMobile = undefined;
   export let ascolumn = undefined;
@@ -10,6 +11,7 @@
   export let blendin = undefined;
   export let basic = undefined;
   export let primary = undefined;
+  export let positive = undefined;
   export let danger = undefined;
   export let dark = undefined;
   export let border = undefined;
@@ -46,6 +48,7 @@
   style:--gap={gap}
   {type}
   {disabled}
+  class:enabled-style={enabledStyle}
   class:strong-select={strongSelect}
   class:rounded
   class:selected
@@ -55,6 +58,7 @@
   class:dark
   class:danger
   class:primary
+  class:positive
   class:basic
   class:light
   class:border
@@ -171,6 +175,17 @@
     --border-color: var(--primary-color);
   }
 
+  button.positive:not(.light) {
+    --bg-color: var(--positive-color);
+    --color: var(--text-light-opaque-color);
+    --selection-brightness: 130%;
+    --hover-brightness: 125%;
+  }
+
+  button.positive.light {
+    --border-color: var(--positive-color);
+  }
+
   button.basic {
     --bg-color: var(--basic-color);
     --color: var(--text-light-opaque-color);
@@ -194,6 +209,7 @@
 
   button.danger.light {
     --color: var(--danger-color);
+    --border-color: var(--danger-color);
   }
 
   button:disabled {
@@ -201,7 +217,7 @@
     cursor: default;
   }
 
-  button:not(.selected):disabled {
+  button:not(.selected):not(.enabled-style):disabled {
     color: var(--disabled-color);
     border-color: var(--disabled-color);
   }
