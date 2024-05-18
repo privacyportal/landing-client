@@ -22,7 +22,7 @@ Company provides software services designed to help our users protect their pers
 
 - Requiring the least amount of personal information possible to operate the Services.
 - Using encryption in-transit and at-rest.
-- Offering Virtual Email Addresses (or Privacy Addresses) designed to privately relay emails to and from the user's personally identifiable email. These Privacy Addresses use shared email domains across all our users for better privacy.
+- Offering Virtual Email Addresses (or Privacy Aliases) designed to privately relay emails to and from the user's personally identifiable email. These Privacy Aliases use shared email domains across all our users for better privacy.
 - Preventing user metadata leaks in email headers by masking personally identifiable information such as the user's IP address.
 - Providing granular controls to fight spam.
 - Never logging nor storing the contents of emails relayed through our services.
@@ -118,4 +118,4 @@ BY USING THE SERVICES OR OTHER SERVICES PROVIDED BY US, YOU ACKNOWLEDGE THAT YOU
 
 If you have any questions or concerns regarding the Terms, please contact us at support@privacyportal.org.
 
-**Last updated: Jan 31, 2024**
+**Last updated: May 18, 2024**

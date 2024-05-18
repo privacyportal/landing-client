@@ -219,7 +219,7 @@
       </AspectRatio>
       <FlexContainer column align_items="flex-start" width="min(100%, 400px)" gap="0.5rem">
         <h4 class="no-margin">Hide your email</h4>
-        <span>Our "Privacy Addresses" can replace your personal email address for most interactions thus keeping your identity hidden.</span>
+        <span>Our "Privacy Aliases" can replace your personal email address for most interactions thus keeping your identity hidden.</span>
       </FlexContainer>
     </FlexContainer>
     <FlexContainer align_items="center" justify_content="center" column gap="1rem">
@@ -237,7 +237,7 @@
       </AspectRatio>
       <FlexContainer column align_items="flex-start" width="min(100%, 400px)" gap="0.5rem">
         <h4 class="no-margin">Eliminate Spam</h4>
-        <span>With Privacy Addresses, stopping unsolicited mail is one click away.</span>
+        <span>With Privacy Aliases, stopping unsolicited mail is one click away.</span>
       </FlexContainer>
     </FlexContainer>
   </GridContainer>
@@ -247,7 +247,7 @@
       <h3 class="no-margin">When to use Mail Relay?</h3>
       <p class="compact">
         <small
-          >You can use Mail Relay whenever you are required to share your email address with a third party. Its Privacy Addresses allow you to reduce your digital footprint, enhance your security, and
+          >You can use Mail Relay whenever you are required to share your email address with a third party. Its Privacy Aliases allow you to reduce your digital footprint, enhance your security, and
           give you unmatched spam protection.</small
         >
       </p>
@@ -256,7 +256,7 @@
       <FlexContainer align_items="flex-start" column gap="0.5rem" nooverflow>
         <h4 class="no-margin"><small>When registering on apps</small></h4>
         <span class="sm"
-          >Using Privacy Addresses when registering for new online accounts complicates the task for entities attempting to profile you. Matching your email address across accounts becomes impossible
+          >Using Privacy Aliases when registering for new online accounts complicates the task for entities attempting to profile you. Matching your email address across accounts becomes impossible
           and less reliable techniques would have to be used.</span
         >
       </FlexContainer>
@@ -264,7 +264,7 @@
         <h4 class="no-margin"><small>When enrolling for newsletters</small></h4>
         <span class="sm"
           >With Mail Relay, subscribing to newsletters becomes an easy decision. If not satisfied by the content, you get the power to revoke access to your email at any time by deactivating the
-          Privacy Address in question.</span
+          Privacy Alias in question.</span
         >
       </FlexContainer>
 
@@ -280,7 +280,7 @@
                   <h4 class="no-margin oneline"><small>{label}</small></h4>
                 </GridContainer>
                 <hr class="divider no-margin" />
-                <h5 class="no-margin oneline">Privacy Address</h5>
+                <h5 class="no-margin oneline">Privacy Alias</h5>
                 <FlexContainer column justify_content="start" bgColor="#eee" color="var(--text-color)" padding="0.5rem 0.5rem 0.5rem 0.5rem" rounded>
                   <h5 class="no-margin mono oneline">{address}</h5>
                 </FlexContainer>
@@ -461,9 +461,9 @@
       >
       <span>We provide domains owned by Privacy Portal and shared across all our users for better privacy.</span>
     </ExpandableArea>
-    <ExpandableArea title="Are Privacy Addresses considered as temporary emails?" bgColor="var(--landing-outer-bg-color)">
+    <ExpandableArea title="Are Privacy Aliases considered as temporary emails?" bgColor="var(--landing-outer-bg-color)">
       <span
-        >No, Privacy Addresses do not expire and are designed be used as permanent aliases for your personal email address. That said, if no longer needed, a Privacy Address can be deactivated or
+        >No, Privacy Aliases do not expire and are designed be used as permanent aliases for your personal email address. That said, if no longer needed, a Privacy Alias can be deactivated or
         permanently deleted at any point in time.</span
       >
     </ExpandableArea>

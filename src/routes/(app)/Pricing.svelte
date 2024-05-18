@@ -34,7 +34,7 @@
     <FlexContainer column gap="0.5rem">
       <hr class="divider sm-v-margin" />
       <GridContainer align_items="flex-start" template_columns="1rem auto" gap="0.5rem 1rem" margin="0px auto auto auto">
-        <CheckCircleIcon dimension="25px" /><span><small>Up to 20 Privacy Addresses</small></span>
+        <CheckCircleIcon dimension="25px" /><span><small>Up to 20 Privacy Aliases</small></span>
         <CheckCircleIcon dimension="25px" /><span><small>Secure Relay Connections (TLS)</small></span>
         <CheckCircleIcon dimension="25px" /><span><small>SPF, DKIM, and DMARC</small></span>
         <CheckCircleIcon dimension="25px" /><span><small>Spam Filtering + Virus Protection</small></span>
@@ -45,7 +45,7 @@
     <FlexContainer column gap="0.5rem">
       <hr class="divider sm-v-margin" />
       <GridContainer align_items="center" template_columns="1rem auto" gap="0.5rem 1rem" margin="0px auto auto auto">
-        <CheckCircleIcon dimension="25px" /><span><small><span class="xs strikethrough">Unlimited</span> <strong class="beta">Up to 100</strong> Privacy Addresses</small></span>
+        <CheckCircleIcon dimension="25px" /><span><small><span class="xs strikethrough">Unlimited</span> <strong class="beta">Up to 100</strong> Privacy Aliases</small></span>
         <CheckCircleIcon dimension="25px" /><span><small>Up to 5 Personal Accounts</small></span>
         <CheckCircleIcon dimension="25px" /><span><small>Email Encryption (PGP or S/MIME)</small></span>
         <CheckCircleIcon dimension="25px" /><span><small>Encrypted Outbound Mail <span class="xs beta">(replies only)</span></small></span>
@@ -68,7 +68,7 @@
       <hr class="divider sm-v-margin" />
       <GridContainer align_items="flex-start" template_columns="1rem auto" gap="0.5rem 1rem" margin="0px auto auto auto">
         <h5 class="no-margin full-row">Mail Relay</h5>
-        <CheckCircleIcon dimension="25px" /><span><small>Up to 20 Privacy Addresses</small></span>
+        <CheckCircleIcon dimension="25px" /><span><small>Up to 20 Privacy Aliases</small></span>
         <CheckCircleIcon dimension="25px" /><span><small>Secure Relay Connections (TLS)</small></span>
         <CheckCircleIcon dimension="25px" /><span><small>SPF, DKIM, and DMARC</small></span>
         <CheckCircleIcon dimension="25px" /><span><small>Spam Filtering + Virus Protection</small></span>
@@ -90,7 +90,7 @@
       <hr class="divider sm-v-margin" />
       <GridContainer align_items="center" template_columns="1rem auto" gap="0.5rem 1rem" margin="0px auto auto auto">
         <h5 class="no-margin full-row">Mail Relay</h5>
-        <CheckCircleIcon dimension="25px" /><span><small><span class="xs strikethrough">Unlimited</span> <strong class="beta">Up to 100</strong> Privacy Addresses</small></span>
+        <CheckCircleIcon dimension="25px" /><span><small><span class="xs strikethrough">Unlimited</span> <strong class="beta">Up to 100</strong> Privacy Aliases</small></span>
         <CheckCircleIcon dimension="25px" /><span><small>Up to 5 Personal Accounts</small></span>
         <CheckCircleIcon dimension="25px" /><span><small>Email Encryption (PGP or S/MIME)</small></span>
         <CheckCircleIcon dimension="25px" /><span><small>Encrypted Outbound Mail <span class="xs beta">(replies only)</span></small></span>
