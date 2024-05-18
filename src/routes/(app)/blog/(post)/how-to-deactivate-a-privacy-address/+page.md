@@ -1,14 +1,14 @@
 ---
-title: 'How to deactivate a Privacy Address'
-description: 'A tutorial for deactivating a Privacy Address.'
+title: 'How to deactivate a Privacy Alias'
+description: 'A tutorial for deactivating a Privacy Alias.'
 author: 'Privacy-Portal'
 category: 'mail relay docs'
 genre: 'documentation'
-keywords: ['privacy portal tutorial', 'mail relay tutorial', 'deactivating privacy address', 'how to disable a privacy address', 'how to disable an email alias']
+keywords: ['privacy portal tutorial', 'mail relay tutorial', 'deactivating privacy address', 'deactivating privacy alias', 'how to disable a privacy address', 'how to disable a privacy alias', 'how to disable an email alias']
 date: '2023-02-26'
 ---
 
-At any point in time, you can deactivate a Privacy Address and stop receiving emails through that address.
+At any point in time, you can deactivate a Privacy Alias and stop receiving emails through that address.
 
 1. Go to the **[Mail Relay Page](https://app.privacyportal.org/mail-relay)**
 2. Select the address in question (or use search to find it)

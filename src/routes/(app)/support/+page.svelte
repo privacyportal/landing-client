@@ -28,11 +28,11 @@
       tutorials: [
         { title: 'Getting started with Mail Relay', url: '/blog/getting-started-with-mail-relay' },
         {
-          title: 'How to create your first Privacy Address',
+          title: 'How to create your first Privacy Alias',
           url: '/blog/how-to-create-your-first-privacy-address'
         },
         {
-          title: 'How to deactivate or delete a Privacy Address',
+          title: 'How to deactivate or delete a Privacy Alias',
           url: '/blog/how-to-deactivate-a-privacy-address'
         },
         {
@@ -134,7 +134,7 @@
         footprint.</span
       >
       <span
-        >After creating your free account using your personal email, you can easily create “Privacy Addresses” that forward emails to your personal inbox. These addresses are safe to share with
+        >After creating your free account using your personal email, you can easily create “Privacy Aliases” that forward emails to your personal inbox. These addresses are safe to share with
         third-parties and can be disabled at any point in time, giving you full control over spam and unsolicited mail.</span
       >
       <span
@@ -154,16 +154,16 @@
         data breaches, stolen user credentials are becoming easy to purchase on the dark web. Using unique email addresses immediately protects you from these types of attacks.</span
       >
     </ExpandableArea>
-    <ExpandableArea title="How can I get a Privacy Address?">
+    <ExpandableArea title="How can I get a Privacy Alias?">
       <span
-        >Start by creating your free account by signing up with your personal email address. Once logged in, you can press on 'New Address' and automatically a unique “Privacy Address” gets generated
+        >Start by creating your free account by signing up with your personal email address. Once logged in, you can press on 'New Alias' and automatically a unique “Privacy Alias” gets generated
         for you. All that's left is to label it to quickly identify its purpose in the future.</span
       >
-      <span>With Enhanced Protection, you get full control over Privacy Addresses.</span>
+      <span>With Enhanced Protection, you get full control over Privacy Aliases.</span>
     </ExpandableArea>
-    <ExpandableArea title="Are Privacy Addresses considered as temporary emails?">
+    <ExpandableArea title="Are Privacy Aliases considered as temporary emails?">
       <span
-        >No, Privacy Addresses do not expire and are designed be used as permanent aliases for your personal email address. That said, if no longer needed, a Privacy Address can be deactivated or
+        >No, Privacy Aliases do not expire and are designed be used as permanent aliases for your personal email address. That said, if no longer needed, a Privacy Alias can be deactivated or
         permanently deleted at any point in time.</span
       >
     </ExpandableArea>
@@ -227,7 +227,7 @@
     <ExpandableArea title="How do I report spam?">
       <span
         >To help us increase email deliverability to your inbox, please <strong>do not</strong> "mark as spam" any emails relayed to you by Mail Relay. We work hard to prevent any spam from reaching your
-        inbox. But in case one of the online services you registered to is spamming you, you can simply deactivate the corresponding "Privacy Address".</span
+        inbox. But in case one of the online services you registered to is spamming you, you can simply deactivate the corresponding "Privacy Alias".</span
       >
     </ExpandableArea>
     <ExpandableArea title="Why are emails going to the spam folder?">

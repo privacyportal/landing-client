@@ -9,6 +9,7 @@ keywords:
     'privacy portal tutorial',
     'mail relay tutorial',
     'what are privacy addresses',
+    'what are privacy aliases',
     'mail relay documentation',
     'getting started with Mail Relay',
     'what is an email alias',
@@ -26,17 +27,17 @@ The email address you provide when signing up to Privacy Portal is your "Primary
 
 With Enhanced Protection, you can add 4 additional personal emails to your account.
 
-##### Privacy Addresses
+##### Privacy Aliases
 
-Mail Relay allows you to create "Privacy Addresses". These are generated and unique email addresses that forward mail to your personal addresses. Privacy Addresses allow you to keep your Personal Email Address hidden from websites, newsletters, and third parties.
+Mail Relay allows you to create "Privacy Aliases". These are generated and unique email addresses that forward mail to your personal addresses. Privacy Aliases allow you to keep your Personal Email Address hidden from websites, newsletters, and third parties.
 
-Privacy Addresses can be deactivated at any time allowing you to easily stop receiving mail from unwanted senders.
+Privacy Aliases can be deactivated at any time allowing you to easily stop receiving mail from unwanted senders.
 
-With Basic Protection, you can create up to 20 Privacy Addresses free of charge. Upgrading to Enhanced Protection allows you to create an unlimited number of Privacy Addresses with additional functionality such as encryption.
+With Basic Protection, you can create up to 20 Privacy Aliases free of charge. Upgrading to Enhanced Protection allows you to create an unlimited number of Privacy Aliases with additional functionality such as encryption.
 
 ##### Start Receiving Mail
 
-Whenever you need to provide your email address online, you can simply open **[Mail Relay](https://app.privacyportal.org/mail-relay)**, create a new Privacy Address, label it with a memorable name and use it instead of your Personal Email Address. Emails sent to you will get forwarded to your Personal Email Address, this means you can continue using your favorite email client as you always did.
+Whenever you need to provide your email address online, you can simply open **[Mail Relay](https://app.privacyportal.org/mail-relay)**, create a new Privacy Alias, label it with a memorable name and use it instead of your Personal Email Address. Emails sent to you will get forwarded to your Personal Email Address, this means you can continue using your favorite email client as you always did.
 
 By doing this simple step, you improve your online security and protect your privacy at the same time. **[learn more](https://privacyportal.org/mail-relay/security)**
 
@@ -52,4 +53,4 @@ If you have encryption enabled, you can encrypt the replies and Mail Relay will 
 
 ##### Sending Outbound Mail
 
-Enhanced Protection also enables you to initiate email threads with new recipients. From the Mail Relay app, select the Privacy Address you wish to send the email from (or create a new one). Tap on "Send Outbound Mail", enter the recipient address and tap on "Start Email Thread". Soon after, you will receive an email in your inbox sent on behalf of your recipient. You can simply reply to that email and your reply will be privately routed to the recipient.
+Enhanced Protection also enables you to initiate email threads with new recipients. From the Mail Relay app, select the Privacy Alias you wish to send the email from (or create a new one). Tap on "Send Outbound Mail", enter the recipient address and tap on "Start Email Thread". Soon after, you will receive an email in your inbox sent on behalf of your recipient. You can simply reply to that email and your reply will be privately routed to the recipient.
