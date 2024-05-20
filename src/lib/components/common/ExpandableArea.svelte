@@ -13,7 +13,7 @@
 </script>
 
 <FlexContainer {bgColor} {color} column rounded border>
-  <Button height="auto" padding="1rem 0.5rem 1rem 1rem" on:click={() => (opened = true)} disabled={opened}>
+  <Button height="auto" padding="1rem 0.5rem 1rem 1rem" on:click={() => (opened = true)} label={`Expand ${title}`} disabled={opened}>
     <GridContainer align_items="center" template_columns="auto 30px" gap="0.5rem">
       <h4 class="no-margin">{title}</h4>
       <Button
@@ -22,6 +22,7 @@
           e.stopPropagation();
           opened = !opened;
         }}
+        label={`Close ${title}`}
         nohover={!opened}
         rounded
       >

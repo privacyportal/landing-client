@@ -1,6 +1,7 @@
 <script>
   import { onMount } from 'svelte';
 
+  export let label = undefined;
   export let type = 'button';
   export let disabled = undefined;
   export let enabledStyle = undefined;
@@ -67,6 +68,7 @@
   class:no-mobile={noMobile}
   class:xsmall
   class:nohover
+  aria-label={label}
 >
   <slot />
 </button>

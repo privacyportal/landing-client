@@ -156,8 +156,8 @@
     </ExpandableArea>
     <ExpandableArea title="How can I get a Privacy Alias?">
       <span
-        >Start by creating your free account by signing up with your personal email address. Once logged in, you can press on 'New Alias' and automatically a unique “Privacy Alias” gets generated
-        for you. All that's left is to label it to quickly identify its purpose in the future.</span
+        >Start by creating your free account by signing up with your personal email address. Once logged in, you can press on 'New Alias' and automatically a unique “Privacy Alias” gets generated for
+        you. All that's left is to label it to quickly identify its purpose in the future.</span
       >
       <span>With Enhanced Protection, you get full control over Privacy Aliases.</span>
     </ExpandableArea>
