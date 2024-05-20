@@ -48,7 +48,7 @@
     <FlexContainer align_items="stretch" justify_content="flex-end" width="100%" gap="2rem" nomobile>
       {#each $navItems as { path, name, header }}
         {#if header !== false}
-          <a class="tab opaque" href={path}>
+          <a class={`tab opaque ${$page.url.pathname === path ? 'selected' : ''}`} href={path}>
             <h5 class="no-margin">{name}</h5>
           </a>
         {/if}
@@ -100,13 +100,21 @@
   }
 
   a.opaque {
-    opacity: 0.9;
+    opacity: 0.98;
   }
 
-  a:hover {
+  a.selected {
+    text-decoration: none;
+    border-top: 2px solid transparent;
+    border-bottom: 2px solid white;
+  }
+
+  a:not(.selected):hover {
     opacity: 1;
     color: inherit;
     cursor: pointer;
     text-decoration: none;
+    border-top: 2px solid transparent;
+    border-bottom: 2px solid #ffffffaa;
   }
 </style>
