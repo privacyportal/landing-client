@@ -84,7 +84,7 @@
       <h3 class="no-margin strikethrough wide">€4</h3>
       <h1 class="no-margin beta"><small class="wide">€0</small></h1>
       <h3 class="no-margin oneline mono">/ month</h3>
-      <span class="sm oneline beta">during beta!</span>
+      <span class="sm oneline beta"><strong>during beta!</strong></span>
     </FlexContainer>
     <FlexContainer column gap="0.5rem">
       <hr class="divider sm-v-margin" />
@@ -93,7 +93,7 @@
         <CheckCircleIcon dimension="25px" /><span><small><span class="xs strikethrough">Unlimited</span> <strong class="beta">Up to 100</strong> Privacy Aliases</small></span>
         <CheckCircleIcon dimension="25px" /><span><small>Up to 5 Personal Accounts</small></span>
         <CheckCircleIcon dimension="25px" /><span><small>Email Encryption (PGP or S/MIME)</small></span>
-        <CheckCircleIcon dimension="25px" /><span><small>Encrypted Outbound Mail <span class="xs beta">(replies only)</span></small></span>
+        <CheckCircleIcon dimension="25px" /><span><small>Encrypted Outbound Mail <span class="xs beta"><strong>(replies only)</strong></span></small></span>
         <CheckCircleIcon dimension="25px" /><span><small>Metadata Leak Protection</small></span>
         <CheckCircleIcon dimension="25px" /><span><small>More Customization</small></span>
         <CheckCircleIcon dimension="25px" /><span><small>Priority Support</small></span>
@@ -109,7 +109,7 @@
 
 <style>
   .beta {
-    color: var(--info-color);
+    color: var(--info-contrasted-color);
   }
 
   .strikethrough {

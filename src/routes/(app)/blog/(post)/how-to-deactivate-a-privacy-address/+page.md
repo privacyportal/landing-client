@@ -4,7 +4,16 @@ description: 'A tutorial for deactivating a Privacy Alias.'
 author: 'Privacy-Portal'
 category: 'mail relay docs'
 genre: 'documentation'
-keywords: ['privacy portal tutorial', 'mail relay tutorial', 'deactivating privacy address', 'deactivating privacy alias', 'how to disable a privacy address', 'how to disable a privacy alias', 'how to disable an email alias']
+keywords:
+  [
+    'privacy portal tutorial',
+    'mail relay tutorial',
+    'deactivating privacy address',
+    'deactivating privacy alias',
+    'how to disable a privacy address',
+    'how to disable a privacy alias',
+    'how to disable an email alias'
+  ]
 date: '2023-02-26'
 ---
 

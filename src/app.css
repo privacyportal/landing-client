@@ -32,13 +32,14 @@
   /* these color names are theme independent */
   --outer-bg-color: #92a7b17a;
   --base-color: #f5f5f7;
-  --basic-color: #aaaaaa;
+  --basic-color: #707070;
   --disabled-color: #959595;
   --dark-color: #444;
   --primary-color: #00729c;
   --transparent-primary-color: #00729cda;
   --positive-color: #009c76;
   --info-color: #9c7f00;
+  --info-contrasted-color: #7b6502;
   --warning-color: #e08a00;
   --danger-color: #a11e16;
   --transparent-dark-color: #111111da;
