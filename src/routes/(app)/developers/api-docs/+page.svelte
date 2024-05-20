@@ -6,6 +6,7 @@
   import SideBarGroup from './SideBarGroup.svelte';
   import Authentication from './Authentication.svelte';
   import Introduction from './Introduction.svelte';
+  import { DOMAIN } from '$lib/modules/constants';
 
   const requests = [
     {
@@ -802,6 +803,10 @@
     }
   }
 </script>
+
+<svelte:head>
+  <link rel="canonical" href={`https://${DOMAIN}/developers`} />
+</svelte:head>
 
 <GridContainer template_columns="max(15vw, 180px) 1fr" mobile_template_columns="1fr" padding="50px 0px 0px 0px">
   <div>

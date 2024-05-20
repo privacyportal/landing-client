@@ -36,7 +36,7 @@
 <nav class:dark={$isDarkHeader}>
   <GridContainer align_items="stretch" template_columns="1fr auto 1fr" mobile_template_columns="1fr 1fr" gap="0 1rem" height="100%" width="100%" nooverflow>
     <FlexContainer align_items="center" justify_content="flex-start" height="50px" gap="0.7rem" margin="0 0 0 1rem">
-      <a href="/" aria-label="Home" style="font-size: 0;"><Logo color="var(--text-light-color)" /></a>
+      <a href="/" aria-label="Home" style="font-size: 0; border: none;"><Logo color="var(--text-light-color)" /></a>
 
       {#if $page.url.pathname.startsWith('/blog')}
         <span class="xs">Official<br />Blog</span>

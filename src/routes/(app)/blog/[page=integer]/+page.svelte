@@ -4,6 +4,7 @@
   import SvelteHead from '$lib/components/SvelteHead.svelte';
   import Pagination from '$lib/components/common/Pagination.svelte';
   import config from '$lib/modules/config';
+  import { DOMAIN } from '$lib/modules/constants';
 
   /** @type {import('./$types').PageData} */
   export let data;
@@ -24,6 +25,12 @@
     'mail relay faq'
   ];
 </script>
+
+<svelte:head>
+  {#if $page.params.page === '1'}
+    <link rel="canonical" href={`https://${DOMAIN}/blog`} />
+  {/if}
+</svelte:head>
 
 <SvelteHead title={`${meta.name} Official Blog`} {description} {keywords}>
   <JsonLd
