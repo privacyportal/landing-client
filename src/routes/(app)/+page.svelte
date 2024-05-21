@@ -10,14 +10,14 @@
   import Portal from '$lib/components/svg/Portal.svelte';
   import config from '$lib/modules/config';
   import { onMount } from 'svelte';
+  import Pricing from './Pricing.svelte';
 
   export let meta = config.meta;
 
-  let lazyMailRelay, lazyPricing, lazyFAQs;
+  let lazyMailRelay, lazyFAQs;
 
   onMount(async () => {
     lazyMailRelay = import('./MailRelay.svelte');
-    lazyPricing = import('./Pricing.svelte');
     lazyFAQs = import('./FAQs.svelte');
   });
 </script>
@@ -155,11 +155,7 @@
   {/await}
 {/if}
 
-{#if lazyPricing}
-  {#await lazyPricing then { default: Pricing }}
-    <Pricing />
-  {/await}
-{/if}
+<Pricing />
 
 {#if lazyFAQs}
   {#await lazyFAQs then { default: FAQs }}
