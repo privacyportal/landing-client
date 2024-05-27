@@ -12,6 +12,13 @@
   </FlexContainer>
 
   <GridContainer align_items="start" justify_items="center" template_columns="1fr" gap="1rem">
+    <ExpandableArea title="What are Privacy Aliases?" bgColor="var(--landing-outer-bg-color)">
+      <span
+        >Privacy Aliases are generated email addresses that forward emails to your personal inbox. With aliases, you can use your personal email account to communicate with websites or individuals
+        without them knowing your personal email address. This helps you conceal your identity and gives you the power to eliminate any source of spam by simply deactivating the corresponding alias.
+      </span>
+      <span> With Enhanced Protection, aliases can also encrypt your emails using PGP or S/MIME, preventing your email provider from reading your messages. </span>
+    </ExpandableArea>
     <ExpandableArea title="How does Privacy Portal protect my data?" bgColor="var(--landing-outer-bg-color)">
       <span
         >We minimize our use of personal data to the strictest minimum. We process all relayed emails in-memory. We do not store any of your emails. Check out our <a

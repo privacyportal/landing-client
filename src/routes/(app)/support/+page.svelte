@@ -154,6 +154,13 @@
         data breaches, stolen user credentials are becoming easy to purchase on the dark web. Using unique email addresses immediately protects you from these types of attacks.</span
       >
     </ExpandableArea>
+    <ExpandableArea title="What are Privacy Aliases?" bgColor="var(--landing-outer-bg-color)">
+      <span
+        >Privacy Aliases are generated email addresses that forward emails to your personal inbox. With aliases, you can use your personal email account to communicate with websites or individuals
+        without them knowing your personal email address. This helps you conceal your identity and gives you the power to eliminate any source of spam by simply deactivating the corresponding alias.
+      </span>
+      <span> With Enhanced Protection, aliases can also encrypt your emails using PGP or S/MIME, preventing your email provider from reading your messages. </span>
+    </ExpandableArea>
     <ExpandableArea title="How can I get a Privacy Alias?">
       <span
         >Start by creating your free account by signing up with your personal email address. Once logged in, you can press on 'New Alias' and automatically a unique “Privacy Alias” gets generated for
@@ -205,6 +212,12 @@
         Relay before getting relayed to the destination. This means your email provider will not be able to access the contents of the relayed emails. The 3rd party email provider will have the
         ability to see the contents of the emails but will not be able to link it to your personal email address.</span
       >
+    </ExpandableArea>
+    <ExpandableArea title="What happens to my Privacy Aliases if I don't renew my Enhanced Protection subscription?">
+      <span
+        >When your Enhanced Protection subscription ends, your existing Privacy Aliases will continue to forward emails as usual, but you will no longer have access to email encryption features.</span
+      >
+      <span>Additionally, if you've reached the alias limit in the Basic Protection plan, you won't be able to create new Privacy Aliases.</span>
     </ExpandableArea>
     <ExpandableArea title="Do you support PGP Encryption?" bgColor="var(--landing-outer-bg-color)">
       <span>When enabled, Mail Relay encrypts all inbound mail with your public PGP key. Only you can decrypt the emails with on-device decryption.</span>
