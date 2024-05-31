@@ -326,10 +326,55 @@
           method: 'POST',
           summary: 'OAUTH2 back-channel request called from Relying Parties to issue Access Tokens',
           authorization: 'Implicit Authentication',
+          queryParams: {
+            contentType: 'application/x-www-form-urlencoded',
+            params: [
+              {
+                name: 'client_id',
+                required: true,
+                type: 'string',
+                description: 'Relying Party client_id created using the Privacy Portal app'
+              },
+              {
+                name: 'client_secret',
+                required: true,
+                type: 'string',
+                description: 'Relying Party client_secret created using the Privacy Portal app'
+              },
+              {
+                name: 'grant_type',
+                required: true,
+                type: 'string',
+                example: 'authorization_code',
+                description: 'OAUTH2 grant type. Accepted values: "authorization_code" or "refresh_token".'
+              },
+              {
+                name: 'code',
+                type: 'string',
+                description: 'OAUTH2 authorization code received from authorization callback. This is required if the grant_type is "authorization_code".'
+              },
+              {
+                name: 'refresh_token',
+                type: 'string',
+                description: 'OAUTH2 refresh_token. This is required if the grant_type is "refresh_token".'
+              },
+              {
+                name: 'redirect_uri',
+                type: 'string',
+                description: 'The redirect_uri is used with "authorization_code" grant_type. It is required if the OAUTH2 app has more than one callback URLs.'
+              },
+              {
+                name: 'scope',
+                type: 'string',
+                example: 'openid name email',
+                description:
+                  'The scope can be used with "refresh_token" grant_type. It allows you to Relying Parties to reduce the scope of requested Access Token when needed. You can get the full list of supported scopes at https://api.privacyportal.org/.well-known/openid-configuration'
+              }
+            ]
+          },
           requestBody: {
-            required: true,
             content: {
-              'application/x-www-form-urlencoded | application/json': {
+              'application/json': {
                 schema: [
                   {
                     name: 'client_id',

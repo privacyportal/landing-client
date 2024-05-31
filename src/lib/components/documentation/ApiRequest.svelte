@@ -110,9 +110,17 @@
 
     {#if queryParams}
       <FlexContainer column>
-        <h5 class="no-margin">QUERY PARAMS</h5>
+        <FlexContainer column>
+          <FlexContainer align_items="center" gap="0.5rem">
+            <h5 class="no-margin">QUERY PARAMS:</h5>
+            <span class="mono sm">{queryParams.contentType}</span>
+          </FlexContainer>
+          {#if queryParams.required}
+              <span class="required sm">required</span>
+            {/if}
+        </FlexContainer>
         <hr class="divider sm-v-margin" />
-        <Schema data={queryParams} />
+        <Schema data={queryParams.params} />
       </FlexContainer>
     {/if}
 
