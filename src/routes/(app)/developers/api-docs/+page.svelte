@@ -329,7 +329,7 @@
           requestBody: {
             required: true,
             content: {
-              'application/json': {
+              'application/x-www-form-urlencoded | application/json': {
                 schema: [
                   {
                     name: 'client_id',
