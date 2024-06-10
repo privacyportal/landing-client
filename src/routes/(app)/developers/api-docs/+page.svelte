@@ -594,7 +594,7 @@
         {
           id: 'openid_userinfo',
           name: 'Get User Info',
-          path: '/userinfo',
+          path: '/oauth/userinfo',
           method: 'GET',
           summary: 'Request to get OpenID user info.',
           authorization: 'Bearer Access Token',
