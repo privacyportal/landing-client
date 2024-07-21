@@ -369,6 +369,11 @@
                 example: 'openid name email',
                 description:
                   'The scope can be used with "refresh_token" grant_type. It allows you to Relying Parties to reduce the scope of requested Access Token when needed. You can get the full list of supported scopes at https://api.privacyportal.org/.well-known/openid-configuration'
+              },
+              {
+                name: 'code_verifier',
+                type: 'string',
+                description: 'PKCE code verifier is a high-entropy cryptographic random STRING with a minimum length of 43 characters and a maximum length of 128 characters. Allowed characters: [A-Z] / [a-z] / [0-9] / "-" / "." / "_" / "~".'
               }
             ]
           },
