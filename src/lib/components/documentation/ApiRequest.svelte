@@ -24,7 +24,8 @@
   let container;
   let intersectionObserver;
 
-  $: requestSamples = extractRequestSamples(requestBody);
+  $: requestParamsSamples = extractRequestSamples(queryParams);
+  $: requestBodySamples = extractRequestSamples(requestBody);
   $: responseSamples = extractResponseSamples(responses);
 
   function extractResponseSamples(responses) {
@@ -109,19 +110,21 @@
     {/if}
 
     {#if queryParams}
-      <FlexContainer column>
+      {#each Object.keys(queryParams.content) as contentType}
         <FlexContainer column>
-          <FlexContainer align_items="center" gap="0.5rem">
-            <h5 class="no-margin">QUERY PARAMS:</h5>
-            <span class="mono sm">{queryParams.contentType}</span>
+          <FlexContainer column>
+            <FlexContainer align_items="center" gap="0.5rem">
+              <h5 class="no-margin">QUERY PARAMS:</h5>
+              <span class="mono sm">{contentType}</span>
+            </FlexContainer>
+            {#if queryParams.required}
+                <span class="required sm">required</span>
+              {/if}
           </FlexContainer>
-          {#if queryParams.required}
-              <span class="required sm">required</span>
-            {/if}
+          <hr class="divider sm-v-margin" />
+          <Schema data={queryParams.content[contentType].schema} />
         </FlexContainer>
-        <hr class="divider sm-v-margin" />
-        <Schema data={queryParams.params} />
-      </FlexContainer>
+      {/each}
     {/if}
 
     {#if requestBody}
@@ -159,10 +162,10 @@
       </FlexContainer>
     </Button>
 
-    {#if requestSamples.length}
+    {#if requestBodySamples.length || requestParamsSamples.length}
       <FlexContainer column gap="0.7rem">
         <h4 class="no-margin">Request samples</h4>
-        {#each requestSamples as request}
+        {#each [...requestParamsSamples, ...requestBodySamples] as request}
           <FlexContainer column gap="0.5rem">
             <FlexContainer justify_content="center" width="5rem" bgColor="var(--base-color)" color="var(--text-color)" padding="0.3rem" rounded>
               <span class="sm">Payload</span>
@@ -171,7 +174,7 @@
               <FlexContainer bgColor="var(--down-layer-color)" padding="0.5rem">
                 <span class="mono sm">{request.contentType}</span>
               </FlexContainer>
-              <pre><code>{request.contentType === 'application/json' ? JSON.stringify(request.example, null, 2) : request.example}</code></pre>
+              <pre><code>{['application/json', 'application/x-www-form-urlencoded'].includes(request.contentType) ? JSON.stringify(request.example, null, 2) : request.example}</code></pre>
             </FlexContainer>
           </FlexContainer>
         {/each}

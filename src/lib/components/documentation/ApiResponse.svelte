@@ -35,7 +35,7 @@
       <FlexContainer column padding="0px 0px 0px 1rem">
         <FlexContainer column>
           <FlexContainer align_items="center" gap="0.5rem">
-            <h5 class="no-margin">REQUEST BODY SCHEMA:</h5>
+            <h5 class="no-margin">RESPONSE BODY SCHEMA:</h5>
             <span class="mono sm">{contentType}</span>
           </FlexContainer>
         </FlexContainer>

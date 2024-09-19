@@ -327,55 +327,65 @@
           summary: 'OAUTH2 back-channel request called from Relying Parties to issue Access Tokens',
           authorization: 'Implicit Authentication',
           queryParams: {
-            contentType: 'application/x-www-form-urlencoded',
-            params: [
-              {
-                name: 'client_id',
-                required: true,
-                type: 'string',
-                description: 'Relying Party client_id created using the Privacy Portal app'
-              },
-              {
-                name: 'client_secret',
-                required: true,
-                type: 'string',
-                description: 'Relying Party client_secret created using the Privacy Portal app'
-              },
-              {
-                name: 'grant_type',
-                required: true,
-                type: 'string',
-                example: 'authorization_code',
-                description: 'OAUTH2 grant type. Accepted values: "authorization_code" or "refresh_token".'
-              },
-              {
-                name: 'code',
-                type: 'string',
-                description: 'OAUTH2 authorization code received from authorization callback. This is required if the grant_type is "authorization_code".'
-              },
-              {
-                name: 'refresh_token',
-                type: 'string',
-                description: 'OAUTH2 refresh_token. This is required if the grant_type is "refresh_token".'
-              },
-              {
-                name: 'redirect_uri',
-                type: 'string',
-                description: 'The redirect_uri is used with "authorization_code" grant_type. It is required if the OAUTH2 app has more than one callback URLs.'
-              },
-              {
-                name: 'scope',
-                type: 'string',
-                example: 'openid name email',
-                description:
-                  'The scope can be used with "refresh_token" grant_type. It allows you to Relying Parties to reduce the scope of requested Access Token when needed. You can get the full list of supported scopes at https://api.privacyportal.org/.well-known/openid-configuration'
-              },
-              {
-                name: 'code_verifier',
-                type: 'string',
-                description: 'PKCE code verifier is a high-entropy cryptographic random STRING with a minimum length of 43 characters and a maximum length of 128 characters. Allowed characters: [A-Z] / [a-z] / [0-9] / "-" / "." / "_" / "~".'
+            content: {
+              'application/x-www-form-urlencoded': {
+                schema: [
+                  {
+                    name: 'client_id',
+                    required: true,
+                    type: 'string',
+                    description: 'Relying Party client_id created using the Privacy Portal app'
+                  },
+                  {
+                    name: 'client_secret',
+                    required: true,
+                    type: 'string',
+                    description: 'Relying Party client_secret created using the Privacy Portal app'
+                  },
+                  {
+                    name: 'grant_type',
+                    required: true,
+                    type: 'string',
+                    example: 'authorization_code',
+                    description: 'OAUTH2 grant type. Accepted values: "authorization_code" or "refresh_token".'
+                  },
+                  {
+                    name: 'code',
+                    type: 'string',
+                    description: 'OAUTH2 authorization code received from authorization callback. This is required if the grant_type is "authorization_code".'
+                  },
+                  {
+                    name: 'refresh_token',
+                    type: 'string',
+                    description: 'OAUTH2 refresh_token. This is required if the grant_type is "refresh_token".'
+                  },
+                  {
+                    name: 'redirect_uri',
+                    type: 'string',
+                    description: 'The redirect_uri is used with "authorization_code" grant_type. It is required if the OAUTH2 app has more than one callback URLs.'
+                  },
+                  {
+                    name: 'scope',
+                    type: 'string',
+                    example: 'openid name email',
+                    description:
+                      'The scope can be used with "refresh_token" grant_type. It allows you to Relying Parties to reduce the scope of requested Access Token when needed. You can get the full list of supported scopes at https://api.privacyportal.org/.well-known/openid-configuration'
+                  },
+                  {
+                    name: 'code_verifier',
+                    type: 'string',
+                    description: 'PKCE code verifier is a high-entropy cryptographic random STRING with a minimum length of 43 characters and a maximum length of 128 characters. Allowed characters: [A-Z] / [a-z] / [0-9] / "-" / "." / "_" / "~".'
+                  }
+                ],
+                example: {
+                  client_id: '0388dc0d-5b11-4e0f-ae38-faed564fa9fe',
+                  client_secret: '7e467f24-d2d8-4f9e-afe0-18d79de48818',
+                  grant_type: 'authorization_code',
+                  code: '92ec0c29-e4f7-4959-9509-94e455992eab',
+                  redirect_uri: 'https://awesome-app.example/oauth/callback'
+                }
               }
-            ]
+            }
           },
           requestBody: {
             content: {
