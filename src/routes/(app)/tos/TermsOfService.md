@@ -46,7 +46,7 @@ You may use the Services only for lawful purposes and in accordance with Terms. 
 
 1. In any way that violates any applicable national or international law or regulation.
 2. For the purpose of exploiting, harming, or attempting to exploit or harm minors in any way by exposing them to inappropriate content or otherwise.
-3. To transmit, or procure the sending of, any advertising or promotional material, including any “junk mail”, “chain letter,” “spam,” or any other similar solicitation.
+3. To transmit, or procure the sending of, any advertising or promotional material, including any “junk mail”, “chain letter”, “spam”, or any other similar solicitation.
 4. To impersonate or attempt to impersonate Company, a Company employee, another user, or any other person or entity.
 5. In any way that infringes upon the rights of others, or in any way is illegal, threatening, fraudulent, or harmful, or in connection with any unlawful, illegal, fraudulent, or harmful purpose or activity.
 6. To engage in any other conduct that restricts or inhibits anyone’s use or enjoyment of the Services, or which, as determined by us, may harm or offend Company or users of the Services or expose them to liability.
