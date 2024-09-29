@@ -118,8 +118,8 @@
               <span class="mono sm">{contentType}</span>
             </FlexContainer>
             {#if queryParams.required}
-                <span class="required sm">required</span>
-              {/if}
+              <span class="required sm">required</span>
+            {/if}
           </FlexContainer>
           <hr class="divider sm-v-margin" />
           <Schema data={queryParams.content[contentType].schema} />

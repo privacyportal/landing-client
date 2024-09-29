@@ -3,6 +3,10 @@
 </div>
 
 <style>
+  .markdown-content {
+    max-width: 100%;
+  }
+
   .markdown-content :global(h1) {
     font-size: 1.7rem;
   }
@@ -79,7 +83,6 @@
 
   .markdown-content > :global(table) {
     width: 100%;
-    max-width: 100%;
     margin-bottom: 1.5rem;
     table-layout: fixed;
   }
@@ -100,5 +103,24 @@
     border-bottom: 1px solid var(--base-border-color);
     text-align: center;
     vertical-align: middle;
+  }
+
+  .markdown-content > :global(img) {
+    max-height: calc(100vh - 50px);
+  }
+
+  .markdown-content > :global(img.full-height) {
+    max-height: 100%;
+  }
+
+  .markdown-content > :global(pre) {
+    max-width: 100% !important;
+    border: 2px solid var(--border-color);
+    border-radius: 15px;
+    padding: 1rem;
+    overflow-x: scroll;
+    box-shadow:
+      rgba(0, 0, 0, 0.05) 0px 10px 25px,
+      rgba(0, 0, 0, 0.15) 0px 6px 15px;
   }
 </style>

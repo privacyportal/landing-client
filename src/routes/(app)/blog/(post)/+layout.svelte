@@ -61,56 +61,61 @@
   </style>
 </svelte:head>
 
-<div class="header">
-  <h5 class="category label primary-label">
-    <a href="/blog/1">blog</a> ▸ <a href={`/blog/${data.category_slug}/1`}>{data.category}</a>
-  </h5>
-  <h1>{data.title}</h1>
-  <div class="info">
-    <div>
-      <h5 class="author">{data.author}</h5>
-      <h6 class="label secondary-label">{data.date}</h6>
+<div class="blog-body">
+  <div class="header">
+    <h5 class="category label primary-label">
+      <a href="/blog/1">blog</a> ▸ <a href={`/blog/${data.category_slug}/1`}>{data.category}</a>
+    </h5>
+    <h1>{data.title}</h1>
+    <div class="info">
+      <div>
+        <h5 class="author">{data.author}</h5>
+        <h6 class="label secondary-label">{data.date}</h6>
+      </div>
+      <h6 class="label secondary-label">{`${data.duration || 10} MIN READ`}</h6>
     </div>
-    <h6 class="label secondary-label">{`${data.duration || 10} MIN READ`}</h6>
   </div>
+
+  <MarkdownContainer>
+    <slot />
+  </MarkdownContainer>
+
+  <GridContainer width="min(100%, 100vw - 6rem) !important" template_columns="1fr 1fr" mobile_template_columns="1fr" padding="2rem 0 0 0" gap="0.5rem 20%">
+    {#if data.next?.slug}
+      <Button on:click={() => goto(`/blog/${data.next?.slug}`)} width="100%" height="100%" padding="1rem 0.5rem 1rem 0" margin="0" blendin rounded border>
+        <GridContainer template_columns="40px 1fr" template_rows="1fr 1fr" align_items="center">
+          <div class="full-column">
+            <ChevronLeftIcon dimension="40px" />
+          </div>
+          <h5 class="no-margin">Next Article</h5>
+          <span class="sm oneline">{data.next?.title || '-'}</span>
+        </GridContainer>
+      </Button>
+    {:else}
+      <br />
+    {/if}
+
+    {#if data.prev?.slug}
+      <Button on:click={() => goto(`/blog/${data.prev?.slug}`)} width="100%" height="100%" padding="1rem 0 1rem 0.5rem" blendin rounded border>
+        <GridContainer template_columns="1fr 40px" template_rows="1fr 1fr" align_items="center">
+          <h5 class="no-margin">Previous Article</h5>
+          <span class="sm oneline">{data.prev?.title || '-'}</span>
+          <div class="full-column grid-col-2">
+            <ChevronLeftIcon dimension="40px" right />
+          </div>
+        </GridContainer>
+      </Button>
+    {/if}
+  </GridContainer>
 </div>
 
-<MarkdownContainer>
-  <slot />
-</MarkdownContainer>
-
-<GridContainer template_columns="1fr 1fr" mobile_template_columns="1fr" padding="2rem 0 0 0" gap="0.5rem 20%">
-  {#if data.next?.slug}
-    <Button on:click={() => goto(`/blog/${data.next?.slug}`)} width="100%" height="100%" padding="1rem 0.5rem 1rem 0" margin="0" blendin rounded border>
-      <GridContainer template_columns="40px 1fr" template_rows="1fr 1fr" align_items="center">
-        <div class="full-column">
-          <ChevronLeftIcon dimension="40px" />
-        </div>
-        <h5 class="no-margin">Next Article</h5>
-        <span class="sm oneline">{data.next?.title || '-'}</span>
-      </GridContainer>
-    </Button>
-  {:else}
-    <br />
-  {/if}
-
-  {#if data.prev?.slug}
-    <Button on:click={() => goto(`/blog/${data.prev?.slug}`)} width="100%" height="100%" padding="1rem 0 1rem 0.5rem" blendin rounded border>
-      <GridContainer template_columns="1fr 40px" template_rows="1fr 1fr" align_items="center">
-        <h5 class="no-margin">Previous Article</h5>
-        <span class="sm oneline">{data.prev?.title || '-'}</span>
-        <div class="full-column grid-col-2">
-          <ChevronLeftIcon dimension="40px" right />
-        </div>
-      </GridContainer>
-    </Button>
-  {/if}
-</GridContainer>
-
 <style>
+  .blog-body {
+    max-width: min(904px, 100%, calc(100vw - 6rem)) !important;
+  }
+
   .header {
     width: 100%;
-    max-width: 870px;
     padding-bottom: 1rem;
     position: relative;
   }
@@ -161,10 +166,5 @@
 
   .grid-col-2 {
     grid-column: 2;
-  }
-
-  :global(img) {
-    max-width: 100%;
-    max-height: calc(100vh - 50px);
   }
 </style>
