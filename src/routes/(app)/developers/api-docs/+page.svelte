@@ -374,7 +374,8 @@
                   {
                     name: 'code_verifier',
                     type: 'string',
-                    description: 'PKCE code verifier is a high-entropy cryptographic random STRING with a minimum length of 43 characters and a maximum length of 128 characters. Allowed characters: [A-Z] / [a-z] / [0-9] / "-" / "." / "_" / "~".'
+                    description:
+                      'PKCE code verifier is a high-entropy cryptographic random STRING with a minimum length of 43 characters and a maximum length of 128 characters. Allowed characters: [A-Z] / [a-z] / [0-9] / "-" / "." / "_" / "~".'
                   }
                 ],
                 example: {
