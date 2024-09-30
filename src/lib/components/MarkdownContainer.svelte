@@ -105,11 +105,12 @@
     vertical-align: middle;
   }
 
-  .markdown-content > :global(img) {
+  .markdown-content :global(img) {
+    max-width: 100%;
     max-height: calc(100vh - 50px);
   }
 
-  .markdown-content > :global(img.full-height) {
+  .markdown-content :global(img.full-height) {
     max-height: 100%;
   }
 
