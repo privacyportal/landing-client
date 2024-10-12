@@ -17,6 +17,7 @@
   export let border = undefined;
   export let rounded = undefined;
   export let nooverflow = undefined;
+  export let overflow = undefined;
   export let nomobile = undefined;
   export let onlymobile = undefined;
   export let mobileScale = undefined;
@@ -50,6 +51,7 @@
   class:border
   class:rounded
   class:nooverflow
+  class:overflow
   class:nomobile
   class:onlymobile
 >
@@ -81,8 +83,16 @@
     border-radius: 6px;
   }
 
+  .rounded.overflow {
+    overflow: visible;
+  }
+
   .nooverflow {
     overflow-x: hidden;
+  }
+
+  .overflow {
+    overflow: visible;
   }
 
   .onlymobile {

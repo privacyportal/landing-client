@@ -23,6 +23,7 @@
   export let mobileFullScreenSelected = undefined;
   export let mobileScale = undefined;
   export let autooverflow = undefined;
+  export let overflow = undefined;
   export let nomobile = undefined;
   export let onlymobile = undefined;
   export let fullRow = undefined;
@@ -58,6 +59,7 @@
   class:nooverflowY
   class:nowrap
   class:autooverflow
+  class:overflow
   class:nomobile
   class:onlymobile
   class:relative
@@ -121,6 +123,10 @@
     overflow: auto;
   }
 
+  .overflow {
+    overflow: visible;
+  }
+
   .container.column {
     flex-direction: column;
   }
@@ -146,6 +152,10 @@
   .rounded {
     overflow: hidden;
     border-radius: 10px;
+  }
+
+  .rounded.overflow {
+    overflow: visible;
   }
 
   .onlymobile {

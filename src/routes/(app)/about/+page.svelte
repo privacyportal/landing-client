@@ -27,7 +27,10 @@
 
 <FlexContainer column color="var(--text-color)" align_items="center" justify_content="center" padding="6rem 20%" mobileScale gap="1rem">
   <h1>Our Pledge</h1>
-  <p>We believe that the rights to Privacy and to Free Speech are the cornerstones for a free society.<br/><br/>While focusing on creating great privacy software, we’ve made a commitment to assist with key open-source projects that enable Free Speech online. We frequently share updates about our contributions <a href="https://x.com/Privacy_Portal">on X</a>.</p>
+  <p>
+    We believe that the rights to Privacy and to Free Speech are the cornerstones for a free society.<br /><br />While focusing on creating great privacy software, we’ve made a commitment to assist
+    with key open-source projects that enable Free Speech online. We frequently share updates about our contributions <a href="https://x.com/Privacy_Portal">on X</a>.
+  </p>
 
   <hr class="divider" />
 

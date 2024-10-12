@@ -142,7 +142,7 @@ function handleOAuthCallback() {
       headers: {
         'Content-Type': 'application/json'
       },
-      body: JSON.stringify(payload)
+      body: JSON.stringify({ code })
     })
       .then((response) => response.json())
       .then((data) => {

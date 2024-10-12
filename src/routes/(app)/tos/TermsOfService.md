@@ -2,7 +2,7 @@
 
 Welcome to Privacy Portal (“Company”, “we”, “our”, “us”)!
 
-Our Terms Of Service (“Terms”) establish the rules for using the privacyportal.org website and making use of a Privacy Portal Account (“Account”) and all its related features, including Mail Relay and Sign In With Privacy Portal (“Services”).
+Our Terms Of Service (“Terms”) establish the rules for using the privacyportal.org website and making use of a Privacy Portal Account (“Account”) and all its related features, including Mail Relay, Sign In With Privacy Portal, and Subscribe Anonymously With Privacy Portal (“Services”).
 
 By using Services, creating an Account, or keeping an Account open (not deleted) you express your consent to adhere to and be bound by the terms specified in these Terms. Your continued use implies your understanding and acceptance of these Terms.
 
@@ -36,9 +36,13 @@ To protect ourselves, our Services, and our users, we proactively reject emails 
 
 Our Services are currently offered as beta software. While the Services are in beta, all subscription plans are provided free of charge with minor functionality restrictions to prevent abuse.
 
-At the end of the beta period, you will have the option to use our pre-paid plan for a monthly cost otherwise your Account will automatically get downgraded to the free plan.
+At the end of the beta period, you will have the option to use our payment plans for a monthly cost otherwise your Account will automatically get downgraded to the free plan.
 
 We reserve the right to refuse service, terminate accounts, remove or edit content, or cancel orders in our sole discretion.
+
+### Developer Account
+
+The use of developer-oriented features, including the creation of OAuth Applications or the integration of our APIs in third-party software, subjects you to additional Terms. These Terms also extend to any services listed under the "For Business" section on our website.
 
 ## Acceptable Use Policy
 
@@ -68,6 +72,20 @@ Additionally, you agree not to:
 
 Failure to comply with our Acceptable Use Policy will lead to Account suspension, termination, or legal action.
 
+## Additional Terms for Developer Accounts
+
+By using our Services, you agree to adhere to the following conditions in addition to our Acceptable Use Policy:
+
+1. _Compliance with Data Protection Laws:_ You must use the Services in full compliance with all relevant data protection legislation, including but not limited to the General Data Protection Regulation (GDPR) and the California Consumer Privacy Act (CCPA).
+2. _Linking Anonymized Data:_ You shall not attempt to correlate anonymized data acquired via our Services with personally identifiable information obtained from sources outside our Services without explicit user consent.
+3. _Prohibition on Data Sharing or Sale:_ You are prohibited from sharing or selling user data sourced from our Services to third parties such as advertising platforms, data brokers, or information resellers.
+4. _Data Minimization:_ You will only request data that is absolutely necessary for the functionality of your application.
+5. _Data Retention Limitation:_ You must not retain any data obtained through our Services for longer than necessary for the purposes for which it was collected, in line with your application's functionality.
+6. _Adherence to Security Practices:_ You are required to implement and maintain best practices in security to safeguard against token theft, data breaches, or any other forms of cyber attacks.
+7. _Use of Tokens:_ Tokens issued by our Services must not be exploited beyond their designated purpose or after their expiration.
+
+Violation of these Terms may result in immediate revocation of access, legal action, or other measures deemed appropriate.
+
 ## Error Reporting and Feedback
 
 You may provide us either directly at support@privacyportal.org or via third party sites and tools with information and feedback concerning errors, suggestions for improvements, ideas, problems, complaints, and other matters related to our Services (“Feedback”). You acknowledge and agree that: (i) you shall not retain, acquire or assert any intellectual property right or other right, title or interest in or to the Feedback; (ii) Company may have development ideas similar to the Feedback; (iii) Feedback does not contain confidential information or proprietary information from you or any third party; and (iv) Company is not under any obligation of confidentiality with respect to the Feedback. In the event the transfer of the ownership to the Feedback is not possible due to applicable mandatory laws, you grant Company and its affiliates an exclusive, transferable, irrevocable, free-of-charge, sub-licensable, unlimited and perpetual right to use (including copy, modify, create derivative works, publish, distribute and commercialize) Feedback in any manner and for any purpose.
@@ -84,7 +102,7 @@ THE FOREGOING DOES NOT AFFECT ANY WARRANTIES WHICH CANNOT BE EXCLUDED OR LIMITED
 
 ## Limitation Of Liability
 
-EXCEPT AS PROHIBITED BY LAW, YOU WILL HOLD US AND OUR OFFICERS, DIRECTORS, EMPLOYEES, AND AGENTS HARMLESS FOR ANY INDIRECT, PUNITIVE, SPECIAL, INCIDENTAL, OR CONSEQUENTIAL DAMAGE, HOWEVER IT ARISES (INCLUDING ATTORNEYS’ FEES AND ALL RELATED COSTS AND EXPENSES OF LITIGATION AND ARBITRATION, OR AT TRIAL OR ON APPEAL, IF ANY, WHETHER OR NOT LITIGATION OR ARBITRATION IS INSTITUTED), WHETHER IN AN ACTION OF CONTRACT, NEGLIGENCE, OR OTHER TORTIOUS ACTION, OR ARISING OUT OF OR IN CONNECTION WITH THIS AGREEMENT, INCLUDING WITHOUT LIMITATION ANY CLAIM FOR PERSONAL INJURY OR PROPERTY DAMAGE, ARISING FROM THIS AGREEMENT AND ANY VIOLATION BY YOU OF ANY FEDERAL, STATE, OR LOCAL LAWS, STATUTES, RULES, OR REGULATIONS, EVEN IF COMPANY HAS BEEN PREVIOUSLY ADVISED OF THE POSSIBILITY OF SUCH DAMAGE. EXCEPT AS PROHIBITED BY LAW, IF THERE IS LIABILITY FOUND ON THE PART OF COMPANY, IT WILL BE LIMITED TO THE AMOUNT PAID FOR THE PRODUCTS AND/OR SERVICES, AND UNDER NO CIRCUMSTANCES WILL THERE BE CONSEQUENTIAL OR PUNITIVE DAMAGES. SOME STATES DO NOT ALLOW THE EXCLUSION OR LIMITATION OF PUNITIVE, INCIDENTAL OR CONSEQUENTIAL DAMAGES, SO THE PRIOR LIMITATION OR EXCLUSION MAY NOT APPLY TO YOU.
+EXCEPT AS PROHIBITED BY LAW, YOU WILL HOLD US AND OUR OFFICERS, DIRECTORS, EMPLOYEES, AND AGENTS HARMLESS FOR ANY INDIRECT, PUNITIVE, SPECIAL, INCIDENTAL, OR CONSEQUENTIAL DAMAGE, HOWEVER IT ARISES (INCLUDING ATTORNEYS’ FEES AND ALL RELATED COSTS AND EXPENSES OF LITIGATION AND ARBITRATION, OR AT TRIAL OR ON APPEAL, IF ANY, WHETHER OR NOT LITIGATION OR ARBITRATION IS INSTITUTED), WHETHER IN AN ACTION OF CONTRACT, NEGLIGENCE, OR OTHER TORTIOUS ACTION, OR MISUSE BY THIRD PARTY DEVELOPERS, OR ARISING OUT OF OR IN CONNECTION WITH THIS AGREEMENT, INCLUDING WITHOUT LIMITATION ANY CLAIM FOR PERSONAL INJURY OR PROPERTY DAMAGE, ARISING FROM THIS AGREEMENT AND ANY VIOLATION BY YOU OF ANY FEDERAL, STATE, OR LOCAL LAWS, STATUTES, RULES, OR REGULATIONS, EVEN IF COMPANY HAS BEEN PREVIOUSLY ADVISED OF THE POSSIBILITY OF SUCH DAMAGE. EXCEPT AS PROHIBITED BY LAW, IF THERE IS LIABILITY FOUND ON THE PART OF COMPANY, IT WILL BE LIMITED TO THE AMOUNT PAID FOR THE PRODUCTS AND/OR SERVICES, AND UNDER NO CIRCUMSTANCES WILL THERE BE CONSEQUENTIAL OR PUNITIVE DAMAGES. SOME STATES DO NOT ALLOW THE EXCLUSION OR LIMITATION OF PUNITIVE, INCIDENTAL OR CONSEQUENTIAL DAMAGES, SO THE PRIOR LIMITATION OR EXCLUSION MAY NOT APPLY TO YOU.
 
 ## Termination
 
@@ -118,4 +136,4 @@ BY USING THE SERVICES OR OTHER SERVICES PROVIDED BY US, YOU ACKNOWLEDGE THAT YOU
 
 If you have any questions or concerns regarding the Terms, please contact us at support@privacyportal.org.
 
-**Last updated: May 18, 2024**
+**Last updated: Oct 12, 2024**

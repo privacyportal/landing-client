@@ -36,6 +36,7 @@
   --disabled-color: #959595;
   --dark-color: #444;
   --primary-color: #00729c;
+  --lighter-primary-color: #6d8e9a;
   --transparent-primary-color: #00729cda;
   --positive-color: #009c76;
   --info-color: #9c7f00;
@@ -233,6 +234,10 @@ span.sm {
 
 .full-column {
   grid-row: 1 / -1;
+}
+
+.grid-col-span-2 {
+  grid-column: span 2;
 }
 
 .gridline {
