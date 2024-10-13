@@ -2,12 +2,13 @@
   import Button from '$lib/components/common/Button.svelte';
   import FlexContainer from '$lib/components/common/FlexContainer.svelte';
   import GridContainer from '$lib/components/common/GridContainer.svelte';
-  import { SIGNUP_URL } from '$lib/modules/constants';
+  import { SIGNUP_URL, WORDPRESS_PLUGIN_URL } from '$lib/modules/constants';
   import CheckIcon from '$lib/components/materialIcons/CheckIcon.svelte';
   import TiltEffect from '$lib/components/effects/TiltEffect.svelte';
   import SubscribeAnonymously from '$lib/components/svgAssets/SubscribeAnonymously.svelte';
   import InfoIcon from '$lib/components/materialIcons/InfoIcon.svelte';
   import Tooltip from '$lib/components/common/Tooltip.svelte';
+  import OpenInNewWindowIcon from '$lib/components/materialIcons/OpenInNewWindowIcon.svelte';
 </script>
 
 <FlexContainer id="subscribe-anonymously-with-privacy-portal" column bgColor="var(--primary-color)" color="var(--text-light-color)">
@@ -28,7 +29,7 @@
             <FlexContainer align_items="baseline" justify_content="center" gap="0.5rem" margin="0">
               <h3 class="no-margin">Subscribe Anonymously</h3>
             </FlexContainer>
-            <p class="no-margin">Anonymous Subscriptions for Your WP Newsletter.</p>
+            <p class="no-margin">Anonymous Subscriptions for Your WordPress Newsletter.</p>
           </FlexContainer>
           <FlexContainer align_items="center" justify_content="center">
             <GridContainer
@@ -57,17 +58,21 @@
             </GridContainer>
           </FlexContainer>
           <FlexContainer column gap="0.5rem">
-            <h4 class="no-margin">WP Plugin Coming Soon...</h4>
+            <FlexContainer justify_content="center">
+              <Button on:click={() => (window.location.href = SIGNUP_URL)} padding="0.7rem 1rem" rounded><strong>Create a free account</strong></Button>
+            </FlexContainer>
+            <FlexContainer justify_content="center">
+              <Button on:click={() => (window.location.href = WORDPRESS_PLUGIN_URL)} padding="0.7rem 1rem" dark rounded
+                ><OpenInNewWindowIcon color="var(--text-light-color)" dimension="20px" /><strong>WordPress Plugin</strong></Button
+              >
+            </FlexContainer>
+          </FlexContainer>
+          <FlexContainer column gap="0.5rem">
             <FlexContainer align_items="center" justify_content="center" gap="0.5rem">
               <span class="sm">Special Pricing for Privacy Awareness Newsletters.</span>
               <Tooltip text="Freedom-Tech Discount applies.">
                 <InfoIcon dimension="15px" color="var(--text-light-color)" />
               </Tooltip>
-            </FlexContainer>
-          </FlexContainer>
-          <FlexContainer column gap="0.5rem">
-            <FlexContainer justify_content="center">
-              <Button on:click={() => (window.location.href = SIGNUP_URL)} padding="0.7rem 1rem" rounded><strong>Sign Up To Get Notified</strong></Button>
             </FlexContainer>
           </FlexContainer>
         </FlexContainer>

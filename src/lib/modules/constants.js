@@ -9,3 +9,4 @@ export {
 } from '$env/static/public';
 
 export const SIGNUP_URL = PUBLIC_APP_ENDPOINT + '/signup';
+export const WORDPRESS_PLUGIN_URL = 'https://wordpress.org/plugins/privacy-portal-sso';
