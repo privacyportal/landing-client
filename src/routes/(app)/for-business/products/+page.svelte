@@ -18,7 +18,7 @@
   keywords={['privacy portal for business', 'privacy for your users']}
 />
 
-<FlexContainer column height="100vh" bgColor="var(--primary-color)" color="var(--text-light-color)" align_items="center" justify_content="center" padding="50px 0 0 0" gap="3rem">
+<FlexContainer column height="max(650px, 100vh)" bgColor="var(--primary-color)" color="var(--text-light-color)" align_items="center" justify_content="center" padding="50px 0 0 0" gap="3rem">
   <FlexContainer column textCentered align_items="center" justify_content="center" padding="6rem 20%" gap="2rem" mobileScale>
     <FlexContainer width="auto" column align_items="flex-end" gap="0px">
       <h1 class="no-margin">Privacy Portal</h1>

@@ -70,7 +70,7 @@
           <FlexContainer column gap="0.5rem">
             <FlexContainer align_items="center" justify_content="center" gap="0.5rem">
               <span class="sm">Special Pricing for Privacy Awareness Newsletters.</span>
-              <Tooltip text="Freedom-Tech Discount applies.">
+              <Tooltip height="15px" text="Freedom-Tech Discount applies." position="left">
                 <InfoIcon dimension="15px" color="var(--text-light-color)" />
               </Tooltip>
             </FlexContainer>
