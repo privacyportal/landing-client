@@ -59,9 +59,5 @@
     h1 {
       font-size: min(max(6vw, 30px), 3rem);
     }
-
-    p {
-      font-size: min(max(4vw, 16px), 16px);
-    }
   }
 </style>
