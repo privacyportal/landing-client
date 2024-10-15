@@ -29,7 +29,7 @@ Now you should be able to see the `redirect_uri` for your site. You will need it
 2. Create you free account (in case you don't already have one).
 3. Open to **[Developer Settings](https://app.privacyportal.org/settings/developers)**.
 4. Tap on _"New Application"_ to register your OAuth Application.
-5. Fill in the information requested then tag on _"Register"_.
+5. Fill in the information requested then tap on _"Register"_.
 
 <p>
   <img style="max-width: 500px" class="shadow rounded" src="/assets/blog/setting-up-sign-in-with-privacy-portal-on-wordpress/siwpp_new_application.png" alt="New OAuth App">
@@ -39,7 +39,7 @@ Now you should be able to see the `redirect_uri` for your site. You will need it
 
 1. Go to [Developer Settings](https://app.privacyportal.org/settings/developers).
 2. Select the OAuth Application you just created.
-3. Under _"Credentials"_, copy your Applications's `client_id`.
+3. Under _"Credentials"_, copy your Application's `client_id`.
 4. Also under _"Credentials"_, tap on _"Generate Secret"_ and copy the `client_secret`.
 
 Note that the `client_secret` will only be displayed to you once. Make sure to treat it as a password and store it securely.
@@ -63,7 +63,7 @@ Note that the `client_secret` will only be displayed to you once. Make sure to t
 Privacy Portal SSO uses custom permalinks during redirection that can only be enabled manually.
 
 1. Go to the _Permalinks_ page under **Settings > Permalinks**
-2. Without making any changes to the page, simply press on **Save Changes**
+2. Without making any changes to the page, simply tap on **Save Changes**
 
 ## Step 6 - Test your configuration
 
@@ -93,7 +93,7 @@ In order to send emails to your users through Mail Relay, you will need to verif
 
 1. Go to the **[Privacy Portal App](https://app.privacyportal.org)**.
 2. Select the OAuth Application of your site.
-3. Under _"Mail Relay"_, find your sending domain and click on `verify`.
+3. Under _"Mail Relay"_, find your sending domain and tap on `verify`.
 4. Follow the steps to verify your ownership of the domain name.
 
 <p>

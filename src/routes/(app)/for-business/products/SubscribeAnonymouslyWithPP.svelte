@@ -17,7 +17,7 @@
 
     <GridContainer align_items="center" template_columns="45% 55%" mobile_template_columns="1fr" gap="3rem 0rem" margin="0">
       <FlexContainer width="100%" align_items="center" justify_content="center" mobile_justify_content="center" nooverflow>
-        <TiltEffect width="80%" transform="translateX(3%) rotateX(-5deg) rotateY(20deg) rotateZ(-5deg)">
+        <TiltEffect width="80%" transform="translateX(3%) rotateX(-5deg) rotateY(20deg) rotateZ(-5deg)" mobileTransform="translateX(0%) rotateX(10deg) rotateY(0deg) rotateZ(0deg)">
           <FlexContainer rounded>
             <SubscribeAnonymously />
           </FlexContainer>
@@ -65,6 +65,9 @@
               <Button on:click={() => (window.location.href = WORDPRESS_PLUGIN_URL)} padding="0.7rem 1rem" dark rounded
                 ><OpenInNewWindowIcon color="var(--text-light-color)" dimension="20px" /><strong>WordPress Plugin</strong></Button
               >
+            </FlexContainer>
+            <FlexContainer justify_content="center">
+              <Button on:click={() => (window.location.href = '/blog/setting-up-subscribe-anonymously-on-your-wordpress-newsletter')} height='auto' padding="0.3rem 1rem" rounded blendin xsmall>View Documentation</Button>
             </FlexContainer>
           </FlexContainer>
           <FlexContainer column gap="0.5rem">

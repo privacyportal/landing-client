@@ -76,7 +76,7 @@
         </FlexContainer>
       </FlexContainer>
       <FlexContainer width="100%" align_items="center" justify_content="flex-end" mobile_justify_content="center" nooverflow>
-        <TiltEffect width="80%" transform="translateX(-7%) rotateX(5deg) rotateY(-20deg) rotateZ(5deg)">
+        <TiltEffect width="80%" transform="translateX(-7%) rotateX(5deg) rotateY(-20deg) rotateZ(5deg)" mobileTransform="translateX(0%) rotateX(10deg) rotateY(0deg) rotateZ(0deg)">
           <FlexContainer rounded>
             <SignInWithPrivacyPortalPreview />
           </FlexContainer>

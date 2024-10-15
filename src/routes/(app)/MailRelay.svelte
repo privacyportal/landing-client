@@ -17,6 +17,7 @@
   import { APP_ENDPOINT, CHROME_EXTENSION_URL, FIREFOX_EXTENSION_URL, SIGNUP_URL } from '$lib/modules/constants';
   import SideBySide from './SideBySide.svelte';
   import screenshotDesktop from '$lib/assets/mail-relay-desktop-screenshot.png';
+  import TiltEffect from '$lib/components/effects/TiltEffect.svelte';
 
   const carousselItems = [
     {
@@ -68,7 +69,9 @@
         </FlexContainer>
       </FlexContainer>
       <FlexContainer width="100%" align_items="center" justify_content="flex-end" mobile_justify_content="center">
-        <img class="rounded shadow" width="80%" alt="Mail Relay Desktop Product Screenshot" src={screenshotDesktop} />
+        <TiltEffect width="100%" transform="translateX(-3%) rotateX(3deg) rotateY(-10deg) rotateZ(3deg)" mobileTransform="translateX(0%) rotateX(7deg) rotateY(0deg) rotateZ(0deg)">
+          <img class="rounded shadow" width="80%" alt="Mail Relay Desktop Product Screenshot" src={screenshotDesktop} />
+        </TiltEffect>
       </FlexContainer>
     </GridContainer>
   </FlexContainer>
