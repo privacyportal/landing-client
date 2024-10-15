@@ -8,7 +8,7 @@ keywords: ['wordpress sso', 'wp sso', 'wordpress oauth2', 'sso', 'sign in with p
 date: '2024-10-14'
 ---
 
-In this tutorial, we will show you how to quickly set up __[Sign In with Privacy Portal](/for-business/products#sign-in-with-privacy-portal)__ on your WordPress site.
+In this tutorial, we will show you how to quickly set up **[Sign In with Privacy Portal](/for-business/products#sign-in-with-privacy-portal)** on your WordPress site.
 
 ## Step 1 - Install the _[Privacy Portal SSO](https://wordpress.org/plugins/privacy-portal-sso/)_ plugin on WordPress
 
@@ -51,7 +51,7 @@ Note that the `client_secret` will only be displayed to you once. Make sure to t
 ## Step 4 - Configure the Plugin
 
 1. Go back to the plugin settings page: **Settings > Privacy Portal SSO**.
-2. Enter the _Client ID_ and the _Client Secret_ that we got in *Step 3* and save the changes.
+2. Enter the _Client ID_ and the _Client Secret_ that we got in _Step 3_ and save the changes.
 3. Make sure _Create user if does not exist_ is enabled.
 
 <p>
@@ -119,6 +119,7 @@ You can add a login button on any page of your WordPress site.
 </p>
 
 ### Simple Link
+
 In case you just want to have a link instead of a button, you can simply use the shortcode `[pp_sso_login_button]`.
 
 <p>

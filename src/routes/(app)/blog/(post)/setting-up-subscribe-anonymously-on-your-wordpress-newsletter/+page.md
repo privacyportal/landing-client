@@ -10,7 +10,7 @@ date: '2024-10-15'
 
 How often do privacy concerns deter visitors from registering for your newsletter?
 
-Introducing __[Subscribe Anonymously with Privacy Portal](/for-business/products#subscribe-anonymously-with-privacy-portal)__ - a feature designed to offer all the advantages of your newsletter with none of the privacy drawbacks.
+Introducing **[Subscribe Anonymously with Privacy Portal](/for-business/products#subscribe-anonymously-with-privacy-portal)** - a feature designed to offer all the advantages of your newsletter with none of the privacy drawbacks.
 
 When users opt to Subscribe Anonymously, they enroll using Privacy Aliases instead of their personal email addresses. Here’s how it works:
 
@@ -61,7 +61,7 @@ Note that the `client_secret` will only be displayed to you once. Make sure to t
 ## Step 4 - Configure the Plugin
 
 1. Go back to the plugin settings page: **Settings > Privacy Portal SSO**.
-2. Enter the _Client ID_ and the _Client Secret_ that we got in *Step 3* and save the changes.
+2. Enter the _Client ID_ and the _Client Secret_ that we got in _Step 3_ and save the changes.
 
 <p>
   <img style="max-width: 500px" class="shadow rounded" src="/assets/blog/setting-up-sign-in-with-privacy-portal-on-wordpress/siwpp_wp_settings.png" alt="Plugin Settings">
@@ -77,6 +77,7 @@ Privacy Portal SSO uses custom permalinks during redirection that can only be en
 ## Step 6 - Integrate with your existing newsletter plugin
 
 At the time of writing, Privacy Portal SSO integrates with 4 newsletter plugins:
+
 - MailPoet
 - MC4WP (MailChimp for WordPress)
 - The Newsletter Plugin
@@ -130,6 +131,7 @@ MailPoet does not allow using shortcodes inside forms. Here are the steps you ne
 1. Open the newsletter form in editing mode.
 2. Insert a "Custom HTML" element under the submit button. You could add a divider before it for styling.
 3. Add the following html content (or custom text):
+
 ```html
 <!-- example button -->
 <div class="pp-sso-button">
@@ -140,8 +142,10 @@ MailPoet does not allow using shortcodes inside forms. Here are the steps you ne
   <div class="pp-sso-message"><small>{pp_sso_subscribe_anonymously_message}</small></div>
 </div>
 ```
+
 4. Uncheck the "Automatically add paragraphs".
 5. Style the button to your liking under the "Custom CSS" section of the "Form" tab.
+
 ```css
 /* example styling */
 .pp-sso-button > a {
@@ -179,6 +183,7 @@ MailPoet does not allow using shortcodes inside forms. Here are the steps you ne
   display: none;
 }
 ```
+
 6. Save the form.
 
 ### MC4WP Form
@@ -186,7 +191,8 @@ MailPoet does not allow using shortcodes inside forms. Here are the steps you ne
 MailChimp for WordPress forms allow you to edit html directly. You can simply add the button using the shortcode. Notice that the shortcode supports styling:
 
 ```html
-[pp_sso_subscribe_anonymously_button style_background_color="black" style_color="white" style_font_size="14px" style_font_weight="strong" style_font_family="Arial, Helvetica, sans-serif" style_padding="10px" style_margin="0px" style_border_radius="6px"]
+[pp_sso_subscribe_anonymously_button style_background_color="black" style_color="white" style_font_size="14px" style_font_weight="strong" style_font_family="Arial, Helvetica, sans-serif"
+style_padding="10px" style_margin="0px" style_border_radius="6px"]
 ```
 
 ### Kit (formerly ConvertKit) Form
