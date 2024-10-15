@@ -5,6 +5,7 @@
   export let width = '100%';
   export let height = 'auto';
   export let transform = 'rotateX(0deg) rotateY(0deg) rotateZ(0deg)';
+  export let mobileTransform = undefined;
   let element;
   let displayed = false;
   let intersectionObserver;
@@ -38,7 +39,7 @@
   });
 </script>
 
-<div bind:this={element} class="tilt-effect" class:displayed style:--width={width} style:--height={height} style:--transform={transform}>
+<div bind:this={element} class="tilt-effect" class:displayed style:--width={width} style:--height={height} style:--transform={transform} style:--mobile-transform={mobileTransform ?? transform}>
   <div>
     <slot />
   </div>
@@ -67,5 +68,12 @@
   /* Hover effect for dynamic interaction */
   .tilt-effect.displayed > div {
     transform: var(--transform);
+  }
+
+  @media screen and (max-width: 979px) {
+    /* Hover effect for dynamic interaction */
+    .tilt-effect.displayed > div {
+      transform: var(--mobile-transform);
+    }
   }
 </style>
