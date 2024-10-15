@@ -67,7 +67,9 @@
               >
             </FlexContainer>
             <FlexContainer justify_content="center">
-              <Button on:click={() => (window.location.href = '/blog/setting-up-subscribe-anonymously-on-your-wordpress-newsletter')} height='auto' padding="0.3rem 1rem" rounded blendin xsmall>View Documentation</Button>
+              <Button on:click={() => (window.location.href = '/blog/setting-up-subscribe-anonymously-on-your-wordpress-newsletter')} height="auto" padding="0.3rem 1rem" rounded blendin xsmall
+                >View Documentation</Button
+              >
             </FlexContainer>
           </FlexContainer>
           <FlexContainer column gap="0.5rem">
