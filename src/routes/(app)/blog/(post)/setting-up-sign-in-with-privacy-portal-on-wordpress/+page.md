@@ -20,7 +20,7 @@ In this tutorial, we will show you how to quickly set up **[Sign In with Privacy
 Now you should be able to see the `redirect_uri` for your site. You will need it to configure your OAuth application with Privacy Portal.
 
 <p>
-  <img style="max-width: 500px" class="shadow rounded" src="/assets/blog/setting-up-siwpp-on-wp/siwpp_wp_enable_sso.png" alt="Enable SSO">
+  <img class="shadow rounded blog-img-max-500" src="/assets/blog/setting-up-siwpp-on-wp/siwpp_wp_enable_sso.png" alt="Enable SSO">
 </p>
 
 ## Step 2 - Register your OAuth App
@@ -32,7 +32,7 @@ Now you should be able to see the `redirect_uri` for your site. You will need it
 5. Fill in the information requested then tap on _"Register"_.
 
 <p>
-  <img style="max-width: 500px" class="shadow rounded" src="/assets/blog/setting-up-siwpp-on-wp/siwpp_new_application.png" alt="New OAuth App">
+  <img class="shadow rounded blog-img-max-500" src="/assets/blog/setting-up-siwpp-on-wp/siwpp_new_application.png" alt="New OAuth App">
 </p>
 
 ## Step 3 - Get your App Credentials
@@ -45,7 +45,7 @@ Now you should be able to see the `redirect_uri` for your site. You will need it
 Note that the `client_secret` will only be displayed to you once. Make sure to treat it as a password and store it securely.
 
 <p>
-  <img style="max-width: 500px" class="shadow rounded" src="/assets/blog/setting-up-siwpp-on-wp/siwpp_credentials.png" alt="Credentials">
+  <img class="shadow rounded blog-img-max-500" src="/assets/blog/setting-up-siwpp-on-wp/siwpp_credentials.png" alt="Credentials">
 </p>
 
 ## Step 4 - Configure the Plugin
@@ -55,7 +55,7 @@ Note that the `client_secret` will only be displayed to you once. Make sure to t
 3. Make sure _Create user if does not exist_ is enabled.
 
 <p>
-  <img style="max-width: 500px" class="shadow rounded" src="/assets/blog/setting-up-siwpp-on-wp/siwpp_wp_settings.png" alt="Plugin Settings">
+  <img class="shadow rounded blog-img-max-500" src="/assets/blog/setting-up-siwpp-on-wp/siwpp_wp_settings.png" alt="Plugin Settings">
 </p>
 
 ## Step 5 - Save Permalinks
@@ -70,7 +70,7 @@ Privacy Portal SSO uses custom permalinks during redirection that can only be en
 Now that you're completed all the steps, you can log out from WordPress. If everything worked as expected, you should now see a "Sign In With Privacy Portal" button next to the login form.
 
 <p>
-  <img style="max-width: 500px" class="shadow rounded" src="/assets/blog/setting-up-siwpp-on-wp/siwpp_wp_button.png" alt="Login Button on WordPress">
+  <img class="shadow rounded blog-img-max-500" src="/assets/blog/setting-up-siwpp-on-wp/siwpp_wp_button.png" alt="Login Button on WordPress">
 </p>
 
 ## Step 7 - Enable Public Access
@@ -82,7 +82,7 @@ Now that you're completed all the steps, you can log out from WordPress. If ever
 Now anyone should be able to log in to your application.
 
 <p>
-  <img style="max-width: 500px" class="shadow rounded" src="/assets/blog/setting-up-siwpp-on-wp/siwpp_access_management.png" alt="Access Management">
+  <img class="shadow rounded blog-img-max-500" src="/assets/blog/setting-up-siwpp-on-wp/siwpp_access_management.png" alt="Access Management">
 </p>
 
 ## Step 8 - Configure Mail Relay
@@ -97,7 +97,7 @@ In order to send emails to your users through Mail Relay, you will need to verif
 4. Follow the steps to verify your ownership of the domain name.
 
 <p>
-  <img style="max-width: 500px" class="shadow rounded" src="/assets/blog/setting-up-siwpp-on-wp/siwpp_mail_relay.png" alt="Mail Relay">
+  <img class="shadow rounded blog-img-max-500" src="/assets/blog/setting-up-siwpp-on-wp/siwpp_mail_relay.png" alt="Mail Relay">
 </p>
 
 Once domain verification is completed, you should be able to send emails to your users. Make sure your email is configured correctly to prevent email spoofing using SPF, DKIM, and DMARC. We strictly enforce these security configurations for OAuth applications using Sign In with Privacy Portal to keep our users safe.
@@ -115,7 +115,7 @@ You can add a login button on any page of your WordPress site.
 5. Style the button to your liking.
 
 <p>
-  <img style="max-width: 500px" class="shadow rounded" src="/assets/blog/setting-up-siwpp-on-wp/siwpp_cutom_button.png" alt="Custom Login button">
+  <img class="shadow rounded blog-img-max-500" src="/assets/blog/setting-up-siwpp-on-wp/siwpp_cutom_button.png" alt="Custom Login button">
 </p>
 
 ### Simple Link
@@ -123,5 +123,5 @@ You can add a login button on any page of your WordPress site.
 In case you just want to have a link instead of a button, you can simply use the shortcode `[pp_sso_login_button]`.
 
 <p>
-  <img style="max-width: 500px" class="shadow rounded" src="/assets/blog/setting-up-siwpp-on-wp/siwpp_wp_sso_link.png" alt="Login Link">
+  <img class="shadow rounded blog-img-max-500" src="/assets/blog/setting-up-siwpp-on-wp/siwpp_wp_sso_link.png" alt="Login Link">
 </p>

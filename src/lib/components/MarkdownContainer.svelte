@@ -110,6 +110,10 @@
     max-height: calc(100vh - 50px);
   }
 
+  .markdown-content :global(img.blog-img-max-500) {
+    max-width: min(500px, 100%);
+  }
+
   .markdown-content :global(img.full-height) {
     max-height: 100%;
   }
