@@ -30,7 +30,7 @@ With Privacy Portal, you provide a secure way for users to enjoy your content wi
 Now you should be able to see the `redirect_uri` for your site. You will need it to configure your OAuth application with Privacy Portal.
 
 <p>
-  <img style="max-width: 500px" class="shadow rounded" src="/assets/blog/setting-up-sawpp-on-wp/sawpp_enable_subscriptions.png" alt="Enable Subscriptions">
+  <img class="shadow rounded blog-img-max-500" src="/assets/blog/setting-up-sawpp-on-wp/sawpp_enable_subscriptions.png" alt="Enable Subscriptions">
 </p>
 
 ## Step 2 - Register your OAuth App
@@ -42,7 +42,7 @@ Now you should be able to see the `redirect_uri` for your site. You will need it
 5. Fill in the information requested then tap on _"Register"_.
 
 <p>
-  <img style="max-width: 500px" class="shadow rounded" src="/assets/blog/setting-up-sawpp-on-wp/sawpp_new_application.png" alt="New OAuth App">
+  <img class="shadow rounded blog-img-max-500" src="/assets/blog/setting-up-sawpp-on-wp/sawpp_new_application.png" alt="New OAuth App">
 </p>
 
 ## Step 3 - Get your App Credentials
@@ -55,7 +55,7 @@ Now you should be able to see the `redirect_uri` for your site. You will need it
 Note that the `client_secret` will only be displayed to you once. Make sure to treat it as a password and store it securely.
 
 <p>
-  <img style="max-width: 500px" class="shadow rounded" src="/assets/blog/setting-up-siwpp-on-wp/siwpp_credentials.png" alt="Credentials">
+  <img class="shadow rounded blog-img-max-500" src="/assets/blog/setting-up-siwpp-on-wp/siwpp_credentials.png" alt="Credentials">
 </p>
 
 ## Step 4 - Configure the Plugin
@@ -64,7 +64,7 @@ Note that the `client_secret` will only be displayed to you once. Make sure to t
 2. Enter the _Client ID_ and the _Client Secret_ that we got in _Step 3_ and save the changes.
 
 <p>
-  <img style="max-width: 500px" class="shadow rounded" src="/assets/blog/setting-up-siwpp-on-wp/siwpp_wp_settings.png" alt="Plugin Settings">
+  <img class="shadow rounded blog-img-max-500" src="/assets/blog/setting-up-siwpp-on-wp/siwpp_wp_settings.png" alt="Plugin Settings">
 </p>
 
 ## Step 5 - Save Permalinks
@@ -90,7 +90,7 @@ If you're using one of these plugins for your newsletter, you can integrate the 
 3. Click on "Save Changes" to save your selection.
 
 <p>
-  <img style="max-width: 500px" class="shadow rounded" src="/assets/blog/setting-up-sawpp-on-wp/sawpp_newsletter_lists.png" alt="Access Management">
+  <img class="shadow rounded blog-img-max-500" src="/assets/blog/setting-up-sawpp-on-wp/sawpp_newsletter_lists.png" alt="Access Management">
 </p>
 
 ## Step 7 - Configure Mail Relay
@@ -103,7 +103,7 @@ Now that you've set up _"Subscribe Anonymously with Privacy Portal"_, users will
 4. Follow the steps to verify your ownership of the domain name.
 
 <p>
-  <img style="max-width: 500px" class="shadow rounded" src="/assets/blog/setting-up-siwpp-on-wp/siwpp_mail_relay.png" alt="Mail Relay">
+  <img class="shadow rounded blog-img-max-500" src="/assets/blog/setting-up-siwpp-on-wp/siwpp_mail_relay.png" alt="Mail Relay">
 </p>
 
 Once domain verification is completed, you should be able to send emails to your users. Make sure your email is configured correctly to prevent email spoofing using SPF, DKIM, and DMARC. We strictly enforce these security configurations for OAuth applications to keep our users safe.
@@ -117,7 +117,7 @@ Once domain verification is completed, you should be able to send emails to your
 Now anyone should be able to enroll to your newsletter.
 
 <p>
-  <img style="max-width: 500px" class="shadow rounded" src="/assets/blog/setting-up-siwpp-on-wp/siwpp_access_management.png" alt="Access Management">
+  <img class="shadow rounded blog-img-max-500" src="/assets/blog/setting-up-siwpp-on-wp/siwpp_access_management.png" alt="Access Management">
 </p>
 
 ## Step 9 - Update your newsletter form to add the "Subscribe Anonymously" button
@@ -220,5 +220,5 @@ The Newsletter Plugin can be integrated to your pages using a shortcode. You can
 ```
 
 <p>
-  <img style="max-width: 500px" class="shadow rounded" src="/assets/blog/setting-up-sawpp-on-wp/sawpp_tnp_plugin_demo.png" alt="The Newsletter Plugin Demo">
+  <img class="shadow rounded blog-img-max-500" src="/assets/blog/setting-up-sawpp-on-wp/sawpp_tnp_plugin_demo.png" alt="The Newsletter Plugin Demo">
 </p>
