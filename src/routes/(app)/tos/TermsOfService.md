@@ -38,7 +38,7 @@ Our Services are currently offered as beta software. While the Services are in b
 
 At the end of the beta period, you will have the option to use our payment plans for a monthly cost otherwise your Account will automatically get downgraded to the free plan.
 
-We reserve the right to refuse service, terminate accounts, remove or edit content, or cancel orders in our sole discretion.
+We reserve the right to refuse service, terminate accounts, revoke eligibility to discounts, remove or edit content, or cancel orders in our sole discretion.
 
 ### Developer Account
 
@@ -136,4 +136,4 @@ BY USING THE SERVICES OR OTHER SERVICES PROVIDED BY US, YOU ACKNOWLEDGE THAT YOU
 
 If you have any questions or concerns regarding the Terms, please contact us at support@privacyportal.org.
 
-**Last updated: Oct 12, 2024**
+**Last updated: Oct 17, 2024**
