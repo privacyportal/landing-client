@@ -261,9 +261,53 @@ Please note that the code snippets provided on this page are not production-read
 
 In this tutorial, we covered the base OAuth 2.0 Code Flow. One recommended security improvement to the example above would be using _[Proof Key for Code Exchange (or PKCE)](https://www.rfc-editor.org/rfc/rfc7636)_.
 
+PKCE allows you to protect the authorization `code` from being intercepted and used by a malicious actor. With PKCE, your application's client generates a secret called `code_verifier`, it sends its hashed value as a `code_challenge` to the OAuth provider during authorization, then uses it in combination with the authorization `code` to login.
+
 ### Supporting Proof Key for Code Exchange
 
-To support PKCE, two changes are required:
+To support PKCE, few changes are required:
 
-1. You must pass the params `code_challenge` and `code_challenge_method` in the **Authorization URI** redirection.
-2. You must pass the `code_verifier` param in the **Issue Access Token** request.
+1. Generate the `code_verifier` on the client.
+
+```js
+// Function to generate the PKCE code_verifier
+function generateCodeVerifier(length = 64) {
+  // Generate random bytes (minimum length 32 bytes)
+  const array = new Uint8Array(length);
+  window.crypto.getRandomValues(array);
+
+  // Convert the array to a Base64 URL-safe string
+  return base64URLEncode(array);
+}
+
+function base64URLEncode(buffer) {
+  return btoa(String.fromCharCode.apply(null, new Uint8Array(buffer)))
+    .replace(/\//g, '_').replace(/\+/g, '-').replace(/=+$/, '');
+}
+
+// generate the code_verifier
+const code_verifier = generateCodeVerifier();
+
+// Store the code_verifier as part of the oauth_state in the local storage
+```
+
+2. Create the PKCE `code_challenge` by hashing the `code_verifier`
+```js
+// Function to create the code_challenge by hashing the code_verifier
+async function createCodeChallenge(codeVerifier) {
+  const encoder = new TextEncoder();
+  const data = encoder.encode(codeVerifier);
+  const digest = await window.crypto.subtle.digest('SHA-256', data);
+  return base64URLEncode(digest);
+}
+
+// create the code_challenge
+const code_challenge = await createCodeChallenge(code_verifier);
+
+// set the code_challenge method to S256 since we're using SHA-256
+const code_challenge_method = 'S256';
+```
+
+3. Add the `code_challenge` and `code_challenge_method` params to the **Authorization URI** redirection.
+4. When handling the redirection, read the stored `code_verifier` and add it to the login request.
+5. Add the `code_verifier` param to the **Issue Access Token** request.
