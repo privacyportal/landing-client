@@ -577,8 +577,8 @@
         </g>
     </g>
     <g transform="matrix(0.930586,0,0,1,-369.749,1607.7)">
-        <g transform="matrix(0.980426,0,0,0.193182,48.0391,581.159)">
-            <rect x="865" y="698" width="312" height="396" style="fill:rgb(197,197,197);stroke:rgb(53,53,53);stroke-width:13.65px;stroke-linejoin:round;stroke-miterlimit:1.5;"/>
+        <g transform="matrix(1.09753,0,0,0.339145,-89.7911,479.277)">
+            <rect x="865" y="698" width="312" height="396" style="fill:rgb(197,197,197);stroke:rgb(53,53,53);stroke-width:11.83px;stroke-linejoin:round;stroke-miterlimit:1.5;"/>
         </g>
         <g transform="matrix(2.00435,0,0,0.579167,-692.17,222.721)">
             <path d="M766.261,875.788L766.261,913L729,793L766.261,673L766.261,710.212L959,710.212L959,875.788L766.261,875.788Z" style="fill:rgb(53,53,53);"/>
@@ -591,18 +591,27 @@
                 <text x="751.727px" y="709.737px" style="font-family:'Arial-BoldMT', 'Arial', sans-serif;font-weight:700;font-size:18px;fill:white;">T<tspan x="761.468px 772.463px " y="709.737px 709.737px ">o </tspan>your application backend</text>
             </g>
         </g>
-        <g transform="matrix(1.07459,0,0,1,142.199,103.5)">
+        <g transform="matrix(1.07459,0,0,1,104.589,103.5)">
             <g transform="matrix(1.0657,0,0,1,-46.9754,0)">
-                <text x="715px" y="645.95px" style="font-family:'JetBrainsMonoNL-Bold', 'JetBrains Mono NL', monospace;font-weight:700;font-size:15px;fill:rgb(53,53,53);">code        =</text>
+                <text x="715px" y="645.95px" style="font-family:'JetBrainsMonoNL-Bold', 'JetBrains Mono NL', monospace;font-weight:700;font-size:15px;fill:rgb(53,53,53);">code          =</text>
             </g>
-            <g transform="matrix(1.0657,0,0,1,-55.7974,0)">
-                <text x="849.278px" y="645.95px" style="font-family:'JetBrainsMonoNL-Regular', 'JetBrains Mono NL', monospace;font-size:15px;fill:rgb(53,53,53);">&lt;CODE&gt;</text>
+            <g transform="matrix(1.0657,0,0,1,-57.0577,0)">
+                <text x="868.461px" y="645.95px" style="font-family:'JetBrainsMonoNL-Regular', 'JetBrains Mono NL', monospace;font-size:15px;fill:rgb(53,53,53);">&lt;CODE&gt;</text>
             </g>
             <g transform="matrix(1.0657,0,0,1,-46.9754,0)">
-                <text x="715px" y="672.95px" style="font-family:'JetBrainsMonoNL-Bold', 'JetBrains Mono NL', monospace;font-weight:700;font-size:15px;fill:rgb(53,53,53);">provider_id =</text>
+                <text x="715px" y="672.95px" style="font-family:'JetBrainsMonoNL-Bold', 'JetBrains Mono NL', monospace;font-weight:700;font-size:15px;fill:rgb(53,53,53);">provider_id   =</text>
             </g>
-            <g transform="matrix(1.0657,0,0,1,-55.7974,0)">
-                <text x="849.278px" y="672.95px" style="font-family:'JetBrainsMonoNL-Regular', 'JetBrains Mono NL', monospace;font-size:15px;fill:rgb(53,53,53);">&lt;PROVIDER_ID&gt;</text>
+            <g transform="matrix(1.0657,0,0,1,-57.0577,0)">
+                <text x="868.461px" y="672.95px" style="font-family:'JetBrainsMonoNL-Regular', 'JetBrains Mono NL', monospace;font-size:15px;fill:rgb(53,53,53);">&lt;PROVIDER_ID&gt;</text>
+            </g>
+            <g transform="matrix(1.0657,0,0,1,-46.9754,0)">
+                <text x="715px" y="699.95px" style="font-family:'JetBrainsMonoNL-Bold', 'JetBrains Mono NL', monospace;font-weight:700;font-size:15px;fill:rgb(53,53,53);">redirect_uri  =</text>
+            </g>
+            <g transform="matrix(1.0657,0,0,1,-57.0577,0)">
+                <text x="868.461px" y="699.95px" style="font-family:'JetBrainsMonoNL-Regular', 'JetBrains Mono NL', monospace;font-size:15px;fill:rgb(53,53,53);">&lt;REDIRECT_URI&gt;</text>
+            </g>
+            <g transform="matrix(1.0657,0,0,1,-46.9754,0)">
+                <text x="715px" y="726.95px" style="font-family:'JetBrainsMonoNL-Bold', 'JetBrains Mono NL', monospace;font-weight:700;font-size:15px;fill:rgb(108,108,108);">code_verifier = &lt;CODE_VERIFIER&gt;</text>
             </g>
         </g>
     </g>
