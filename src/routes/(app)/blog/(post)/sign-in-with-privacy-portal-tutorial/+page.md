@@ -142,7 +142,10 @@ function handleOAuthCallback() {
       headers: {
         'Content-Type': 'application/json'
       },
-      body: JSON.stringify({ code })
+      body: JSON.stringify({
+        code,
+        redirect_uri
+      })
     })
       .then((response) => response.json())
       .then((data) => {
@@ -185,7 +188,7 @@ const CLIENT_ID = 'your-client-id';
 // Your Privacy Portal OAuth Client Secret (must be treated like a password)
 const CLIENT_SECRET = process.env.CLIENT_SECRET;
 
-// Your OAuth Application's Redirect URI
+// Your OAuth Application's Redirect URI (this could be passed by the client)
 const REDIRECT_URI = 'your-redirect-uri';
 
 // The Privacy Portal OAuth Token Endpoint

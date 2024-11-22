@@ -55,6 +55,29 @@
         <CheckCircleIcon dimension="25px" /><span><small><strong>All Basic Protection Features</strong></small></span>
       </GridContainer>
     </FlexContainer>
+    <FlexContainer column align_items="center">
+      <hr class="divider sm-v-margin" />
+      <h5 class="sm-v-margin">File Sharing</h5>
+    </FlexContainer>
+    <FlexContainer column gap="0.5rem">
+      <hr class="divider sm-v-margin" />
+      <GridContainer align_items="flex-start" template_columns="1rem auto" gap="0.5rem 1rem" margin="0px auto auto auto">
+        <CheckCircleIcon dimension="25px" /><span><small>File size up to 1MB</small></span>
+        <CheckCircleIcon dimension="25px" /><span><small>Up to 20 transfers / day</small></span>
+        <CheckCircleIcon dimension="25px" /><span><small>Peer-to-Peer Transfer (relayed)</small></span>
+        <CheckCircleIcon dimension="25px" /><span><small>End-to-End Encrypted</small></span>
+        <CheckCircleIcon dimension="25px" /><span><small>Zero Sender PII</small></span>
+        <CheckCircleIcon dimension="25px" /><span><small>No Download to Disk (on reception)</small></span>
+      </GridContainer>
+    </FlexContainer>
+    <FlexContainer column gap="0.5rem">
+      <hr class="divider sm-v-margin" />
+      <GridContainer align_items="center" template_columns="1rem auto" gap="0.5rem 1rem" margin="0px auto auto auto">
+        <CheckCircleIcon dimension="25px" /><span><small>File size up to 30MB</small></span>
+        <CheckCircleIcon dimension="25px" /><span><small>Unlimited transfers</small></span>
+        <CheckCircleIcon dimension="25px" /><span><small><strong>All Basic Protection Features</strong></small></span>
+      </GridContainer>
+    </FlexContainer>
   </GridContainer>
 
   <GridContainer template_columns="1fr" bgColor="var(--new-layer-color)" color="var(--text-color)" padding="1rem" gap="0.5rem 2rem" rounded onlymobile border>
@@ -74,6 +97,18 @@
         <CheckCircleIcon dimension="25px" /><span><small>Spam Filtering + Virus Protection</small></span>
         <CheckCircleIcon dimension="25px" /><span><small>Zero Trust Deployment</small></span>
         <CheckCircleIcon dimension="25px" /><span><small>In-Memory Email Processing</small></span>
+      </GridContainer>
+    </FlexContainer>
+    <FlexContainer column gap="0.5rem">
+      <hr class="divider sm-v-margin" />
+      <GridContainer align_items="flex-start" template_columns="1rem auto" gap="0.5rem 1rem" margin="0px auto auto auto">
+        <h5 class="no-margin full-row">File Sharing</h5>
+        <CheckCircleIcon dimension="25px" /><span><small>File size up to 1MB</small></span>
+        <CheckCircleIcon dimension="25px" /><span><small>Up to 20 transfers / day</small></span>
+        <CheckCircleIcon dimension="25px" /><span><small>Peer-to-Peer Transfer (relayed)</small></span>
+        <CheckCircleIcon dimension="25px" /><span><small>End-to-End Encrypted</small></span>
+        <CheckCircleIcon dimension="25px" /><span><small>Zero Sender PII</small></span>
+        <CheckCircleIcon dimension="25px" /><span><small>No Download to Disk (on reception)</small></span>
       </GridContainer>
     </FlexContainer>
   </GridContainer>
@@ -97,6 +132,15 @@
         <CheckCircleIcon dimension="25px" /><span><small>Metadata Leak Protection</small></span>
         <CheckCircleIcon dimension="25px" /><span><small>More Customization</small></span>
         <CheckCircleIcon dimension="25px" /><span><small>Priority Support</small></span>
+        <CheckCircleIcon dimension="25px" /><span><small><strong>All Basic Protection Features</strong></small></span>
+      </GridContainer>
+    </FlexContainer>
+    <FlexContainer column gap="0.5rem">
+      <hr class="divider sm-v-margin" />
+      <GridContainer align_items="center" template_columns="1rem auto" gap="0.5rem 1rem" margin="0px auto auto auto">
+        <h5 class="no-margin full-row">File Sharing</h5>
+        <CheckCircleIcon dimension="25px" /><span><small>File size up to 30MB</small></span>
+        <CheckCircleIcon dimension="25px" /><span><small>Unlimited transfers</small></span>
         <CheckCircleIcon dimension="25px" /><span><small><strong>All Basic Protection Features</strong></small></span>
       </GridContainer>
     </FlexContainer>
