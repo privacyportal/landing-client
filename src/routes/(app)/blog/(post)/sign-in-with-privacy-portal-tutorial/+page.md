@@ -285,7 +285,9 @@ function generateCodeVerifier(length = 64) {
 
 function base64URLEncode(buffer) {
   return btoa(String.fromCharCode.apply(null, new Uint8Array(buffer)))
-    .replace(/\//g, '_').replace(/\+/g, '-').replace(/=+$/, '');
+    .replace(/\//g, '_')
+    .replace(/\+/g, '-')
+    .replace(/=+$/, '');
 }
 
 // generate the code_verifier
@@ -295,6 +297,7 @@ const code_verifier = generateCodeVerifier();
 ```
 
 2. Create the PKCE `code_challenge` by hashing the `code_verifier`
+
 ```js
 // Function to create the code_challenge by hashing the code_verifier
 async function createCodeChallenge(codeVerifier) {
