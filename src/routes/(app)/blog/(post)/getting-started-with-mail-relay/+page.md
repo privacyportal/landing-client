@@ -35,6 +35,10 @@ Privacy Aliases can be deactivated at any time allowing you to easily stop recei
 
 With Basic Protection, you can create up to 20 Privacy Aliases free of charge. Upgrading to Enhanced Protection allows you to create an unlimited number of Privacy Aliases with additional functionality such as encryption.
 
+<p>
+  <img class="shadow rounded" src="/assets/blog/getting-started-with-mail-relay/privacy-aliases-infocard.png" alt="Privacy Aliases Info Card">
+</p>
+
 ##### Start Receiving Mail
 
 Whenever you need to provide your email address online, you can simply open **[Mail Relay](https://app.privacyportal.org/mail-relay)**, create a new Privacy Alias, label it with a memorable name and use it instead of your Personal Email Address. Emails sent to you will get forwarded to your Personal Email Address, this means you can continue using your favorite email client as you always did.

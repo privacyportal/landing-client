@@ -22,6 +22,10 @@ Privacy Portal's [File Sharing](https://app.privacyportal.org/file-sharing/sende
 
 With Privacy Portal's File Sharing, enjoy the peace of mind that comes with knowing your documents are shared securely, privately, and only when and where you want them to be.
 
+<p>
+  <img class="shadow rounded" src="/assets/blog/private-e2ee-pdf-file-sharing/social_media-features-file-sharing.png" alt="File Sharing Info Card">
+</p>
+
 ## Privacy Drawbacks of Conventional File Sharing Methods
 
 All existing file sharing solutions come with privacy and security compromises:

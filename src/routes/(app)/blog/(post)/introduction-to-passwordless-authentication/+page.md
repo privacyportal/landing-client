@@ -14,6 +14,11 @@ To ensure our commitment to privacy and security, our app uses Passwordless Auth
 
 As the name implies, Passwordless Authentication allows users to authenticate without the need for a conventional password. Instead, your device (or security key) relies on cryptography to help verify your identity with our service. It generates and securely manages cryptographic keys, enabling you to authenticate without ever exposing your secret key to us. Some devices feature dedicated security hardware, such as the "Secure Enclave" on Apple devices, which handles this process. The technology employed in the authentication process uses the same concepts as those found in blockchain wallets.
 
+<p>
+  <img class="shadow rounded" src="/assets/blog/intro-to-pass
+wordless-auth/passkeys-infocard.png" alt="Keypass Info Card">
+</p>
+
 ## How does it work?
 
 When attempting to sign in using the Privacy Portal app, our server sends your browser a challenge to sign. Your device will need to use your secret key to sign the challenge, then send the signature back to our server for verification. When successful, you will be logged into your account.
