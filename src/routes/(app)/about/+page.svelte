@@ -11,7 +11,7 @@
 
 <SvelteHead
   title={`About | ${meta.name}`}
-  description={`Learn about our mission, our values, and why we put our time and effort to protect your digital rights.`}
+  description={`Learn about our mission, our pledge, and why we put our time and effort to protect your digital rights.`}
   keywords={['privacy portal team', 'privacy portal about us', 'privacy portal mission statement', 'privacy portal values']}
 />
 

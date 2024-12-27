@@ -10,6 +10,8 @@
   import Burger from './svg/Burger.svelte';
   import Logo from './svg/Logo.svelte';
   import RssFeedIcon from './materialIcons/RssFeedIcon.svelte';
+  import ExpandableArea from './common/ExpandableArea.svelte';
+  import Dropdown from './common/Dropdown.svelte';
 
   let drawerOpened = false;
 </script>
@@ -17,12 +19,34 @@
 <Drawer bind:open={drawerOpened}>
   <FlexContainer column justify_content="space-between" height="calc(100% - 50px)">
     <FlexContainer column align_items="flex-start" justify_content="center" color="var(--text-opaque-color)" gap="1rem" padding="0">
-      {#each $navItems as { path, name }}
-        <Button width="100%" align_items on:click={() => goto(path)} rounded>
-          <FlexContainer width="100%" justify_content="flex-start" padding="0px 0.5rem">
-            <h4 class="sm-v-margin">{name}</h4>
-          </FlexContainer>
-        </Button>
+      {#each $navItems.drawer as { path, name, group, links }}
+        {#if links}
+          <ExpandableArea
+            title={group}
+            bgColor="var(--new-layer-color)"
+            height="35px"
+            padding="0px 0px 0px 0.5rem"
+            bodyPadding="0.5rem 0.5rem 0.5rem 2rem"
+            border={false}
+            expandButtonColor="var(--text-color)"
+            roundedAsButton
+            fullHeaderButton
+          >
+            {#each links as { path, name }}
+              <Button width="100%" align_items on:click={() => goto(path)} rounded>
+                <FlexContainer width="100%" justify_content="flex-start" padding="0px 0.5rem">
+                  <h4 class="sm-v-margin">{name}</h4>
+                </FlexContainer>
+              </Button>
+            {/each}
+          </ExpandableArea>
+        {:else}
+          <Button width="100%" align_items on:click={() => goto(path)} rounded>
+            <FlexContainer width="100%" justify_content="flex-start" padding="0px 0.5rem">
+              <h4 class="sm-v-margin">{name}</h4>
+            </FlexContainer>
+          </Button>
+        {/if}
       {/each}
     </FlexContainer>
 
@@ -34,7 +58,7 @@
 </Drawer>
 
 <nav class:dark={$isDarkHeader}>
-  <GridContainer align_items="stretch" template_columns="1fr auto 1fr" mobile_template_columns="1fr 1fr" gap="0 1rem" height="100%" width="100%" nooverflow>
+  <GridContainer align_items="stretch" template_columns="1fr auto 1fr" mobile_template_columns="1fr 1fr" gap="0 1rem" height="100%" width="100%">
     <FlexContainer align_items="center" justify_content="flex-start" height="50px" gap="0.7rem" margin="0 0 0 1rem">
       <a href="/" aria-label="Home" style="font-size: 0; border: none;"><Logo color="var(--text-light-color)" /></a>
 
@@ -46,8 +70,24 @@
       {/if}
     </FlexContainer>
     <FlexContainer align_items="stretch" justify_content="flex-end" width="100%" gap="2rem" nomobile>
-      {#each $navItems as { path, name, header }}
-        {#if header !== false}
+      {#each $navItems.header as { path, name, group, links }}
+        {#if links}
+          <Dropdown width="auto" height="52px" padding="0px" borderColor="#00000000" arrowColor="var(--text-light-color)" alignLeft>
+            <div class="dropdown-title" slot="title">
+              <h5 class="no-margin">{group}</h5>
+            </div>
+            <FlexContainer bgColor="var(--border-color)" column gap="1px">
+              {#each links as { path, name, description }}
+                <Button on:click={() => goto(path)} height="45px" padding="0.3rem 1rem 0.3rem 0.5rem">
+                  <FlexContainer column align_items="start">
+                    <h5 class="no-margin">{name}</h5>
+                    <span class="xs oneline">{description}</span>
+                  </FlexContainer>
+                </Button>
+              {/each}
+            </FlexContainer>
+          </Dropdown>
+        {:else}
           <a class={`tab opaque ${$page.url.pathname === path ? 'selected' : ''}`} href={path}>
             <h5 class="no-margin">{name}</h5>
           </a>
@@ -116,5 +156,10 @@
     text-decoration: none;
     border-top: 2px solid transparent;
     border-bottom: 2px solid #ffffffaa;
+  }
+
+  .dropdown-title {
+    padding: 0px 0px 0px 5px;
+    color: var(--text-light-color);
   }
 </style>

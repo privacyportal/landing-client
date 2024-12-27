@@ -32,7 +32,7 @@
   {/if}
 </svelte:head>
 
-<SvelteHead title={`${meta.name} Official Blog`} {description} {keywords}>
+<SvelteHead title={`Blog | ${meta.name}`} {description} {keywords}>
   <JsonLd
     data={{
       '@type': 'Blog',
