@@ -40,12 +40,45 @@ const pathConfigValue = (fullPath, key) => {
 
 export const isDarkHeader = derived(page, ($page) => pathConfigValue($page.url.pathname, 'dark_header'));
 
-export const navItems = writable([
-  { path: '/', name: 'Home', header: false, footer: false },
-  { path: '/#pricing', name: 'Pricing', footer: false },
-  { path: '/about', name: 'About' },
-  { path: '/for-business/products', name: 'For Business' },
-  { path: '/support', name: 'Support' },
-  { path: '/blog/1', name: 'Blog' },
-  { path: '/developers/api-docs', name: 'Developers' }
-]);
+const NAV_ITEMS = {
+  home: { path: '/', name: 'Home' },
+  pricing: { path: '/#pricing', name: 'Pricing' },
+  mail_relay: { path: '/#mail-relay', name: 'Mail Relay', description: 'Privacy for your email.' },
+  file_sharing: { path: '/products/file-sharing', name: 'File Sharing', description: 'Share PDFs in total privacy.' },
+  for_business: { path: '/for-business/products', name: 'For Business' },
+  about: { path: '/about', name: 'About Us' },
+  blog: { path: '/blog/1', name: 'Blog' },
+  support: { path: '/support', name: 'Support' },
+  developers: { path: '/developers/api-docs', name: 'Developers' },
+  community: { path: 'https://community.privacyportal.org', name: 'Community' },
+  privacy: { path: '/privacy', name: 'Privacy Policy' },
+  terms: { path: '/tos', name: 'Terms Of Service' }
+};
+
+export const navItems = writable({
+  header: [NAV_ITEMS.pricing, { group: 'Products', links: [NAV_ITEMS.mail_relay, NAV_ITEMS.file_sharing] }, NAV_ITEMS.for_business, NAV_ITEMS.support, NAV_ITEMS.blog, NAV_ITEMS.developers],
+  drawer: [
+    NAV_ITEMS.home,
+    NAV_ITEMS.pricing,
+    { group: 'Products', links: [NAV_ITEMS.mail_relay, NAV_ITEMS.file_sharing] },
+    NAV_ITEMS.for_business,
+    NAV_ITEMS.about,
+    NAV_ITEMS.support,
+    NAV_ITEMS.blog,
+    NAV_ITEMS.developers
+  ],
+  footer: [
+    {
+      category: 'Products',
+      links: [NAV_ITEMS.mail_relay, NAV_ITEMS.file_sharing, NAV_ITEMS.for_business]
+    },
+    {
+      category: 'Resources',
+      links: [NAV_ITEMS.about, NAV_ITEMS.pricing, NAV_ITEMS.privacy, NAV_ITEMS.terms]
+    },
+    {
+      category: 'Connect',
+      links: [NAV_ITEMS.blog, NAV_ITEMS.support, NAV_ITEMS.developers, NAV_ITEMS.community]
+    }
+  ]
+});

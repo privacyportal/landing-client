@@ -5,6 +5,7 @@
   import FlexContainer from '$lib/components/common/FlexContainer.svelte';
   import GridContainer from '$lib/components/common/GridContainer.svelte';
   import ChevronLeftIcon from '$lib/components/materialIcons/ChevronLeftIcon.svelte';
+  import SvelteHead from '$lib/components/SvelteHead.svelte';
   import { DOMAIN, SIGNUP_URL } from '$lib/modules/constants';
   import { saveAs } from '$lib/modules/export';
 
@@ -86,6 +87,12 @@
     }
   }
 </script>
+
+<SvelteHead
+  title={`Support | Privacy Portal`}
+  description={`Explore our Support page for help, detailed tutorials, and FAQs covering all your common questions.`}
+  keywords={['privacy portal support', 'privacy portal faq', 'privacy portal frequently asked questions', 'privacy portal tutorials']}
+/>
 
 <FlexContainer column bgColor="var(--primary-color)" color="var(--text-light-color)" align_items="center" justify_content="center" padding="50px 0 0 0">
   <FlexContainer column align_items="center" justify_content="center" padding="4rem" gap="4rem" mobileScale>
