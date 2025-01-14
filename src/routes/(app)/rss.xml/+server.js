@@ -19,9 +19,9 @@ function createRSSItem(params) {
     `      <description>${params.description}</description>`,
     `      <link>https://${site_name}/blog/${params.slug}</link>`,
     `      <guid>https://${site_name}/blog/${params.slug}</guid>`,
-    `      <pubDate>${new Date(Date.UTC(pubYear, pubMonth - 1, pubDay))}</pubDate>`,
-    ...[params.category, ...(params.tags || [])].map((tag) => `      <category term="${tag}" />`),
-    `      <media:thumbnail xmlns:media="http://search.yahoo.com/mrss/" url="${image}"/>`,
+    `      <pubDate>${new Date(Date.UTC(pubYear, pubMonth - 1, pubDay)).toUTCString()}</pubDate>`,
+    ...[params.category, ...(params.tags || [])].map((tag) => `      <category>${tag}</category>`),
+    `      <media:thumbnail url="${image}"/>`,
     '    </item>'
   ].join('\n');
 }
@@ -31,12 +31,13 @@ async function createRSS() {
   const posts = blogs.chain().simplesort('date', true).limit(20).data({ removeMeta: true });
 
   return [
-    '<rss xmlns:dc="https://purl.org/dc/elements/1.1/" xmlns:content="https://purl.org/rss/1.0/modules/content/" xmlns:atom="https://www.w3.org/2005/Atom" version="2.0">',
+    '<rss version="2.0" xmlns:media="http://search.yahoo.com/mrss/">',
     '  <channel>',
     `    <title>${title}</title>`,
     `    <link>https://${site_name}</link>`,
     `    <description>${description}</description>`,
     `    <language>en</language>`,
+    `    <atom:link href="https://${site_name}/rss.xml" rel="self" type="application/rss+xml" />`,
     ...posts.map((postMetadata) => createRSSItem(postMetadata)),
     '  </channel>',
     '</rss>'
