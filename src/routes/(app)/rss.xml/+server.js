@@ -31,7 +31,7 @@ async function createRSS() {
   const posts = blogs.chain().simplesort('date', true).limit(20).data({ removeMeta: true });
 
   return [
-    '<rss version="2.0" xmlns:media="http://search.yahoo.com/mrss/">',
+    '<rss version="2.0" xmlns:media="http://search.yahoo.com/mrss/" xmlns:atom="http://www.w3.org/2005/Atom">',
     '  <channel>',
     `    <title>${title}</title>`,
     `    <link>https://${site_name}</link>`,
