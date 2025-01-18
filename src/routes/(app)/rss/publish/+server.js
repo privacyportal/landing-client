@@ -27,7 +27,9 @@ async function authorize(request) {
 /** @type {import('./$types').RequestHandler} */
 export async function GET({ request, url }) {
   try {
-    if (request.headers.get('Accept') !== 'application/json') return error(404, 'Page not found.');
+    if (!(request.headers.get('Accept') || '').includes('application/json')) {
+      return error(404, 'Page not found.');
+    }
     if (!(await authorize(request).catch(() => null))) return error(401, UNAUTHORIZED_ERR);
 
     const lastPublished = url.searchParams.get('last');

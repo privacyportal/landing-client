@@ -21,7 +21,9 @@ const RSS_ACCOUNT_INFO = {
 /** @type {import('./$types').RequestHandler} */
 export async function GET({ request }) {
   try {
-    if (request.headers.get('Accept') !== 'application/activity+json') return error(404, 'Page not found.');
+    if (!(request.headers.get('Accept') || '').includes('application/activity+json')) {
+      return error(404, 'Page not found.');
+    }
     return new Response(JSON.stringify(RSS_ACCOUNT_INFO), { headers: ACTIVITYPUB_RES_HEADERS });
   } catch (err) {
     console.error(err);
