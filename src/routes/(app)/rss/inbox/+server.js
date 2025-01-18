@@ -1,6 +1,7 @@
 import { env } from '$env/dynamic/private';
+import { signAndSendMessage, verifyRequestSignature } from '$lib/modules/activitypub/apSignatureUtil';
 import { storeSetFollow, storeUnsetFollow } from '$lib/modules/activitypub/apStorageUtil';
-import { generateGUID, getActivityPubAccount, parseActor, signAndSendMessage, verifyRequestSignature } from '$lib/modules/activitypub/apUtil';
+import { generateGUID, getActivityPubAccount, parseActor } from '$lib/modules/activitypub/apUtil';
 import { ACTIVITYPUB_ACCOUNT, ACTIVITYPUB_CONTEXTS, ACTIVITYPUB_RES_HEADERS, DOMAIN, UNAUTHORIZED_ERR } from '$lib/modules/constants';
 import { error } from '@sveltejs/kit';
 

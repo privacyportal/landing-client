@@ -1,7 +1,7 @@
 import { ACTIVITYPUB_ACCOUNT, ACTIVITYPUB_CONTEXTS, ACTIVITYPUB_RES_HEADERS } from '$lib/modules/constants';
 import { error } from '@sveltejs/kit';
 
-export const prerender = true;
+export const prerender = false;
 
 const RSS_ACCOUNT_INFO = {
   '@context': [ACTIVITYPUB_CONTEXTS.ACTIVITY_STREAMS, ACTIVITYPUB_CONTEXTS.W3ID_SECURITY],

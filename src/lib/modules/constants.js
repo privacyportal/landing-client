@@ -42,3 +42,5 @@ export const ACTIVITYPUB_CONTEXTS = {
   ACTIVITY_STREAMS: 'https://www.w3.org/ns/activitystreams',
   W3ID_SECURITY: 'https://w3id.org/security/v1'
 };
+
+export const UNAUTHORIZED_ERR = 'Unauthorized.';
