@@ -8,11 +8,11 @@ const PAGE_FILTER_REGEX = new RegExp('\\[|\\]|\\.\\.|^$');
 
 const pages = Object.keys(import.meta.glob('../**/+page.{svelte,md}'))
   .map((p) => path.relative('..', path.dirname(p)))
-  .filter(page => !PAGE_FILTER_REGEX.test(page))
+  .filter((page) => !PAGE_FILTER_REGEX.test(page))
   .sort((a, b) => {
     if (a.startsWith('blog') && !b.startsWith('blog')) return 1;
     if (!a.startsWith('blog') && b.startsWith('blog')) return -1;
-    return a.localeCompare(b, undefined, {sensitivity: 'base'});
+    return a.localeCompare(b, undefined, { sensitivity: 'base' });
   });
 console.log(pages);
 
