@@ -39,13 +39,20 @@ const createPostsIndex = async () => {
     ])
     .data({ removeMeta: true });
   let next;
+  let idx = 0;
   for (const current of sortedPosts) {
     if (next) {
+      idx = next.date === current.date ? idx + 1 : 0;
       blogs.findAndUpdate({ slug: next.slug }, (o) => {
         o.prev = { slug: current.slug, title: current.title };
       });
       blogs.findAndUpdate({ slug: current.slug }, (o) => {
         o.next = { slug: next.slug, title: next.title };
+        o.idx = idx;
+      });
+    } else {
+      blogs.findAndUpdate({ slug: current.slug }, (o) => {
+        o.idx = 0;
       });
     }
     next = current;
