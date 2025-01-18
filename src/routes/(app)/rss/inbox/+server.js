@@ -35,7 +35,9 @@ function validateFollowMessage(message, opts) {
 /** @type {import('./$types').RequestHandler} */
 export async function POST({ request }) {
   try {
-    if (request.headers.get('Accept') !== 'application/activity+json') return error(404, 'Page not found.');
+    if (!(request.headers.get('Accept') || '').includes('application/activity+json')) {
+      return error(404, 'Page not found.');
+    }
 
     const body = await request.json();
     const { type, actor, object } = body;
