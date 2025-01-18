@@ -1,7 +1,7 @@
 import { env } from '$env/dynamic/private';
 import { createOutboxItems } from '$lib/modules/activitypub/apRssUtil';
+import { signAndSendMessage } from '$lib/modules/activitypub/apSignatureUtil';
 import { storeFollowersIterator } from '$lib/modules/activitypub/apStorageUtil';
-import { signAndSendMessage } from '$lib/modules/activitypub/apUtil';
 import { ACTIVITYPUB_ACCOUNT, ACTIVITYPUB_CONTEXTS, DEFAULT_RES_HEADERS, DOMAIN, UNAUTHORIZED_ERR } from '$lib/modules/constants';
 import { error } from '@sveltejs/kit';
 import jwt from 'jsonwebtoken';
