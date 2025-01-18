@@ -67,6 +67,7 @@ export async function verifyRequestSignature({ inbox, request, actor, actorPubke
     const hostHeader = request.headers.get('Host');
     const dateHeader = request.headers.get('Date');
     const digestHeader = request.headers.get('Digest');
+    const contentTypeHeader = request.headers.get('Content-Type');
     const signatureHeader = request.headers.get('Signature');
     if (!hostHeader || !dateHeader || !digestHeader || !signatureHeader) throw new Error(UNAUTHORIZED_ERR);
 
@@ -120,6 +121,8 @@ export async function verifyRequestSignature({ inbox, request, actor, actorPubke
             return `${type}: ${dateHeader}`;
           case 'digest':
             return `${type}: ${digestHeader}`;
+          case 'content-type':
+            return `${type}: ${contentTypeHeader}`;
         }
       })
       .join('\n');
