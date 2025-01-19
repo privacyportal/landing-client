@@ -23,7 +23,6 @@ async function createSignature(params) {
 
   const key = await crypto.subtle.importKey('raw', keyData, ALGORITHM, false, ['sign']);
 
-  console.log({ items_to_sign });
   const signature = await crypto.subtle.sign(ALGORITHM.name, key, dataToSign);
 
   return bufferToBase64(signature, { url: true });

@@ -26,7 +26,6 @@ export function signMessage({ message, inbox, actor, privkey }) {
   // signature
   const stringToSign = [`(request-target): post ${getInboxFragment(inbox)}`, `host: ${hostHeader}`, `date: ${dateHeader}`, `digest: ${digestHeader}`].join('\n');
 
-  console.log({ stringToSign });
   const signer = crypto.createSign('sha256');
   signer.update(stringToSign);
   signer.end();
@@ -106,7 +105,6 @@ export async function verifyRequestSignature({ inbox, request, actor, actorPubke
     const digestValue = digestHeader.substring(separatorIndex + 1);
     if (!digestValue || !DIGEST_ALGORITHMS.includes(digestAlg)) throw new Error(UNAUTHORIZED_ERR);
     const digest = crypto.createHash(digestAlg.replace('-', '')).update(message).digest('base64');
-    console.log({ message, digest, digestValue });
     if (digest !== digestValue) throw new Error(UNAUTHORIZED_ERR);
 
     const signedString = signatureParts.headers
@@ -127,13 +125,11 @@ export async function verifyRequestSignature({ inbox, request, actor, actorPubke
       })
       .join('\n');
 
-    console.log({ signedString });
     // verify the signature
     const verifier = crypto.createVerify('sha256');
     verifier.write(signedString);
     verifier.end();
 
-    console.log({ actorPubkey, signature: signatureParts.signature });
     return verifier.verify(actorPubkey, signatureParts.signature, 'base64');
   } catch (err) {
     console.error(err);
