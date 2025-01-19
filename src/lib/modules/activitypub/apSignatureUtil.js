@@ -1,14 +1,14 @@
 import crypto from 'node:crypto';
-import { DOMAIN, UNAUTHORIZED_ERR } from '../constants';
 import { BufferSourceConverter, Convert } from 'pvtsutils';
+import { DOMAIN, UNAUTHORIZED_ERR } from '../constants';
 
 const DIGEST_ALGORITHMS = ['SHA-256', 'SHA-1', 'sha256', 'sha1'];
 const IS_QUOTED_STRING_REGEX = new RegExp('^".*"$');
 
 const SIGNING_ALG = {
-  name: "RSASSA-PKCS1-v1_5",
-  hash: "SHA-256"
-}
+  name: 'RSASSA-PKCS1-v1_5',
+  hash: 'SHA-256'
+};
 
 function getInboxFragment(inbox) {
   const { pathname } = new URL(inbox);
@@ -128,7 +128,6 @@ export async function verifyRequestSignature({ inbox, message, headers, actor, a
 
     // verify the signature
     return await verifySignature(signedString, actorPubkey, signatureParts.signature);
-
   } catch (err) {
     console.error(err);
     throw new Error(UNAUTHORIZED_ERR);
@@ -136,9 +135,7 @@ export async function verifyRequestSignature({ inbox, message, headers, actor, a
 }
 
 function bufferFromBase64(data) {
-  return BufferSourceConverter.toArrayBuffer(
-    Convert.FromBase64(data)
-  );
+  return BufferSourceConverter.toArrayBuffer(Convert.FromBase64(data));
 }
 
 function pemToBuffer(pem) {
@@ -146,11 +143,11 @@ function pemToBuffer(pem) {
 }
 
 async function importPubKey(pem) {
-  return await crypto.subtle.importKey("spki", pemToBuffer(pem), SIGNING_ALG, true, ["verify"]);
+  return await crypto.subtle.importKey('spki', pemToBuffer(pem), SIGNING_ALG, true, ['verify']);
 }
 
 async function importPrivKey(pem) {
-  return await crypto.subtle.importKey("pkcs8", pemToBuffer(pem), SIGNING_ALG, false, ["sign"]);
+  return await crypto.subtle.importKey('pkcs8', pemToBuffer(pem), SIGNING_ALG, false, ['sign']);
 }
 
 async function verifySignature(signedString, pubkeyPEM, signature) {
@@ -166,11 +163,11 @@ async function verifySignature(signedString, pubkeyPEM, signature) {
     bufferFromBase64(signature),
 
     // encoded data
-    (new TextEncoder()).encode(signedString)
+    new TextEncoder().encode(signedString)
   );
 }
 
-async function signData (stringToSign, privkeyPEM) {
+async function signData(stringToSign, privkeyPEM) {
   const signature = await crypto.subtle.sign(
     // algorithm
     { name: SIGNING_ALG.name },
@@ -179,7 +176,7 @@ async function signData (stringToSign, privkeyPEM) {
     await importPrivKey(privkeyPEM),
 
     // encoded data
-    (new TextEncoder()).encode(stringToSign)
+    new TextEncoder().encode(stringToSign)
   );
 
   return Convert.ToBase64(signature);

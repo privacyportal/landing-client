@@ -1,22 +1,32 @@
 import config from '$lib/modules/config';
 import getBlogPosts from '$lib/server/getBlogPosts';
 import crypto from 'crypto';
-import { ACTIVITYPUB_ACCOUNT, ACTIVITYPUB_CONTEXTS } from '../constants';
+import { ACTIVITYPUB_ACCOUNT, ACTIVITYPUB_CONTEXTS, ACTIVITYPUB_GROUP } from '../constants';
 import { capitalize } from '../util';
 
 const { site_name, image } = config.meta;
 
-function generatePostId(postMetadata) {
-  return crypto.createHash('sha256').update(postMetadata.slug).digest('hex').slice(0, 32);
+function generateDeterministicId(slug) {
+  return crypto.createHash('sha256').update(slug).digest('hex').slice(0, 32);
 }
 
-function formatPublishDate(postMetadata) {
+export function formatPublishDate(postMetadata) {
   const [pubYear, pubMonth, pubDay] = postMetadata.date.split('-');
   return new Date(Date.UTC(pubYear, pubMonth - 1, pubDay)).toISOString().slice(0, -5) + 'Z';
 }
 
+export async function publishedUpdatedDates() {
+  const blogs = await getBlogPosts();
+  const lastPost = blogs.chain().simplesort('date', true).limit(1).data({ removeMeta: true }).pop();
+  const firstPost = blogs.chain().simplesort('date', false).limit(1).data({ removeMeta: true }).pop();
+  return {
+    published: formatPublishDate(firstPost),
+    updated: formatPublishDate(lastPost)
+  };
+}
+
 function createPost(postMetadata) {
-  const postId = generatePostId(postMetadata);
+  const postId = generateDeterministicId(postMetadata.slug);
   const postUrl = `${ACTIVITYPUB_ACCOUNT.PROFILE}/statuses/${postId}`;
   const published = formatPublishDate(postMetadata);
   const content = [
@@ -62,15 +72,29 @@ function createPost(postMetadata) {
   };
 }
 
-export async function createOutboxItems(maxItems) {
+function createAnnounce(postMetadata) {
+  const announceId = generateDeterministicId(`${postMetadata.slug}/announce`);
+  return {
+    id: `${ACTIVITYPUB_GROUP.PROFILE}/activity/${announceId}/announce`,
+    type: 'Announce',
+    actor: ACTIVITYPUB_GROUP.PROFILE,
+    to: [`${ACTIVITYPUB_CONTEXTS.ACTIVITY_STREAMS}#Public`],
+    cc: [`${ACTIVITYPUB_GROUP.PROFILE}/followers`],
+    object: createPost(postMetadata)
+  };
+}
+
+export async function createOutboxItems(accountObj, maxItems) {
   const blogs = await getBlogPosts();
   const posts = blogs.chain().simplesort('date', true).limit(maxItems).data({ removeMeta: true });
 
   return {
     '@context': ACTIVITYPUB_CONTEXTS.ACTIVITY_STREAMS,
-    id: ACTIVITYPUB_ACCOUNT.OUTBOX_URL,
+    id: accountObj.OUTBOX_URL,
     type: 'OrderedCollection',
-    orderedItems: posts.map((postMetadata) => createPost(postMetadata)),
+    orderedItems: posts.map((postMetadata) => {
+      return accountObj.TYPE === 'Group' ? createAnnounce(postMetadata) : createPost(postMetadata);
+    }),
     totalItems: posts.length
   };
 }
