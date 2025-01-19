@@ -70,7 +70,8 @@ export async function POST({ request }) {
     if (!isActorValid) return error(403, '"actor" param invalid.');
 
     // get actor account
-    const actorAccount = await getActivityPubAccount(actor);
+    const actorAccount = await getActivityPubAccount(actor).catch(() => null);
+    if (!actorAccount) return error(403, '"actor" param invalid.');
 
     // check signature
     const actorPubkey = actorAccount?.publicKey?.publicKeyPem;
