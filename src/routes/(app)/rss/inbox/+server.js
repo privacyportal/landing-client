@@ -74,7 +74,7 @@ export async function POST({ request }) {
 
     // check signature
     const actorPubkey = actorAccount?.publicKey?.publicKeyPem;
-    if (!actorPubkey) throw new Error(UNAUTHORIZED_ERR);
+    if (!actorPubkey) return error(401, UNAUTHORIZED_ERR);
 
     const isSignatureVerified = await verifyRequestSignature({
       inbox: ACTIVITYPUB_ACCOUNT.INBOX_URL,
