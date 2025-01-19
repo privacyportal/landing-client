@@ -1,5 +1,6 @@
 import crypto from 'node:crypto';
 import { DOMAIN, UNAUTHORIZED_ERR } from '../constants';
+import { BufferSourceConverter, Convert } from 'pvtsutils';
 
 const DIGEST_ALGORITHMS = ['SHA-256', 'SHA-1', 'sha256', 'sha1'];
 const IS_QUOTED_STRING_REGEX = new RegExp('^".*"$');
@@ -134,11 +135,14 @@ export async function verifyRequestSignature({ inbox, message, headers, actor, a
   }
 }
 
-function pemToBuffer(pem) {
-  return Buffer.from(
-    pem.replace(/(?:-----(?:BEGIN|END) (?:PUBLIC|PRIVATE) KEY-----|\r?\n)/g, ''),
-    "base64"
+function bufferFromBase64(data) {
+  return BufferSourceConverter.toArrayBuffer(
+    Convert.FromBase64(data)
   );
+}
+
+function pemToBuffer(pem) {
+  return bufferFromBase64(pem.replace(/(?:-----(?:BEGIN|END) (?:PUBLIC|PRIVATE) KEY-----|\r?\n)/g, ''));
 }
 
 async function importPubKey(pem) {
@@ -158,7 +162,8 @@ async function verifySignature(signedString, pubkeyPEM, signature) {
     await importPubKey(pubkeyPEM),
 
     // signature as Uint8Array
-    Buffer.from(signature, "base64"),
+
+    bufferFromBase64(signature),
 
     // encoded data
     (new TextEncoder()).encode(signedString)
@@ -177,5 +182,5 @@ async function signData (stringToSign, privkeyPEM) {
     (new TextEncoder()).encode(stringToSign)
   );
 
-  return Buffer.from(signature).toString("base64");
+  return bufferFromBase64(signature);
 }
