@@ -17,7 +17,7 @@ export async function _processPublishRequest(accountObj, outbox, lastPublished) 
   // prepare items to publish
   if (outbox.totalItems) {
     let itemsToPublish;
-    const lastPublishedIndex = outbox.orderedItems.findIndex(item => item.id === lastPublished);
+    const lastPublishedIndex = outbox.orderedItems.findIndex((item) => item.id === lastPublished);
     if (lastPublishedIndex > -1) {
       itemsToPublish = outbox.orderedItems.slice(0, lastPublishedIndex).map((item) => ({
         '@context': [ACTIVITYPUB_CONTEXTS.ACTIVITY_STREAMS, ACTIVITYPUB_CONTEXTS.W3ID_SECURITY],
