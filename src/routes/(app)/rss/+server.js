@@ -22,7 +22,12 @@ const RSS_ACCOUNT_INFO = {
 export async function GET({ request }) {
   try {
     if (!(request.headers.get('Accept') || '').includes('application/activity+json')) {
-      return error(404, 'Page not found.');
+      return new Response(null, {
+        status: 302,
+        headers: {
+          location: '/blog/1'
+        }
+      });
     }
     return new Response(JSON.stringify(RSS_ACCOUNT_INFO), { headers: ACTIVITYPUB_RES_HEADERS });
   } catch (err) {
