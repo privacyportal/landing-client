@@ -48,7 +48,7 @@ export async function signMessage({ message, inbox, actor, privkey }) {
 }
 
 export async function signAndSendMessage({ message, inbox, actor, privkey }) {
-  const { body, sigHeaders } = await signMessage({ message, inbox, actor, privkey });
+  const { body, headers: sigHeaders } = await signMessage({ message, inbox, actor, privkey });
   const response = await fetch(inbox, {
     method: 'POST',
     headers: {
@@ -59,7 +59,7 @@ export async function signAndSendMessage({ message, inbox, actor, privkey }) {
     body
   });
 
-  if (!response.ok) throw new Error('Sending failed');
+  if (!response.ok) throw new Error('Sending failed:', await response.text());
 }
 
 export async function verifyRequestSignature({ inbox, message, headers, actor, actorPubkey }) {
