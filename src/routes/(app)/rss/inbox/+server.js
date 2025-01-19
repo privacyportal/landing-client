@@ -40,7 +40,8 @@ export async function POST({ request }) {
       return error(404, 'Page not found.');
     }
 
-    const body = await request.json();
+    const message = await request.text();
+    const body = JSON.parse(message);
     console.log({ body });
     const { type, actor, object } = body;
 
@@ -100,7 +101,8 @@ export async function POST({ request }) {
 
     const isSignatureVerified = await verifyRequestSignature({
       inbox: ACTIVITYPUB_ACCOUNT.INBOX_URL,
-      request,
+      message,
+      headers: request.headers,
       actor,
       actorPubkey
     }).catch(() => false);
