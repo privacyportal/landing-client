@@ -1,6 +1,9 @@
 import crypto from 'node:crypto';
-import { DOMAIN, UNAUTHORIZED_ERR } from '../constants';
+// import { DOMAIN, UNAUTHORIZED_ERR } from '../constants';
 import { BufferSourceConverter, Convert } from 'pvtsutils';
+
+const DOMAIN = 'privacyportal.local';
+const UNAUTHORIZED_ERR = 'hello';
 
 const DIGEST_ALGORITHMS = ['SHA-256', 'SHA-1', 'sha256', 'sha1'];
 const IS_QUOTED_STRING_REGEX = new RegExp('^".*"$');
@@ -182,5 +185,5 @@ async function signData (stringToSign, privkeyPEM) {
     (new TextEncoder()).encode(stringToSign)
   );
 
-  return bufferFromBase64(signature);
+  return Convert.ToBase64(signature);
 }
