@@ -59,15 +59,13 @@ export async function signAndSendMessage({ message, inbox, actor, privkey }) {
   if (!response.ok) throw new Error('Sending failed');
 }
 
-export async function verifyRequestSignature({ inbox, request, actor, actorPubkey }) {
+export async function verifyRequestSignature({ inbox, message, headers, actor, actorPubkey }) {
   try {
-    const message = await request.text();
-
-    const hostHeader = request.headers.get('Host');
-    const dateHeader = request.headers.get('Date');
-    const digestHeader = request.headers.get('Digest');
-    const contentTypeHeader = request.headers.get('Content-Type');
-    const signatureHeader = request.headers.get('Signature');
+    const hostHeader = headers.get('Host');
+    const dateHeader = headers.get('Date');
+    const digestHeader = headers.get('Digest');
+    const contentTypeHeader = headers.get('Content-Type');
+    const signatureHeader = headers.get('Signature');
     if (!hostHeader || !dateHeader || !digestHeader || !signatureHeader) throw new Error(UNAUTHORIZED_ERR);
 
     // verify signature header
