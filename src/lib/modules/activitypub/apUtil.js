@@ -1,12 +1,12 @@
 import crypto from 'node:crypto';
-import { ACTIVITYPUB_REQ_HEADERS } from '../constants';
+import { ACTIVITYPUB_CONTEXTS, ACTIVITYPUB_REQ_HEADERS, DOMAIN } from '../constants';
 
 export function generateGUID() {
   crypto.randomBytes(16).toString('hex');
 }
 
-export function getStorageKey(account) {
-  return crypto.createHash('sha256').update(account).digest('hex').substring(0, 12);
+export function getStorageKey(username, followerAccount) {
+  return crypto.createHash('sha256').update(`${username}:${followerAccount}`).digest('hex').substring(0, 12);
 }
 
 export async function parseActor(actor) {
@@ -28,4 +28,42 @@ export async function getActivityPubAccount(accountUrl) {
   const response = await fetch(accountUrl, { headers: ACTIVITYPUB_REQ_HEADERS });
   if (!response.ok) throw new Error('unable to fetch account');
   return response.json();
+}
+
+export function createAcceptMessage({ messageBody, actor }) {
+  // eslint-disable-next-line no-unused-vars
+  const { ['@context']: _, ...object } = messageBody;
+
+  return {
+    '@context': [ACTIVITYPUB_CONTEXTS.ACTIVITY_STREAMS, ACTIVITYPUB_CONTEXTS.W3ID_SECURITY],
+    id: `https://${DOMAIN}/${generateGUID()}`,
+    type: 'Accept',
+    actor,
+    object
+  };
+}
+
+export async function verifyActorWithWebfinger({ actor, domain, username }) {
+  try {
+    // lookup the user using webfinger and verify that it exists
+    const response = await fetch(`https://${domain}/.well-known/webfinger?resource=acct:${username}@${domain}`);
+    if (!response.ok) return false;
+
+    // Parse the JSON response
+    const { subject, links } = await response.json();
+    if (subject !== `acct:${username}@${domain}` || !links.some((l) => l?.rel === 'self' && l?.href === actor)) return false;
+    return true;
+  } catch {
+    // do nothing
+  }
+  return false;
+}
+
+export function validateFollowMessage(message, opts) {
+  if (message?.type !== 'Follow') return false;
+  if (!message?.actor || typeof message.actor !== 'string') return false;
+  if (opts.actor && message?.actor !== opts.actor) return false;
+  if (!message?.object || typeof message.object !== 'string') return false;
+  if (opts.object && message?.object !== opts.object) return false;
+  return true;
 }

@@ -1,3 +1,4 @@
+import { publishedUpdatedDates } from '$lib/modules/activitypub/apRssUtil';
 import config from '$lib/modules/config';
 import { ACTIVITYPUB_ACCOUNT, ACTIVITYPUB_CONTEXTS, ACTIVITYPUB_RES_HEADERS } from '$lib/modules/constants';
 import { error } from '@sveltejs/kit';
@@ -9,14 +10,14 @@ const { image } = config.meta;
 const RSS_ACCOUNT_INFO = {
   '@context': [ACTIVITYPUB_CONTEXTS.ACTIVITY_STREAMS, ACTIVITYPUB_CONTEXTS.W3ID_SECURITY],
   id: ACTIVITYPUB_ACCOUNT.PROFILE,
-  type: 'Service',
-  preferredUsername: `${ACTIVITYPUB_ACCOUNT.USERNAME}`,
-  name: ACTIVITYPUB_ACCOUNT.USERNAME,
-  inbox: `${ACTIVITYPUB_ACCOUNT.INBOX_URL}`,
-  outbox: `${ACTIVITYPUB_ACCOUNT.OUTBOX_URL}`,
+  type: ACTIVITYPUB_ACCOUNT.TYPE,
+  name: ACTIVITYPUB_ACCOUNT.NAME,
+  preferredUsername: ACTIVITYPUB_ACCOUNT.USERNAME,
+  inbox: ACTIVITYPUB_ACCOUNT.INBOX_URL,
+  outbox: ACTIVITYPUB_ACCOUNT.OUTBOX_URL,
   publicKey: {
     id: `${ACTIVITYPUB_ACCOUNT.PROFILE}#main-key`,
-    owner: `${ACTIVITYPUB_ACCOUNT.PROFILE}`,
+    owner: ACTIVITYPUB_ACCOUNT.PROFILE,
     publicKeyPem: ACTIVITYPUB_ACCOUNT.PUBKEY
   },
   icon: {
@@ -31,6 +32,8 @@ const RSS_ACCOUNT_INFO = {
   }
 };
 
+const dates_promise = publishedUpdatedDates();
+
 /** @type {import('./$types').RequestHandler} */
 export async function GET({ request }) {
   try {
@@ -42,7 +45,9 @@ export async function GET({ request }) {
         }
       });
     }
-    return new Response(JSON.stringify(RSS_ACCOUNT_INFO), { headers: ACTIVITYPUB_RES_HEADERS });
+
+    const publishDates = await dates_promise;
+    return new Response(JSON.stringify({ ...RSS_ACCOUNT_INFO, ...publishDates }), { headers: ACTIVITYPUB_RES_HEADERS });
   } catch (err) {
     console.error(err);
     error(400, 'Unexpected error.');

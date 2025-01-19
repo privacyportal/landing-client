@@ -10,9 +10,9 @@ const DEFAULT_HEADERS = {
   'Content-Type': 'application/json'
 };
 
-export async function storeSetFollow({ domain, username, inbox, shared_inbox }) {
+export async function storeSetFollow({ account_username, domain, username, inbox, shared_inbox }) {
   const method = 'POST';
-  const path = `/activity-pub/followers/new`;
+  const path = `/activity-pub/accounts/${account_username}/followers/new`;
   const body = JSON.stringify({ domain, username, inbox, shared_inbox });
 
   const response = await fetch(`${API_URL}${path}`, {
@@ -27,8 +27,8 @@ export async function storeSetFollow({ domain, username, inbox, shared_inbox }) 
   if (!response.ok) throw new Error(FOLLOW_ERROR_MSG);
 }
 
-export async function storeUnsetFollow({ account }) {
-  const id = getStorageKey(account);
+export async function storeUnsetFollow({ account_username, follower }) {
+  const id = getStorageKey(account_username, follower);
 
   const method = 'DELETE';
   const path = `/activity-pub/followers/${id}`;
@@ -43,9 +43,9 @@ export async function storeUnsetFollow({ account }) {
   if (!response.ok) throw new Error(UNFOLLOW_ERROR_MSG);
 }
 
-export async function storeGetFollowers(page = 1) {
+export async function storeGetFollowers(account_username, page = 1) {
   const method = 'GET';
-  const path = `/activity-pub/followers?page=${page}`;
+  const path = `/activity-pub/accounts/${account_username}/followers?page=${page}`;
 
   const response = await fetch(`${API_URL}${path}`, {
     method,
@@ -59,12 +59,12 @@ export async function storeGetFollowers(page = 1) {
   return response.json();
 }
 
-export async function* storeFollowersIterator() {
+export async function* storeFollowersIterator(account_username) {
   let page = 1;
   let next = true;
 
   while (next) {
-    const { shared_inboxes, meta } = await storeGetFollowers(page);
+    const { shared_inboxes, meta } = await storeGetFollowers(account_username, page);
     next = meta.next;
     for (const inbox of shared_inboxes) {
       yield inbox;

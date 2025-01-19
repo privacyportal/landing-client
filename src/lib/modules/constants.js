@@ -13,13 +13,31 @@ export const SIGNUP_URL = PUBLIC_APP_ENDPOINT + '/signup';
 export const WORDPRESS_PLUGIN_URL = 'https://wordpress.org/plugins/privacy-portal-sso';
 
 export const ACTIVITYPUB_ACCOUNT = {
+  TYPE: 'Service',
   USERNAME: 'rss',
+  NAME: 'Privacy Portal',
   ID: `rss@${PUBLIC_DOMAIN}`,
-  PROFILE: `https://${PUBLIC_DOMAIN}/rss`,
-  INBOX_URL: `https://${PUBLIC_DOMAIN}/rss/inbox`,
-  OUTBOX_URL: `https://${PUBLIC_DOMAIN}/rss/outbox`,
-  INBOX_PATH: '/rss/inbox',
-  PUBKEY: PUBLIC_ACTIVITYPUB_PUBKEY
+  PROFILE: `https://${PUBLIC_DOMAIN}/federated/rss`,
+  INBOX_URL: `https://${PUBLIC_DOMAIN}/federated/rss/inbox`,
+  OUTBOX_URL: `https://${PUBLIC_DOMAIN}/federated/rss/outbox`,
+  INBOX_PATH: '/federated/rss/inbox',
+  PUBKEY: PUBLIC_ACTIVITYPUB_PUBKEY,
+  PUBLISHED: Date.UTC(2021, 10, 1)
+};
+
+export const ACTIVITYPUB_GROUP = {
+  TYPE: 'Group',
+  USERNAME: 'blog',
+  NAME: 'Privacy Portal Blog',
+  ID: `blog@${PUBLIC_DOMAIN}`,
+  PROFILE: `https://${PUBLIC_DOMAIN}/federated/blog`,
+  INBOX_URL: `https://${PUBLIC_DOMAIN}/federated/blog/inbox`,
+  OUTBOX_URL: `https://${PUBLIC_DOMAIN}/federated/blog/outbox`,
+  FEATURED_URL: `https://${PUBLIC_DOMAIN}/federated/blog/featured`,
+  ATTRIBUTED_TO_URL: `https://${PUBLIC_DOMAIN}/federated/blog/moderators`,
+  INBOX_PATH: '/federated/blog/inbox',
+  PUBKEY: PUBLIC_ACTIVITYPUB_PUBKEY,
+  PUBLISHED: Date.UTC(2021, 10, 1)
 };
 
 export const DEFAULT_RES_HEADERS = {
