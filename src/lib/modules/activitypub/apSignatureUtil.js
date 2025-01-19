@@ -89,7 +89,8 @@ export async function verifyRequestSignature({ inbox, message, headers, actor, a
       !signatureParts?.headers ||
       !signatureParts?.signature ||
       !signatureParts.keyId.startsWith(actor) || // ensure the keyId matches the actor
-      !signatureParts.algorithm.toLowerCase().includes('sha256') // we only support sha256 when signing
+      (!signatureParts.algorithm.toLowerCase().includes('sha256') && // we support sha256 when signing
+        signatureParts.algorithm !== 'hs2019')
     )
       throw new Error(UNAUTHORIZED_ERR);
 
