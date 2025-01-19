@@ -35,14 +35,15 @@ function validateFollowMessage(message, opts) {
 /** @type {import('./$types').RequestHandler} */
 export async function POST({ request }) {
   try {
-    if (!(request.headers.get('Accept') || '').includes('application/activity+json')) {
+    if (request.headers.get('Content-Type') !== 'application/activity+json') {
       return error(404, 'Page not found.');
     }
 
     const body = await request.json();
     const { type, actor, object } = body;
 
-    if (body?.['@context'] !== ACTIVITYPUB_CONTEXTS.ACTIVITY_STREAMS) return error(403, 'Unsupported request "@context".');
+    const context = [ body?.['@context'] ].flat();
+    if (!context.includes(ACTIVITYPUB_CONTEXTS.ACTIVITY_STREAMS)) return error(403, 'Unsupported request "@context".');
 
     const { hostname: domain, username } = await parseActor(actor).catch(() => {});
     if (!domain || !username) return error(403, '"actor" param invalid.');
