@@ -1,4 +1,4 @@
-import { ACTIVITYPUB_ACCOUNT } from '$lib/modules/constants';
+import { ACTIVITYPUB_GROUP } from '$lib/modules/constants';
 import { error } from '@sveltejs/kit';
 import { _processInboxMessage } from '../../rss/inbox/+server';
 
@@ -13,7 +13,7 @@ export async function POST({ request }) {
     return await _processInboxMessage({
       message: await request.text(),
       headers: request.headers,
-      accountObj: ACTIVITYPUB_ACCOUNT
+      accountObj: ACTIVITYPUB_GROUP
     });
   } catch (err) {
     console.error(err);
