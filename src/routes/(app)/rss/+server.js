@@ -1,7 +1,10 @@
+import config from '$lib/modules/config';
 import { ACTIVITYPUB_ACCOUNT, ACTIVITYPUB_CONTEXTS, ACTIVITYPUB_RES_HEADERS } from '$lib/modules/constants';
 import { error } from '@sveltejs/kit';
 
 export const prerender = false;
+
+const { image } = config.meta;
 
 const RSS_ACCOUNT_INFO = {
   '@context': [ACTIVITYPUB_CONTEXTS.ACTIVITY_STREAMS, ACTIVITYPUB_CONTEXTS.W3ID_SECURITY],
@@ -15,6 +18,16 @@ const RSS_ACCOUNT_INFO = {
     id: `${ACTIVITYPUB_ACCOUNT.PROFILE}#main-key`,
     owner: `${ACTIVITYPUB_ACCOUNT.PROFILE}`,
     publicKeyPem: ACTIVITYPUB_ACCOUNT.PUBKEY
+  },
+  icon: {
+    type: 'Image',
+    mediaType: 'image/png',
+    url: image
+  },
+  image: {
+    type: 'Image',
+    mediaType: 'image/png',
+    url: image
   }
 };
 
