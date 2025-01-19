@@ -14,7 +14,6 @@ const pages = Object.keys(import.meta.glob('../**/+page.{svelte,md}'))
     if (!a.startsWith('blog') && b.startsWith('blog')) return -1;
     return a.localeCompare(b, undefined, { sensitivity: 'base' });
   });
-console.log(pages);
 
 const headers = {
   'Cache-Control': 'max-age=0, s-maxage=3600',

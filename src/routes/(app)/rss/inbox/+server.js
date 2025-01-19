@@ -36,47 +36,67 @@ function validateFollowMessage(message, opts) {
 export async function POST({ request }) {
   try {
     if (request.headers.get('Content-Type') !== 'application/activity+json') {
+      console.error('Page not found.');
       return error(404, 'Page not found.');
     }
 
     const body = await request.json();
+    console.log({ body });
     const { type, actor, object } = body;
 
     const context = [ body?.['@context'] ].flat();
-    if (!context.includes(ACTIVITYPUB_CONTEXTS.ACTIVITY_STREAMS)) return error(403, 'Unsupported request "@context".');
+    if (!context.includes(ACTIVITYPUB_CONTEXTS.ACTIVITY_STREAMS)) {
+      console.error('Unsupported request "@context".');
+      return error(403, 'Unsupported request "@context".');
+    }
 
     const { hostname: domain, username } = await parseActor(actor).catch(() => {});
-    if (!domain || !username) return error(403, '"actor" param invalid.');
+    if (!domain || !username) {
+      console.error('"actor" param invalid.');
+      return error(403, '"actor" param invalid.');
+    }
 
     switch (type) {
       case 'Follow': {
         if (!validateFollowMessage(body, { object: ACTIVITYPUB_ACCOUNT.PROFILE })) {
+          console.error('Follow message invalid.');
           return error(403, 'Follow message invalid.');
         }
         break;
       }
       case 'Undo': {
         if (!validateFollowMessage(object, { actor, object: ACTIVITYPUB_ACCOUNT.PROFILE })) {
+          console.error('Undo message invalid.');
           return error(403, 'Undo message invalid.');
         }
         break;
       }
       default: {
+        console.error('Unsupported message "type".');
         return error(403, 'Unsupported message "type".');
       }
     }
 
     // validate url
     const isActorValid = await verifyActor({ actor, domain, username });
-    if (!isActorValid) return error(403, '"actor" param invalid.');
+    if (!isActorValid) {
+      console.error('"actor" param invalid.');
+      return error(403, '"actor" param invalid.');
+    }
 
     // get actor account
     const actorAccount = await getActivityPubAccount(actor).catch(() => null);
-    if (!actorAccount) return error(403, '"actor" param invalid.');
+    if (!actorAccount) {
+      console.error('"actor" param invalid.');
+      return error(403, '"actor" param invalid.');
+    }
 
     // check signature
     const actorPubkey = actorAccount?.publicKey?.publicKeyPem;
-    if (!actorPubkey) return error(401, UNAUTHORIZED_ERR);
+    if (!actorPubkey) {
+      console.error(UNAUTHORIZED_ERR);
+      return error(401, UNAUTHORIZED_ERR);
+    }
 
     const isSignatureVerified = await verifyRequestSignature({
       inbox: ACTIVITYPUB_ACCOUNT.INBOX_URL,
@@ -84,15 +104,24 @@ export async function POST({ request }) {
       actor,
       actorPubkey
     }).catch(() => false);
-    if (!isSignatureVerified) return error(401, UNAUTHORIZED_ERR);
+    if (!isSignatureVerified) {
+      console.error(UNAUTHORIZED_ERR);
+      return error(401, UNAUTHORIZED_ERR);
+    }
 
     const inbox = actorAccount?.inbox;
-    if (!inbox) return error(400, 'inbox not found.');
+    if (!inbox) {
+      console.error('inbox not found.');
+      return error(400, 'inbox not found.');
+    }
 
     if (type === 'Follow') {
       // handle follow
       const shared_inbox = actorAccount?.endpoints?.sharedInbox;
-      if (!shared_inbox) return error(400, 'shared inbox not found.');
+      if (!shared_inbox) {
+        console.error('shared inbox not found.');
+        return error(400, 'shared inbox not found.');
+      }
       await storeSetFollow({ domain, username, inbox, shared_inbox });
     } else {
       // handle undo follow
@@ -101,7 +130,6 @@ export async function POST({ request }) {
 
     // send accept message
     const acceptMessage = createAcceptMessage(body);
-    console.log({ acceptMessage });
     await signAndSendMessage({
       message: acceptMessage,
       inbox,
