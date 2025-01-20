@@ -53,6 +53,8 @@ export async function signMessage({ message, inbox, actor, privkey }) {
 
 export async function signAndSendMessage({ message, inbox, actor, privkey }) {
   const { body, headers: sigHeaders } = await signMessage({ message, inbox, actor, privkey });
+  console.log({ message, headers: sigHeaders });
+
   const response = await fetch(inbox, {
     method: 'POST',
     headers: {
