@@ -2,7 +2,7 @@ import crypto from 'node:crypto';
 import { ACTIVITYPUB_CONTEXTS, ACTIVITYPUB_REQ_HEADERS, DOMAIN } from '../constants';
 
 export function generateGUID() {
-  crypto.randomBytes(16).toString('hex');
+  return crypto.randomBytes(16).toString('hex');
 }
 
 export function getStorageKey(username, followerAccount) {
