@@ -13,7 +13,7 @@ export const prerender = false;
 const MAX_ITEMS = 5;
 const outbox_promise = createOutboxItems(ACTIVITYPUB_ACCOUNT, MAX_ITEMS);
 
-export async function _processPublishRequest(accountObj, outbox, lastPublished) {
+export async function _processPublishRequest(accountObj, outbox, lastPublished, update) {
   // prepare items to publish
   if (outbox.totalItems) {
     let itemsToPublish;
@@ -21,7 +21,11 @@ export async function _processPublishRequest(accountObj, outbox, lastPublished) 
     if (lastPublishedIndex > -1) {
       itemsToPublish = outbox.orderedItems.slice(0, lastPublishedIndex).map((item) => ({
         '@context': [ACTIVITYPUB_CONTEXTS.ACTIVITY_STREAMS, ACTIVITYPUB_CONTEXTS.W3ID_SECURITY],
-        ...item
+        ...item,
+        ...(update && {
+          type: 'Update',
+          updated: new Date().toISOString().slice(0, -5) + 'Z'
+        })
       }));
     }
 
@@ -61,8 +65,10 @@ export async function GET({ request, url }) {
     const lastPublished = url.searchParams.get('last');
     if (!lastPublished) return error(403, '"last" param required.');
 
+    const update = !!url.searchParams.get('update');
+
     const outbox = await outbox_promise;
-    return await _processPublishRequest(ACTIVITYPUB_ACCOUNT, outbox, lastPublished);
+    return await _processPublishRequest(ACTIVITYPUB_ACCOUNT, outbox, lastPublished, update);
   } catch (err) {
     if (isHttpError(err)) throw err;
     console.error(err);
