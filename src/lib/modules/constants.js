@@ -1,4 +1,4 @@
-import { PUBLIC_ACTIVITYPUB_PUBKEY, PUBLIC_APP_ENDPOINT, PUBLIC_DOMAIN } from '$env/static/public';
+import { PUBLIC_ACTIVITYPUB_GROUP_PUBKEY, PUBLIC_ACTIVITYPUB_USER_PUBKEY, PUBLIC_APP_ENDPOINT, PUBLIC_DOMAIN } from '$env/static/public';
 
 export {
   PUBLIC_API_URL as API_URL,
@@ -21,7 +21,7 @@ export const ACTIVITYPUB_ACCOUNT = {
   INBOX_URL: `https://${PUBLIC_DOMAIN}/federated/rss/inbox`,
   OUTBOX_URL: `https://${PUBLIC_DOMAIN}/federated/rss/outbox`,
   INBOX_PATH: '/federated/rss/inbox',
-  PUBKEY: PUBLIC_ACTIVITYPUB_PUBKEY,
+  PUBKEY: PUBLIC_ACTIVITYPUB_USER_PUBKEY,
   PUBLISHED: Date.UTC(2021, 10, 1)
 };
 
@@ -36,7 +36,7 @@ export const ACTIVITYPUB_GROUP = {
   FEATURED_URL: `https://${PUBLIC_DOMAIN}/federated/blog/featured`,
   ATTRIBUTED_TO_URL: `https://${PUBLIC_DOMAIN}/federated/blog/moderators`,
   INBOX_PATH: '/federated/blog/inbox',
-  PUBKEY: PUBLIC_ACTIVITYPUB_PUBKEY,
+  PUBKEY: PUBLIC_ACTIVITYPUB_GROUP_PUBKEY,
   PUBLISHED: Date.UTC(2021, 10, 1)
 };
 
