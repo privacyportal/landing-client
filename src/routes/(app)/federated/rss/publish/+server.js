@@ -39,7 +39,7 @@ export async function _processPublishRequest(accountObj, outbox, lastPublished, 
             message,
             inbox,
             actor: accountObj.PROFILE,
-            privkey: env.ACTIVITYPUB_PRIVKEY
+            privkey: accountObj.TYPE === 'Group' ? env.ACTIVITYPUB_GROUP_PRIVKEY : env.ACTIVITYPUB_USER_PRIVKEY
           });
         }
         console.log(`done publishing.`);
