@@ -4,7 +4,7 @@ import crypto from 'crypto';
 import { ACTIVITYPUB_ACCOUNT, ACTIVITYPUB_CONTEXTS, ACTIVITYPUB_GROUP } from '../constants';
 import { capitalize } from '../util';
 
-const { site_name, image } = config.meta;
+const { site_name } = config.meta;
 
 function generateDeterministicId(slug) {
   return crypto.createHash('sha256').update(slug).digest('hex').slice(0, 32);
