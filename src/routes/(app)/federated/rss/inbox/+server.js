@@ -99,14 +99,14 @@ export async function _processInboxMessage({ message, headers, accountObj }) {
 
   // send accept message
   const acceptMessage = createAcceptMessage({ messageBody: body, actor: accountObj.PROFILE });
-  setImmediate(async () => {
+  setTimeout(async () => {
     await signAndSendMessage({
       message: acceptMessage,
       inbox,
       actor: accountObj.PROFILE,
       privkey: accountObj.TYPE === 'Group' ? env.ACTIVITYPUB_GROUP_PRIVKEY : env.ACTIVITYPUB_USER_PRIVKEY
     }).catch(console.error);
-  });
+  }, 1000);
 
   return new Response(JSON.stringify({ message: 'Data received successfully' }), {
     status: 200,
