@@ -54,12 +54,16 @@ function createPost(postMetadata) {
       sensitive: false,
       content,
       attachment: [
-        {
-          type: 'Document',
-          mediaType: 'image/png',
-          url: image,
-          name: null
-        }
+        ...(
+          postMetadata?.image ? [
+            {
+              type: 'Document',
+              mediaType: 'image/png',
+              url: `https://${site_name}${postMetadata.image}`,
+              name: null
+            }
+          ] : []
+        )
       ],
       tag: [
         {

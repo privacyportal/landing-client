@@ -6,6 +6,7 @@ category: 'oauth docs'
 genre: 'documentation'
 keywords: ['wordpress sso', 'wp sso', 'wordpress oauth2', 'sso', 'sign in with privacy portal for wordpress']
 date: '2024-10-14'
+image: '/assets/blog/setting-up-siwpp-on-wp/siwpp_wp_enable_sso.png'
 ---
 
 In this tutorial, we will show you how to quickly set up **[Sign In with Privacy Portal](/for-business/products#sign-in-with-privacy-portal)** on your WordPress site.

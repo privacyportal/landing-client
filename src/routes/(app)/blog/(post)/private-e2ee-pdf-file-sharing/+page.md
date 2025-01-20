@@ -6,6 +6,7 @@ category: 'file sharing'
 genre: 'documentation'
 keywords: ['private file sharing', 'private print', 'pdf file sharing', 'file sharing privacy']
 date: '2024-12-15'
+image: '/assets/blog/private-e2ee-pdf-file-sharing/social_media-features-file-sharing.png'
 ---
 
 Ever searched for a way to share documents securely, only to find that every solution compromises your privacy? Look no further.

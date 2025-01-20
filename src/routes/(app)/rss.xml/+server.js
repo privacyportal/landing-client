@@ -21,7 +21,7 @@ function createRSSItem(params) {
     `      <guid>https://${site_name}/blog/${params.slug}</guid>`,
     `      <pubDate>${new Date(Date.UTC(pubYear, pubMonth - 1, pubDay)).toUTCString()}</pubDate>`,
     ...[params.category, ...(params.tags || [])].map((tag) => `      <category>${tag}</category>`),
-    `      <media:thumbnail url="${image}"/>`,
+    `      <media:thumbnail url="${params.image ? `https://${site_name}${params.image}` : image}"/>`,
     '    </item>'
   ].join('\n');
 }
