@@ -1,7 +1,7 @@
 import { publishedUpdatedDates } from '$lib/modules/activitypub/apRssUtil';
 import config from '$lib/modules/config';
 import { ACTIVITYPUB_CONTEXTS, ACTIVITYPUB_GROUP, ACTIVITYPUB_RES_HEADERS } from '$lib/modules/constants';
-import { error } from '@sveltejs/kit';
+import { error, isHttpError } from '@sveltejs/kit';
 
 export const prerender = false;
 
@@ -58,6 +58,7 @@ export async function GET({ request }) {
     const publishDates = await dates_promise;
     return new Response(JSON.stringify({ ...BLOG_ACCOUNT_INFO, ...publishDates }), { headers: ACTIVITYPUB_RES_HEADERS });
   } catch (err) {
+    if (isHttpError(err)) throw err;
     console.error(err);
     error(400, 'Unexpected error.');
   }

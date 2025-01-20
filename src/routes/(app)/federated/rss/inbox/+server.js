@@ -3,7 +3,7 @@ import { signAndSendMessage, verifyRequestSignature } from '$lib/modules/activit
 import { storeSetFollow, storeUnsetFollow } from '$lib/modules/activitypub/apStorageUtil';
 import { createAcceptMessage, getActivityPubAccount, parseActor, validateFollowMessage, verifyActorWithWebfinger } from '$lib/modules/activitypub/apUtil';
 import { ACTIVITYPUB_ACCOUNT, ACTIVITYPUB_CONTEXTS, ACTIVITYPUB_RES_HEADERS, UNAUTHORIZED_ERR } from '$lib/modules/constants';
-import { error } from '@sveltejs/kit';
+import { error, isHttpError } from '@sveltejs/kit';
 
 export const prerender = false;
 
@@ -126,6 +126,7 @@ export async function POST({ request }) {
       accountObj: ACTIVITYPUB_ACCOUNT
     });
   } catch (err) {
+    if (isHttpError(err)) throw err;
     console.error(err);
     error(400, 'Unexpected error.');
   }

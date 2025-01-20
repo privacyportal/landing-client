@@ -4,7 +4,7 @@ import { signAndSendMessage } from '$lib/modules/activitypub/apSignatureUtil';
 import { storeFollowersIterator } from '$lib/modules/activitypub/apStorageUtil';
 import { authorize } from '$lib/modules/auth';
 import { ACTIVITYPUB_ACCOUNT, ACTIVITYPUB_CONTEXTS, DEFAULT_RES_HEADERS, UNAUTHORIZED_ERR } from '$lib/modules/constants';
-import { error } from '@sveltejs/kit';
+import { error, isHttpError } from '@sveltejs/kit';
 
 export const prerender = false;
 
@@ -64,6 +64,7 @@ export async function GET({ request, url }) {
     const outbox = await outbox_promise;
     return await _processPublishRequest(ACTIVITYPUB_ACCOUNT, outbox, lastPublished);
   } catch (err) {
+    if (isHttpError(err)) throw err;
     console.error(err);
     error(400, 'Unexpected error.');
   }

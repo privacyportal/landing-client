@@ -1,7 +1,7 @@
 import { createOutboxItems } from '$lib/modules/activitypub/apRssUtil';
 import { authorize } from '$lib/modules/auth';
 import { ACTIVITYPUB_GROUP, UNAUTHORIZED_ERR } from '$lib/modules/constants';
-import { error } from '@sveltejs/kit';
+import { error, isHttpError } from '@sveltejs/kit';
 import { _processPublishRequest } from '../../rss/publish/+server';
 
 export const prerender = false;
@@ -25,6 +25,7 @@ export async function GET({ request, url }) {
     const outbox = await outbox_promise;
     return await _processPublishRequest(ACTIVITYPUB_GROUP, outbox, lastPublished);
   } catch (err) {
+  if (isHttpError(err)) throw err;
     console.error(err);
     error(400, 'Unexpected error.');
   }

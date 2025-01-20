@@ -1,6 +1,6 @@
 import { createOutboxItems } from '$lib/modules/activitypub/apRssUtil';
 import { ACTIVITYPUB_GROUP, ACTIVITYPUB_RES_HEADERS } from '$lib/modules/constants';
-import { error } from '@sveltejs/kit';
+import { error, isHttpError } from '@sveltejs/kit';
 
 export const prerender = true;
 
@@ -14,6 +14,7 @@ export async function GET() {
     const outbox = await outbox_promise;
     return new Response(JSON.stringify(outbox), { headers: ACTIVITYPUB_RES_HEADERS });
   } catch (err) {
+    if (isHttpError(err)) throw err;
     console.error(err);
     error(400, 'Unexpected error.');
   }
