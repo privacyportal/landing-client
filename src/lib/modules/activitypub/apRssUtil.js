@@ -1,14 +1,9 @@
 import config from '$lib/modules/config';
-import getBlogPosts from '$lib/server/getBlogPosts';
-import crypto from 'crypto';
+import getBlogPosts, { generateDeterministicId } from '$lib/server/getBlogPosts';
 import { ACTIVITYPUB_ACCOUNT, ACTIVITYPUB_CONTEXTS, ACTIVITYPUB_GROUP } from '../constants';
 import { capitalize } from '../util';
 
 const { site_name } = config.meta;
-
-function generateDeterministicId(slug) {
-  return crypto.createHash('sha256').update(slug).digest('hex').slice(0, 32);
-}
 
 export function formatPublishDate(postMetadata) {
   const [pubYear, pubMonth, pubDay] = postMetadata.date.split('-');
@@ -25,9 +20,8 @@ export async function publishedUpdatedDates() {
   };
 }
 
-function createPost(postMetadata) {
-  const postId = generateDeterministicId(postMetadata.slug);
-  const postUrl = `${ACTIVITYPUB_ACCOUNT.PROFILE}/statuses/${postId}`;
+export function createPost(postMetadata) {
+  const postUrl = `${ACTIVITYPUB_ACCOUNT.PROFILE}/statuses/${postMetadata.id}`;
   const published = formatPublishDate(postMetadata);
   const content = [
     `<h1>${postMetadata.title}</h1>`,
