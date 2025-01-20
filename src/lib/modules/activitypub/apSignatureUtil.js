@@ -18,6 +18,9 @@ function getInboxFragment(inbox) {
 export async function signMessage({ message, inbox, actor, privkey }) {
   const requestBody = JSON.stringify(message);
 
+  // content-type
+  const contentTypeHeader = 'application/activity+json';
+
   // digest
   const digest = crypto.createHash('sha256').update(requestBody).digest('base64');
   const digestHeader = `SHA-256=${digest}`;
@@ -30,15 +33,16 @@ export async function signMessage({ message, inbox, actor, privkey }) {
   const { hostname: hostHeader } = new URL(inbox);
 
   // signature
-  const stringToSign = [`(request-target): post ${getInboxFragment(inbox)}`, `host: ${hostHeader}`, `date: ${dateHeader}`, `digest: ${digestHeader}`].join('\n');
+  const stringToSign = [`(request-target): post ${getInboxFragment(inbox)}`, `content-type: ${contentTypeHeader}`, `host: ${hostHeader}`, `date: ${dateHeader}`, `digest: ${digestHeader}`].join('\n');
 
   const signature = await signData(stringToSign, privkey);
   const algorithm = 'rsa-sha256';
-  const signatureHeader = [`keyId="${actor}"`, `algorithm="${algorithm}"`, 'headers="(request-target) host date digest"', `signature="${signature}"`].join(',');
+  const signatureHeader = [`keyId="${actor}"`, `algorithm="${algorithm}"`, 'headers="(request-target) content-type host date digest"', `signature="${signature}"`].join(',');
 
   return {
     body: requestBody,
     headers: {
+      'Content-Type': contentTypeHeader,
       Host: hostHeader,
       Date: dateHeader,
       Digest: digestHeader,
@@ -53,13 +57,12 @@ export async function signAndSendMessage({ message, inbox, actor, privkey }) {
     method: 'POST',
     headers: {
       Accept: 'application/activity+json',
-      'Content-Type': 'application/activity+json',
       ...sigHeaders
     },
     body
   });
 
-  if (!response.ok) throw new Error('Sending failed:', await response.text());
+  if (!response.ok) throw new Error(`Sending failed [${response.status}]:`, await response.text());
 }
 
 export async function verifyRequestSignature({ inbox, message, headers, actor, actorPubkey }) {
