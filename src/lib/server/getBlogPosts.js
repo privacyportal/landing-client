@@ -1,5 +1,6 @@
 import loki from 'lokijs';
 import path from 'path';
+import crypto from 'crypto';
 
 const db = new loki('Index');
 const blogs = db.addCollection('blog', { indices: ['date', 'slug', 'category_slug'] });
@@ -13,6 +14,10 @@ const extractDescription = (html) => {
     .join(' ');
 };
 
+export function generateDeterministicId(slug) {
+  return crypto.createHash('sha256').update(slug).digest('hex').slice(0, 32);
+}
+
 const createPostsIndex = async () => {
   const modules = import.meta.glob('../../routes/\\(app\\)/blog/\\(post\\)/*/+page.md', {
     eager: true
@@ -21,8 +26,10 @@ const createPostsIndex = async () => {
   for (const filepath in modules) {
     const post = modules[filepath];
     const html = post.default.render().html;
+    const slug = path.basename(path.parse(filepath).dir);
     blogs.insert({
-      slug: path.basename(path.parse(filepath).dir),
+      id: generateDeterministicId(slug),
+      slug,
       ...post.metadata,
       category_slug: post.metadata.category.replaceAll(/\s/g, '-'),
       summary: extractDescription(html),
