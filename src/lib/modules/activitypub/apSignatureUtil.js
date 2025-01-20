@@ -37,7 +37,7 @@ export async function signMessage({ message, inbox, actor, privkey }) {
 
   const signature = await signData(stringToSign, privkey);
   const algorithm = 'rsa-sha256';
-  const signatureHeader = [`keyId="${actor}"`, `algorithm="${algorithm}"`, 'headers="(request-target) content-type host date digest"', `signature="${signature}"`].join(',');
+  const signatureHeader = [`keyId="${actor}#main-key"`, `algorithm="${algorithm}"`, 'headers="(request-target) content-type host date digest"', `signature="${signature}"`].join(',');
 
   return {
     body: requestBody,
