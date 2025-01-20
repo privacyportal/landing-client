@@ -103,7 +103,7 @@ export async function _processInboxMessage({ message, headers, accountObj }) {
     message: acceptMessage,
     inbox,
     actor: accountObj.PROFILE,
-    privkey: env.ACTIVITYPUB_PRIVKEY
+    privkey: accountObj.TYPE === 'Group' ? env.ACTIVITYPUB_GROUP_PRIVKEY : env.ACTIVITYPUB_USER_PRIVKEY
   });
 
   return new Response(JSON.stringify({ message: 'Data received successfully' }), {
