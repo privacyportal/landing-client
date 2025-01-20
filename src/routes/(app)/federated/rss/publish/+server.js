@@ -56,7 +56,7 @@ export async function GET({ request, url }) {
     if (!(request.headers.get('Accept') || '').includes('application/json')) {
       return error(404, 'Page not found.');
     }
-    if (!(await authorize(request).catch(() => null))) return error(401, UNAUTHORIZED_ERR);
+    if (!(await authorize(request).catch((err) => { console.error(err); return null; }))) return error(401, UNAUTHORIZED_ERR);
 
     const lastPublished = url.searchParams.get('last');
     if (!lastPublished) return error(403, '"last" param required.');
