@@ -17,6 +17,7 @@ keywords:
     'how to hide my email'
   ]
 date: '2023-02-26'
+image: '/assets/blog/getting-started-with-mail-relay/privacy-aliases-infocard.png'
 ---
 
 Welcome to Privacy Portal! You can start using Mail Relay to protect your email privacy.
