@@ -1,5 +1,5 @@
 import { ACTIVITYPUB_ACCOUNT, ACTIVITYPUB_GROUP } from '$lib/modules/constants';
-import { error } from '@sveltejs/kit';
+import { error, isHttpError } from '@sveltejs/kit';
 
 export const prerender = false;
 
@@ -44,6 +44,7 @@ export async function GET({ url }) {
       }
     );
   } catch (err) {
+    if (isHttpError(err)) throw err;
     console.error(err);
     error(400, 'Unexpected error.');
   }

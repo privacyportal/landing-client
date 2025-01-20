@@ -1,5 +1,5 @@
 import { ACTIVITYPUB_GROUP } from '$lib/modules/constants';
-import { error } from '@sveltejs/kit';
+import { error, isHttpError } from '@sveltejs/kit';
 import { _processInboxMessage } from '../../rss/inbox/+server';
 
 /** @type {import('./$types').RequestHandler} */
@@ -16,6 +16,7 @@ export async function POST({ request }) {
       accountObj: ACTIVITYPUB_GROUP
     });
   } catch (err) {
+    if (isHttpError(err)) throw err;
     console.error(err);
     error(400, 'Unexpected error.');
   }
