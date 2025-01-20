@@ -34,6 +34,9 @@ export function createAcceptMessage({ messageBody, actor }) {
   // eslint-disable-next-line no-unused-vars
   const { ['@context']: _, ...object } = messageBody;
 
+  if (object?.to) delete object.to;
+  if (object?.object?.to) delete object.object.to;
+
   return {
     '@context': [ACTIVITYPUB_CONTEXTS.ACTIVITY_STREAMS, ACTIVITYPUB_CONTEXTS.W3ID_SECURITY],
     id: `https://${DOMAIN}/${generateGUID()}`,
