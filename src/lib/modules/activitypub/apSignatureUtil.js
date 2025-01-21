@@ -16,7 +16,7 @@ function getInboxFragment(inbox) {
 }
 
 export async function signMessage({ message, inbox, keyInfo }) {
-  const requestBody = JSON.stringify(message);
+  const requestBody = typeof message === 'string' ? message : JSON.stringify(message);
 
   // content-type
   const contentTypeHeader = 'application/activity+json';
@@ -33,11 +33,11 @@ export async function signMessage({ message, inbox, keyInfo }) {
   const { hostname: hostHeader } = new URL(inbox);
 
   // signature
-  const stringToSign = [`(request-target): post ${getInboxFragment(inbox)}`, `content-type: ${contentTypeHeader}`, `host: ${hostHeader}`, `date: ${dateHeader}`, `digest: ${digestHeader}`].join('\n');
+  const stringToSign = [`(request-target): post ${getInboxFragment(inbox)}`, `content-type: ${contentTypeHeader}`, `date: ${dateHeader}`, `digest: ${digestHeader}`, `host: ${hostHeader}`].join('\n');
 
   const signature = await signData(stringToSign, keyInfo.private);
-  const algorithm = 'rsa-sha256';
-  const signatureHeader = [`keyId="${keyInfo.id}"`, `algorithm="${algorithm}"`, 'headers="(request-target) content-type host date digest"', `signature="${signature}"`].join(',');
+  const algorithm = 'hs2019';
+  const signatureHeader = [`keyId="${keyInfo.id}"`, `algorithm="${algorithm}"`, 'headers="(request-target) content-type date digest host"', `signature="${signature}"`].join(',');
 
   return {
     body: requestBody,
