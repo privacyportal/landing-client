@@ -11,7 +11,7 @@ export const prerender = false;
 // this shouldn't happen anyway
 const MAX_ITEMS = 5;
 
-export async function _processPublishRequest(accountObj, keyInfo, orderedItems, lastPublished, update) {
+export async function _processPublishRequest({ accountObj, keyInfo, orderedItems, lastPublished, update=false }) {
   // prepare items to publish
   if (orderedItems.length) {
     let itemsToPublish;
@@ -73,11 +73,17 @@ export async function GET({ request, url, fetch }) {
     const orderedItems = await fetch(APUB_MICROBLOG_ACCOUNT.OUTBOX_PATH)
       .then((res) => res.json())
       .then((data) => data.orderedItems.slice(0, MAX_ITEMS));
-    const keyInfo = {
-      id: APUB_MICROBLOG_ACCOUNT.KEY_ID,
-      private: env[APUB_MICROBLOG_ACCOUNT.PRIVKEY_NAME]
-    }
-    return await _processPublishRequest(APUB_MICROBLOG_ACCOUNT, keyInfo, orderedItems, lastPublished, update);
+
+    return await _processPublishRequest({
+      accountObj: APUB_MICROBLOG_ACCOUNT,
+      keyInfo: {
+        id: APUB_MICROBLOG_ACCOUNT.KEY_ID,
+        private: env[APUB_MICROBLOG_ACCOUNT.PRIVKEY_NAME]
+      },
+      orderedItems,
+      lastPublished,
+      update
+    });
   } catch (err) {
     if (isHttpError(err)) throw err;
     console.error(err);
