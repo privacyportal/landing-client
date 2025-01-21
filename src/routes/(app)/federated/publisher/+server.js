@@ -1,23 +1,23 @@
 import config from '$lib/modules/config';
-import { ACTIVITYPUB_CONTEXTS, ACTIVITYPUB_RES_HEADERS, APUB_MICROBLOG_ACCOUNT } from '$lib/modules/constants';
+import { ACTIVITYPUB_CONTEXTS, ACTIVITYPUB_RES_HEADERS, APUB_BLOG_ACCOUNT } from '$lib/modules/constants';
 import { error, isHttpError } from '@sveltejs/kit';
 
 export const prerender = false;
 
 const { image } = config.meta;
 
-const RSS_ACCOUNT_INFO = {
+const PUBLISHER_ACCOUNT_INFO = {
   '@context': [ACTIVITYPUB_CONTEXTS.ACTIVITY_STREAMS, ACTIVITYPUB_CONTEXTS.W3ID_SECURITY],
-  id: APUB_MICROBLOG_ACCOUNT.PROFILE,
-  type: APUB_MICROBLOG_ACCOUNT.TYPE,
-  name: APUB_MICROBLOG_ACCOUNT.NAME,
-  preferredUsername: APUB_MICROBLOG_ACCOUNT.USERNAME,
-  inbox: APUB_MICROBLOG_ACCOUNT.INBOX_URL,
-  outbox: APUB_MICROBLOG_ACCOUNT.OUTBOX_URL,
+  id: APUB_BLOG_ACCOUNT.PROFILE,
+  type: APUB_BLOG_ACCOUNT.TYPE,
+  name: APUB_BLOG_ACCOUNT.NAME,
+  preferredUsername: APUB_BLOG_ACCOUNT.USERNAME,
+  inbox: APUB_BLOG_ACCOUNT.INBOX_URL,
+  outbox: APUB_BLOG_ACCOUNT.OUTBOX_URL,
   publicKey: {
-    id: APUB_MICROBLOG_ACCOUNT.KEY_ID,
-    owner: APUB_MICROBLOG_ACCOUNT.PROFILE,
-    publicKeyPem: APUB_MICROBLOG_ACCOUNT.PUBKEY
+    id: APUB_BLOG_ACCOUNT.KEY_ID,
+    owner: APUB_BLOG_ACCOUNT.PROFILE,
+    publicKeyPem: APUB_BLOG_ACCOUNT.PUBKEY
   },
   icon: {
     type: 'Image',
@@ -44,7 +44,7 @@ export async function GET({ request, fetch }) {
     }
 
     const { published, updated } = await fetch('/blog/meta.json').then((res) => res.json());
-    return new Response(JSON.stringify({ ...RSS_ACCOUNT_INFO, published, updated }), { headers: ACTIVITYPUB_RES_HEADERS });
+    return new Response(JSON.stringify({ ...PUBLISHER_ACCOUNT_INFO, published, updated }), { headers: ACTIVITYPUB_RES_HEADERS });
   } catch (err) {
     if (isHttpError(err)) throw err;
     console.error(err);

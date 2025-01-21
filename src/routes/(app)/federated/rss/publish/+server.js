@@ -1,9 +1,8 @@
 import { env } from '$env/dynamic/private';
-import { createOutboxItems } from '$lib/modules/activitypub/apRssUtil';
 import { signAndSendMessage } from '$lib/modules/activitypub/apSignatureUtil';
 import { storeFollowersIterator } from '$lib/modules/activitypub/apStorageUtil';
 import { authorize } from '$lib/modules/auth';
-import { ACTIVITYPUB_ACCOUNT, ACTIVITYPUB_CONTEXTS, DEFAULT_RES_HEADERS, UNAUTHORIZED_ERR } from '$lib/modules/constants';
+import { ACTIVITYPUB_CONTEXTS, APUB_MICROBLOG_ACCOUNT, DEFAULT_RES_HEADERS, UNAUTHORIZED_ERR } from '$lib/modules/constants';
 import { error, isHttpError } from '@sveltejs/kit';
 
 export const prerender = false;
@@ -11,7 +10,6 @@ export const prerender = false;
 // we should not publish more than 5 posts in order to not spam servers
 // this shouldn't happen anyway
 const MAX_ITEMS = 5;
-const outbox_promise = createOutboxItems(ACTIVITYPUB_ACCOUNT, MAX_ITEMS);
 
 export async function _processPublishRequest(accountObj, outbox, lastPublished, update) {
   // prepare items to publish
@@ -40,7 +38,7 @@ export async function _processPublishRequest(accountObj, outbox, lastPublished, 
             inbox,
             keyInfo: {
               id: accountObj.KEY_ID,
-              private: accountObj.TYPE === 'Group' ? env.ACTIVITYPUB_GROUP_PRIVKEY : env.ACTIVITYPUB_USER_PRIVKEY
+              private: env[accountObj.PRIVKEY_NAME]
             }
           });
         }
@@ -57,20 +55,28 @@ export async function _processPublishRequest(accountObj, outbox, lastPublished, 
 }
 
 /** @type {import('./$types').RequestHandler} */
-export async function GET({ request, url }) {
+export async function GET({ request, url, fetch }) {
   try {
     if (!(request.headers.get('Accept') || '').includes('application/json')) {
       return error(404, 'Page not found.');
     }
-    if (!(await authorize(request).catch((err) => { console.error(err); return null; }))) return error(401, UNAUTHORIZED_ERR);
+    if (
+      !(await authorize(request).catch((err) => {
+        console.error(err);
+        return null;
+      }))
+    )
+      return error(401, UNAUTHORIZED_ERR);
 
     const lastPublished = url.searchParams.get('last');
     if (!lastPublished) return error(403, '"last" param required.');
 
     const update = !!url.searchParams.get('update');
 
-    const outbox = await outbox_promise;
-    return await _processPublishRequest(ACTIVITYPUB_ACCOUNT, outbox, lastPublished, update);
+    const outbox = await fetch(APUB_MICROBLOG_ACCOUNT.OUTBOX_PATH)
+      .then((res) => res.json())
+      .orderedItems.slice(0, MAX_ITEMS);
+    return await _processPublishRequest(APUB_MICROBLOG_ACCOUNT, outbox, lastPublished, update);
   } catch (err) {
     if (isHttpError(err)) throw err;
     console.error(err);

@@ -53,7 +53,7 @@ export async function signMessage({ message, inbox, keyInfo }) {
 
 export async function signAndSendMessage({ message, inbox, keyInfo }) {
   const { body, headers: sigHeaders } = await signMessage({ message, inbox, keyInfo });
-  console.log({ inbox, body, headers: { Accept: 'application/activity+json', ...sigHeaders }});
+  console.log({ inbox, body, headers: { Accept: 'application/activity+json', ...sigHeaders } });
 
   const response = await fetch(inbox, {
     method: 'POST',

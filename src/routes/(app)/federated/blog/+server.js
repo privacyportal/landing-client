@@ -1,6 +1,5 @@
-import { publishedUpdatedDates } from '$lib/modules/activitypub/apRssUtil';
 import config from '$lib/modules/config';
-import { ACTIVITYPUB_CONTEXTS, ACTIVITYPUB_GROUP, ACTIVITYPUB_RES_HEADERS } from '$lib/modules/constants';
+import { ACTIVITYPUB_CONTEXTS, ACTIVITYPUB_RES_HEADERS, APUB_GROUP } from '$lib/modules/constants';
 import { error, isHttpError } from '@sveltejs/kit';
 
 export const prerender = false;
@@ -9,19 +8,19 @@ const { image } = config.meta;
 
 const BLOG_ACCOUNT_INFO = {
   '@context': [ACTIVITYPUB_CONTEXTS.ACTIVITY_STREAMS, ACTIVITYPUB_CONTEXTS.W3ID_SECURITY],
-  id: ACTIVITYPUB_GROUP.PROFILE,
-  type: ACTIVITYPUB_GROUP.TYPE,
-  name: ACTIVITYPUB_GROUP.NAME,
-  preferredUsername: ACTIVITYPUB_GROUP.USERNAME,
-  inbox: ACTIVITYPUB_GROUP.INBOX_URL,
-  outbox: ACTIVITYPUB_GROUP.OUTBOX_URL,
-  featured: ACTIVITYPUB_GROUP.FEATURED_URL,
-  attributedTo: ACTIVITYPUB_GROUP.ATTRIBUTED_TO_URL,
+  id: APUB_GROUP.PROFILE,
+  type: APUB_GROUP.TYPE,
+  name: APUB_GROUP.NAME,
+  preferredUsername: APUB_GROUP.USERNAME,
+  inbox: APUB_GROUP.INBOX_URL,
+  outbox: APUB_GROUP.OUTBOX_URL,
+  featured: APUB_GROUP.FEATURED_URL,
+  attributedTo: APUB_GROUP.ATTRIBUTED_TO_URL,
   postingRestrictedToMods: true,
   publicKey: {
-    id: ACTIVITYPUB_GROUP.KEY_ID,
-    owner: ACTIVITYPUB_GROUP.PROFILE,
-    publicKeyPem: ACTIVITYPUB_GROUP.PUBKEY
+    id: APUB_GROUP.KEY_ID,
+    owner: APUB_GROUP.PROFILE,
+    publicKeyPem: APUB_GROUP.PUBKEY
   },
   summary: '<p><strong>Privacy Portal Blog Posts:</strong> learn about online privacy and follow the latest updates on our products.</p>\n',
   source: {
@@ -42,10 +41,8 @@ const BLOG_ACCOUNT_INFO = {
   sensitive: false
 };
 
-const dates_promise = publishedUpdatedDates();
-
 /** @type {import('./$types').RequestHandler} */
-export async function GET({ request }) {
+export async function GET({ request, fetch }) {
   try {
     if (!(request.headers.get('Accept') || '').includes('application/activity+json')) {
       return new Response(null, {
@@ -55,8 +52,8 @@ export async function GET({ request }) {
         }
       });
     }
-    const publishDates = await dates_promise;
-    return new Response(JSON.stringify({ ...BLOG_ACCOUNT_INFO, ...publishDates }), { headers: ACTIVITYPUB_RES_HEADERS });
+    const { published, updated } = await fetch('/blog/meta.json').then((res) => res.json());
+    return new Response(JSON.stringify({ ...BLOG_ACCOUNT_INFO, published, updated }), { headers: ACTIVITYPUB_RES_HEADERS });
   } catch (err) {
     if (isHttpError(err)) throw err;
     console.error(err);

@@ -9,5 +9,5 @@ export async function authorize(request) {
     issuer: `https://${DOMAIN}`,
     audience: `https://${DOMAIN}`,
     algorithms: ['HS256']
-  })
+  });
 }

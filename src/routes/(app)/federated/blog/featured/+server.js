@@ -1,11 +1,11 @@
-import { ACTIVITYPUB_CONTEXTS, ACTIVITYPUB_GROUP, ACTIVITYPUB_RES_HEADERS } from '$lib/modules/constants';
+import { ACTIVITYPUB_CONTEXTS, ACTIVITYPUB_RES_HEADERS, APUB_GROUP } from '$lib/modules/constants';
 import { error, isHttpError } from '@sveltejs/kit';
 
 export const prerender = true;
 
 const RSS_ACCOUNT_INFO = {
   '@context': [ACTIVITYPUB_CONTEXTS.ACTIVITY_STREAMS, ACTIVITYPUB_CONTEXTS.W3ID_SECURITY],
-  id: ACTIVITYPUB_GROUP.FEATURED_URL,
+  id: APUB_GROUP.FEATURED_URL,
   type: 'OrderedCollection',
   orderedItems: [],
   totalItems: 0
