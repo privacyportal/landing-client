@@ -11,13 +11,13 @@ export const prerender = false;
 // this shouldn't happen anyway
 const MAX_ITEMS = 5;
 
-export async function _processPublishRequest(accountObj, outbox, lastPublished, update) {
+export async function _processPublishRequest(accountObj, orderedItems, lastPublished, update) {
   // prepare items to publish
-  if (outbox.totalItems) {
+  if (orderedItems.length) {
     let itemsToPublish;
-    const lastPublishedIndex = outbox.orderedItems.findIndex((item) => item.id === lastPublished);
+    const lastPublishedIndex = orderedItems.findIndex((item) => item.id === lastPublished);
     if (lastPublishedIndex > -1) {
-      itemsToPublish = outbox.orderedItems.slice(0, lastPublishedIndex).map((item) => ({
+      itemsToPublish = orderedItems.slice(0, lastPublishedIndex).map((item) => ({
         '@context': [ACTIVITYPUB_CONTEXTS.ACTIVITY_STREAMS, ACTIVITYPUB_CONTEXTS.W3ID_SECURITY],
         ...item,
         ...(update && {
@@ -73,10 +73,10 @@ export async function GET({ request, url, fetch }) {
 
     const update = !!url.searchParams.get('update');
 
-    const outbox = await fetch(APUB_MICROBLOG_ACCOUNT.OUTBOX_PATH)
+    const orderedItems = await fetch(APUB_MICROBLOG_ACCOUNT.OUTBOX_PATH)
       .then((res) => res.json())
       .then((data) => data.orderedItems.slice(0, MAX_ITEMS));
-    return await _processPublishRequest(APUB_MICROBLOG_ACCOUNT, outbox, lastPublished, update);
+    return await _processPublishRequest(APUB_MICROBLOG_ACCOUNT, orderedItems, lastPublished, update);
   } catch (err) {
     if (isHttpError(err)) throw err;
     console.error(err);
