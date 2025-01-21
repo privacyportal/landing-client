@@ -19,7 +19,7 @@ const BLOG_ACCOUNT_INFO = {
   attributedTo: ACTIVITYPUB_GROUP.ATTRIBUTED_TO_URL,
   postingRestrictedToMods: true,
   publicKey: {
-    id: `${ACTIVITYPUB_GROUP.PROFILE}#main-key`,
+    id: ACTIVITYPUB_GROUP.KEY_ID,
     owner: ACTIVITYPUB_GROUP.PROFILE,
     publicKeyPem: ACTIVITYPUB_GROUP.PUBKEY
   },

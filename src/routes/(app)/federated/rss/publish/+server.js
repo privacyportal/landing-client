@@ -40,7 +40,7 @@ export async function _processPublishRequest(accountObj, outbox, lastPublished, 
             inbox,
             keyInfo: {
               // we always use the user key since it's also the moderator of the group
-              id: ACTIVITYPUB_ACCOUNT.PROFILE,
+              id: ACTIVITYPUB_ACCOUNT.KEY_ID,
               private: env.ACTIVITYPUB_USER_PRIVKEY
             }
           });
