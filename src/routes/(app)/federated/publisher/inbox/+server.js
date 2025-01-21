@@ -1,6 +1,8 @@
-import { APUB_GROUP } from '$lib/modules/constants';
+import { APUB_BLOG_ACCOUNT } from '$lib/modules/constants';
 import { error, isHttpError } from '@sveltejs/kit';
 import { _processInboxMessage } from '../../rss/inbox/+server';
+
+export const prerender = false;
 
 /** @type {import('./$types').RequestHandler} */
 export async function POST({ request }) {
@@ -13,7 +15,7 @@ export async function POST({ request }) {
     return await _processInboxMessage({
       message: await request.text(),
       headers: request.headers,
-      accountObj: APUB_GROUP
+      accountObj: APUB_BLOG_ACCOUNT
     });
   } catch (err) {
     if (isHttpError(err)) throw err;

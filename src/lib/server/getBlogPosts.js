@@ -1,6 +1,6 @@
+import crypto from 'crypto';
 import loki from 'lokijs';
 import path from 'path';
-import crypto from 'crypto';
 
 const db = new loki('Index');
 const blogs = db.addCollection('blog', { indices: ['date', 'slug', 'category_slug'] });
@@ -70,6 +70,7 @@ const createPostsIndex = async () => {
 
 const postIndexPromise = createPostsIndex();
 
+// should only be used in prerendered routes
 export default async function getBlogPosts() {
   await postIndexPromise;
   return blogs;

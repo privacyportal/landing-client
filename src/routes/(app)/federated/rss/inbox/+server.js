@@ -2,7 +2,7 @@ import { env } from '$env/dynamic/private';
 import { signAndSendMessage, verifyRequestSignature } from '$lib/modules/activitypub/apSignatureUtil';
 import { storeSetFollow, storeUnsetFollow } from '$lib/modules/activitypub/apStorageUtil';
 import { createAcceptMessage, getActivityPubAccount, parseActor, validateFollowMessage, verifyActorWithWebfinger } from '$lib/modules/activitypub/apUtil';
-import { ACTIVITYPUB_ACCOUNT, ACTIVITYPUB_CONTEXTS, ACTIVITYPUB_RES_HEADERS, UNAUTHORIZED_ERR } from '$lib/modules/constants';
+import { ACTIVITYPUB_CONTEXTS, ACTIVITYPUB_RES_HEADERS, APUB_MICROBLOG_ACCOUNT, UNAUTHORIZED_ERR } from '$lib/modules/constants';
 import { error, isHttpError } from '@sveltejs/kit';
 
 export const prerender = false;
@@ -104,7 +104,7 @@ export async function _processInboxMessage({ message, headers, accountObj }) {
     inbox,
     keyInfo: {
       id: accountObj.KEY_ID,
-      private: accountObj.TYPE === 'Group' ? env.ACTIVITYPUB_GROUP_PRIVKEY : env.ACTIVITYPUB_USER_PRIVKEY
+      private: env[accountObj.PRIVKEY_NAME]
     }
   });
 
@@ -125,7 +125,7 @@ export async function POST({ request }) {
     return await _processInboxMessage({
       message: await request.text(),
       headers: request.headers,
-      accountObj: ACTIVITYPUB_ACCOUNT
+      accountObj: APUB_MICROBLOG_ACCOUNT
     });
   } catch (err) {
     if (isHttpError(err)) throw err;

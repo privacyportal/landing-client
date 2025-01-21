@@ -1,4 +1,4 @@
-import { ACTIVITYPUB_ACCOUNT, ACTIVITYPUB_GROUP } from '$lib/modules/constants';
+import { APUB_BLOG_ACCOUNT, APUB_GROUP, APUB_MICROBLOG_ACCOUNT } from '$lib/modules/constants';
 import { error, isHttpError } from '@sveltejs/kit';
 
 export const prerender = false;
@@ -11,8 +11,9 @@ const HEADERS = {
 const ACCOUNT_KEY = 'acct:';
 
 const ACCOUNTS = {
-  [ACTIVITYPUB_ACCOUNT.ID]: ACTIVITYPUB_ACCOUNT.PROFILE,
-  [ACTIVITYPUB_GROUP.ID]: ACTIVITYPUB_GROUP.PROFILE
+  [APUB_MICROBLOG_ACCOUNT.ID]: APUB_MICROBLOG_ACCOUNT.PROFILE,
+  [APUB_BLOG_ACCOUNT.ID]: APUB_BLOG_ACCOUNT.PROFILE,
+  [APUB_GROUP.ID]: APUB_GROUP.PROFILE
 };
 
 /** @type {import('./$types').RequestHandler} */

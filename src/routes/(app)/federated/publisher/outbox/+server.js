@@ -1,12 +1,12 @@
 import { createOutboxItems } from '$lib/modules/activitypub/apRssUtil';
-import { ACTIVITYPUB_RES_HEADERS, APUB_MICROBLOG_ACCOUNT } from '$lib/modules/constants';
+import { ACTIVITYPUB_RES_HEADERS, APUB_BLOG_ACCOUNT } from '$lib/modules/constants';
 import { error, isHttpError } from '@sveltejs/kit';
 
 export const prerender = true;
 
-const MAX_ITEMS = 50;
+const MAX_ITEMS = 10;
 
-const outbox_promise = createOutboxItems(APUB_MICROBLOG_ACCOUNT, MAX_ITEMS);
+const outbox_promise = createOutboxItems(APUB_BLOG_ACCOUNT, MAX_ITEMS);
 
 /** @type {import('./$types').RequestHandler} */
 export async function GET() {
