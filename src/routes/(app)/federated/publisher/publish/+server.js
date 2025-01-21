@@ -20,10 +20,10 @@ export async function GET({ request, url, fetch }) {
     const lastPublished = url.searchParams.get('last');
     if (!lastPublished) return error(403, '"last" param required.');
 
-    const outbox = await fetch(APUB_BLOG_ACCOUNT.OUTBOX_PATH)
+    const orderedItems = await fetch(APUB_BLOG_ACCOUNT.OUTBOX_PATH)
       .then((res) => res.json())
       .then((data) => data.orderedItems.slice(0, MAX_ITEMS));
-    return await _processPublishRequest(APUB_BLOG_ACCOUNT, outbox, lastPublished);
+    return await _processPublishRequest(APUB_BLOG_ACCOUNT, orderedItems, lastPublished);
   } catch (err) {
     if (isHttpError(err)) throw err;
     console.error(err);
