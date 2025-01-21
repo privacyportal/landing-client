@@ -38,8 +38,11 @@ export async function _processPublishRequest(accountObj, outbox, lastPublished, 
           await signAndSendMessage({
             message,
             inbox,
-            actor: accountObj.PROFILE,
-            privkey: accountObj.TYPE === 'Group' ? env.ACTIVITYPUB_GROUP_PRIVKEY : env.ACTIVITYPUB_USER_PRIVKEY
+            keyInfo: {
+              // we always use the user key since it's also the moderator of the group
+              id: ACTIVITYPUB_ACCOUNT.PROFILE,
+              private: env.ACTIVITYPUB_USER_PRIVKEY
+            }
           });
         }
         console.log(`done publishing.`);
