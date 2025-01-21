@@ -75,7 +75,7 @@ export async function GET({ request, url, fetch }) {
 
     const outbox = await fetch(APUB_MICROBLOG_ACCOUNT.OUTBOX_PATH)
       .then((res) => res.json())
-      .orderedItems.slice(0, MAX_ITEMS);
+      .then((data) => data.orderedItems.slice(0, MAX_ITEMS));
     return await _processPublishRequest(APUB_MICROBLOG_ACCOUNT, outbox, lastPublished, update);
   } catch (err) {
     if (isHttpError(err)) throw err;
