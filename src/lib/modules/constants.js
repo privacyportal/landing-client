@@ -20,6 +20,7 @@ export const ACTIVITYPUB_ACCOUNT = {
   PROFILE: `https://${PUBLIC_DOMAIN}/federated/rss`,
   INBOX_URL: `https://${PUBLIC_DOMAIN}/federated/rss/inbox`,
   OUTBOX_URL: `https://${PUBLIC_DOMAIN}/federated/rss/outbox`,
+  KEY_ID: `https://${PUBLIC_DOMAIN}/federated/rss#main-key`,
   INBOX_PATH: '/federated/rss/inbox',
   PUBKEY: PUBLIC_ACTIVITYPUB_USER_PUBKEY,
   PUBLISHED: Date.UTC(2021, 10, 1)
@@ -35,6 +36,7 @@ export const ACTIVITYPUB_GROUP = {
   OUTBOX_URL: `https://${PUBLIC_DOMAIN}/federated/blog/outbox`,
   FEATURED_URL: `https://${PUBLIC_DOMAIN}/federated/blog/featured`,
   ATTRIBUTED_TO_URL: `https://${PUBLIC_DOMAIN}/federated/blog/moderators`,
+  KEY_ID: `https://${PUBLIC_DOMAIN}/federated/blog#main-key`,
   INBOX_PATH: '/federated/blog/inbox',
   PUBKEY: PUBLIC_ACTIVITYPUB_GROUP_PUBKEY,
   PUBLISHED: Date.UTC(2021, 10, 1)
