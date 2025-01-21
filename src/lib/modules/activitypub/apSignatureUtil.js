@@ -15,7 +15,7 @@ function getInboxFragment(inbox) {
   return pathname;
 }
 
-export async function signMessage({ message, inbox, actor, privkey }) {
+export async function signMessage({ message, inbox, keyInfo }) {
   const requestBody = JSON.stringify(message);
 
   // content-type
@@ -35,9 +35,9 @@ export async function signMessage({ message, inbox, actor, privkey }) {
   // signature
   const stringToSign = [`(request-target): post ${getInboxFragment(inbox)}`, `content-type: ${contentTypeHeader}`, `host: ${hostHeader}`, `date: ${dateHeader}`, `digest: ${digestHeader}`].join('\n');
 
-  const signature = await signData(stringToSign, privkey);
+  const signature = await signData(stringToSign, keyInfo.private);
   const algorithm = 'rsa-sha256';
-  const signatureHeader = [`keyId="${actor}#main-key"`, `algorithm="${algorithm}"`, 'headers="(request-target) content-type host date digest"', `signature="${signature}"`].join(',');
+  const signatureHeader = [`keyId="${keyInfo.id}"`, `algorithm="${algorithm}"`, 'headers="(request-target) content-type host date digest"', `signature="${signature}"`].join(',');
 
   return {
     body: requestBody,
@@ -51,8 +51,8 @@ export async function signMessage({ message, inbox, actor, privkey }) {
   };
 }
 
-export async function signAndSendMessage({ message, inbox, actor, privkey }) {
-  const { body, headers: sigHeaders } = await signMessage({ message, inbox, actor, privkey });
+export async function signAndSendMessage({ message, inbox, keyInfo }) {
+  const { body, headers: sigHeaders } = await signMessage({ message, inbox, keyInfo });
   console.log({ inbox, body, headers: { Accept: 'application/activity+json', ...sigHeaders }});
 
   const response = await fetch(inbox, {

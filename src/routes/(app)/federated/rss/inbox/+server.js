@@ -102,8 +102,11 @@ export async function _processInboxMessage({ message, headers, accountObj }) {
   await signAndSendMessage({
     message: acceptMessage,
     inbox,
-    actor: accountObj.PROFILE,
-    privkey: accountObj.TYPE === 'Group' ? env.ACTIVITYPUB_GROUP_PRIVKEY : env.ACTIVITYPUB_USER_PRIVKEY
+    keyInfo: {
+      // we always use the user key since it's also the moderator of the group
+      id: ACTIVITYPUB_ACCOUNT.PROFILE,
+      private: env.ACTIVITYPUB_USER_PRIVKEY
+    }
   });
 
   return new Response(JSON.stringify({ message: 'Data received successfully' }), {
