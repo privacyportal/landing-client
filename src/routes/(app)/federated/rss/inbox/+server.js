@@ -103,9 +103,8 @@ export async function _processInboxMessage({ message, headers, accountObj }) {
     message: acceptMessage,
     inbox,
     keyInfo: {
-      // we always use the user key since it's also the moderator of the group
-      id: ACTIVITYPUB_ACCOUNT.KEY_ID,
-      private: env.ACTIVITYPUB_USER_PRIVKEY
+      id: accountObj.KEY_ID,
+      private: accountObj.TYPE === 'Group' ? env.ACTIVITYPUB_GROUP_PRIVKEY : env.ACTIVITYPUB_USER_PRIVKEY
     }
   });
 
