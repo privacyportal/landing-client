@@ -1,4 +1,4 @@
-import { createBlogPost } from '$lib/modules/activitypub/apRssUtil';
+import { createMicroblogPost } from '$lib/modules/activitypub/apRssUtil';
 import { ACTIVITYPUB_CONTEXTS, ACTIVITYPUB_RES_HEADERS } from '$lib/modules/constants';
 import getBlogPosts from '$lib/server/getBlogPosts';
 import { error, isHttpError } from '@sveltejs/kit';
@@ -22,7 +22,7 @@ export async function GET({ params }) {
     const postMetadata = blogs.findOne({ id: params.post_id });
     const post = {
       '@context': ACTIVITYPUB_CONTEXTS.ACTIVITY_STREAMS,
-      ...createBlogPost(postMetadata)
+      ...createMicroblogPost(postMetadata).object
     }
     return new Response(JSON.stringify(post), { headers: ACTIVITYPUB_RES_HEADERS });
   } catch (err) {

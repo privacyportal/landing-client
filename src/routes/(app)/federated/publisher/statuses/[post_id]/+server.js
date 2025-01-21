@@ -22,7 +22,7 @@ export async function GET({ params }) {
     const postMetadata = blogs.findOne({ id: params.post_id });
     const post = {
       '@context': ACTIVITYPUB_CONTEXTS.ACTIVITY_STREAMS,
-      ...createBlogPost(postMetadata)
+      ...(createBlogPost(postMetadata).object)
     }
     return new Response(JSON.stringify(post), { headers: ACTIVITYPUB_RES_HEADERS });
   } catch (err) {
