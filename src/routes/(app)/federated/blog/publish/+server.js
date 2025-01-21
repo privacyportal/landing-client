@@ -27,9 +27,9 @@ export async function GET({ request, url, fetch }) {
 
     return await _processPublishRequest({
       accountObj: APUB_GROUP,
-      keyInfo: { // signed by moderator
-        id: APUB_BLOG_ACCOUNT.KEY_ID,
-        private: env[APUB_BLOG_ACCOUNT.PRIVKEY_NAME]
+      keyInfo: {
+        id: APUB_GROUP.KEY_ID,
+        private: env[APUB_GROUP.PRIVKEY_NAME]
       },
       orderedItems,
       lastPublished
