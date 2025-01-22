@@ -1,5 +1,5 @@
 import config from '$lib/modules/config';
-import { ACTIVITYPUB_CONTEXTS, ACTIVITYPUB_RES_HEADERS, APUB_BLOG_ACCOUNT } from '$lib/modules/constants';
+import { APUB_MSG_CONTEXT, ACTIVITYPUB_RES_HEADERS, APUB_BLOG_ACCOUNT } from '$lib/modules/constants';
 import { error, isHttpError } from '@sveltejs/kit';
 
 export const prerender = false;
@@ -7,7 +7,7 @@ export const prerender = false;
 const { image } = config.meta;
 
 const PUBLISHER_ACCOUNT_INFO = {
-  '@context': [ACTIVITYPUB_CONTEXTS.ACTIVITY_STREAMS, ACTIVITYPUB_CONTEXTS.W3ID_SECURITY],
+  ...APUB_MSG_CONTEXT,
   id: APUB_BLOG_ACCOUNT.PROFILE,
   type: APUB_BLOG_ACCOUNT.TYPE,
   name: APUB_BLOG_ACCOUNT.NAME,
@@ -28,7 +28,8 @@ const PUBLISHER_ACCOUNT_INFO = {
     type: 'Image',
     mediaType: 'image/png',
     url: image
-  }
+  },
+  discoverable: true
 };
 
 /** @type {import('./$types').RequestHandler} */

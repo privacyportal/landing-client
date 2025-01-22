@@ -1,10 +1,10 @@
-import { ACTIVITYPUB_CONTEXTS, ACTIVITYPUB_RES_HEADERS, APUB_GROUP } from '$lib/modules/constants';
+import { APUB_MSG_CONTEXT, ACTIVITYPUB_RES_HEADERS, APUB_GROUP } from '$lib/modules/constants';
 import { error, isHttpError } from '@sveltejs/kit';
 
 export const prerender = true;
 
 const RSS_ACCOUNT_INFO = {
-  '@context': [ACTIVITYPUB_CONTEXTS.ACTIVITY_STREAMS, ACTIVITYPUB_CONTEXTS.W3ID_SECURITY],
+  ...APUB_MSG_CONTEXT,
   id: APUB_GROUP.FEATURED_URL,
   type: 'OrderedCollection',
   orderedItems: [],

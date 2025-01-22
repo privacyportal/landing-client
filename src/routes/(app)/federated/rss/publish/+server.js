@@ -2,7 +2,7 @@ import { env } from '$env/dynamic/private';
 import { signAndSendMessage } from '$lib/modules/activitypub/apSignatureUtil';
 import { storeFollowersIterator } from '$lib/modules/activitypub/apStorageUtil';
 import { authorize } from '$lib/modules/auth';
-import { ACTIVITYPUB_CONTEXTS, APUB_MICROBLOG_ACCOUNT, DEFAULT_RES_HEADERS, UNAUTHORIZED_ERR } from '$lib/modules/constants';
+import { APUB_MSG_CONTEXT, APUB_MICROBLOG_ACCOUNT, DEFAULT_RES_HEADERS, UNAUTHORIZED_ERR } from '$lib/modules/constants';
 import { error, isHttpError } from '@sveltejs/kit';
 
 export const prerender = false;
@@ -18,7 +18,7 @@ export async function _processPublishRequest({ accountObj, keyInfo, orderedItems
     const lastPublishedIndex = orderedItems.findIndex((item) => item.id === lastPublished);
     if (lastPublishedIndex > -1) {
       itemsToPublish = orderedItems.slice(0, lastPublishedIndex).map((item) => ({
-        '@context': [ACTIVITYPUB_CONTEXTS.ACTIVITY_STREAMS, ACTIVITYPUB_CONTEXTS.W3ID_SECURITY],
+        ...APUB_MSG_CONTEXT,
         ...item,
         ...(update && {
           type: 'Update',

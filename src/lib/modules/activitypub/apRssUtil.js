@@ -1,6 +1,6 @@
 import config from '$lib/modules/config';
 import getBlogPosts, { generateDeterministicId } from '$lib/server/getBlogPosts';
-import { ACTIVITYPUB_CONTEXTS, APUB_BLOG_ACCOUNT, APUB_GROUP, APUB_MICROBLOG_ACCOUNT } from '../constants';
+import { ACTIVITYPUB_CONTEXTS, APUB_BLOG_ACCOUNT, APUB_GROUP, APUB_MICROBLOG_ACCOUNT, APUB_MSG_CONTEXT } from '../constants';
 import { capitalize } from '../util';
 
 const { site_name } = config.meta;
@@ -143,7 +143,7 @@ export async function createOutboxItems(accountObj, maxItems) {
   const posts = blogs.chain().simplesort('date', true).limit(maxItems).data({ removeMeta: true });
 
   return {
-    '@context': ACTIVITYPUB_CONTEXTS.ACTIVITY_STREAMS,
+    ...APUB_MSG_CONTEXT,
     id: accountObj.OUTBOX_URL,
     type: 'OrderedCollection',
     orderedItems: posts.map((postMetadata) => {

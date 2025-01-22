@@ -1,10 +1,10 @@
-import { ACTIVITYPUB_CONTEXTS, ACTIVITYPUB_RES_HEADERS, APUB_BLOG_ACCOUNT, APUB_GROUP } from '$lib/modules/constants';
+import { APUB_MSG_CONTEXT, ACTIVITYPUB_RES_HEADERS, APUB_BLOG_ACCOUNT, APUB_GROUP } from '$lib/modules/constants';
 import { error, isHttpError } from '@sveltejs/kit';
 
 export const prerender = true;
 
 const MODERATORS = {
-  '@context': [ACTIVITYPUB_CONTEXTS.ACTIVITY_STREAMS, ACTIVITYPUB_CONTEXTS.W3ID_SECURITY],
+  ...APUB_MSG_CONTEXT,
   id: APUB_GROUP.ATTRIBUTED_TO_URL,
   type: 'OrderedCollection',
   orderedItems: [APUB_BLOG_ACCOUNT.PROFILE]
