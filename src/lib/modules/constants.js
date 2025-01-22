@@ -82,7 +82,15 @@ export const ACTIVITYPUB_RES_HEADERS = {
 
 export const ACTIVITYPUB_CONTEXTS = {
   ACTIVITY_STREAMS: 'https://www.w3.org/ns/activitystreams',
-  W3ID_SECURITY: 'https://w3id.org/security/v1'
+  W3ID_SECURITY: 'https://w3id.org/security/v1',
+  PRIVACY_PORTAL_CONTEXT: `https://${PUBLIC_DOMAIN}/federated/context.json`
+};
+
+export const APUB_MSG_CONTEXT = {
+  '@context': [
+    ACTIVITYPUB_CONTEXTS.PRIVACY_PORTAL_CONTEXT,
+    ACTIVITYPUB_CONTEXTS.ACTIVITY_STREAMS
+  ]
 };
 
 export const UNAUTHORIZED_ERR = 'Unauthorized.';

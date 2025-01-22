@@ -1,6 +1,8 @@
 import crypto from 'node:crypto';
 import { ACTIVITYPUB_CONTEXTS, ACTIVITYPUB_REQ_HEADERS, DOMAIN } from '../constants';
 
+const STATUS_ID_REGEX = new RegExp('^[0-9a-fA-F]{32}$');
+
 export function generateGUID() {
   return crypto.randomBytes(16).toString('hex');
 }
@@ -69,4 +71,8 @@ export function validateFollowMessage(message, opts) {
   if (!message?.object || typeof message.object !== 'string') return false;
   if (opts.object && message?.object !== opts.object) return false;
   return true;
+}
+
+export function validateStatusId(input) {
+  return STATUS_ID_REGEX.test(input);
 }
