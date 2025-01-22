@@ -1,5 +1,6 @@
 import { APUB_BLOG_ACCOUNT, APUB_GROUP, APUB_MICROBLOG_ACCOUNT } from '$lib/modules/constants';
 import { error, isHttpError } from '@sveltejs/kit';
+import { ACTIVITYPUB_CONTEXTS } from '../../../../lib/modules/constants';
 
 export const prerender = false;
 
@@ -11,9 +12,9 @@ const HEADERS = {
 const ACCOUNT_KEY = 'acct:';
 
 const ACCOUNTS = {
-  [APUB_MICROBLOG_ACCOUNT.ID]: APUB_MICROBLOG_ACCOUNT.PROFILE,
-  [APUB_BLOG_ACCOUNT.ID]: APUB_BLOG_ACCOUNT.PROFILE,
-  [APUB_GROUP.ID]: APUB_GROUP.PROFILE
+  [APUB_MICROBLOG_ACCOUNT.ID]: APUB_MICROBLOG_ACCOUNT,
+  [APUB_BLOG_ACCOUNT.ID]: APUB_BLOG_ACCOUNT,
+  [APUB_GROUP.ID]: APUB_GROUP
 };
 
 /** @type {import('./$types').RequestHandler} */
@@ -36,7 +37,10 @@ export async function GET({ url }) {
           {
             rel: 'self',
             type: 'application/activity+json',
-            href: ACCOUNTS[accountId]
+            href: ACCOUNTS[accountId].PROFILE,
+            properties: {
+              [`${ACTIVITYPUB_CONTEXTS.ACTIVITY_STREAMS}#type`]: ACCOUNTS[accountId].TYPE
+            }
           }
         ]
       }),
