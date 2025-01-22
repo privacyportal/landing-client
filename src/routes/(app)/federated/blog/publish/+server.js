@@ -3,6 +3,7 @@ import { authorize } from '$lib/modules/auth';
 import { APUB_GROUP, DEFAULT_RES_HEADERS, UNAUTHORIZED_ERR } from '$lib/modules/constants';
 import { error, isHttpError } from '@sveltejs/kit';
 import { _processPublishRequest, _publishItemToFollowers, _wrapItemForPublishing } from '../../rss/publish/+server';
+import { _getGroupActorInfo } from '../+server';
 
 export const prerender = false;
 
@@ -20,7 +21,7 @@ export async function GET({ request, url, fetch }) {
 
     const type = url.searchParams.get('type');
     if (type === 'actor') {
-      const data = await fetch('/federated/blog').then((res) => res.json());
+      const data = await _getGroupActorInfo({ fetch });
       if (!data) throw new Error('Failed to fetch blog data.');
       await _publishItemToFollowers({
         message: _wrapItemForPublishing(data, true),

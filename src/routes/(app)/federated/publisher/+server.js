@@ -32,6 +32,11 @@ const PUBLISHER_ACCOUNT_INFO = {
   discoverable: true
 };
 
+export async function _getPublisherActorInfo({ fetch }) {
+  const { published, updated } = await fetch('/blog/meta.json').then((res) => res.json());
+  return { ...PUBLISHER_ACCOUNT_INFO, published, updated };
+}
+
 /** @type {import('./$types').RequestHandler} */
 export async function GET({ request, fetch }) {
   try {
@@ -44,8 +49,8 @@ export async function GET({ request, fetch }) {
       });
     }
 
-    const { published, updated } = await fetch('/blog/meta.json').then((res) => res.json());
-    return new Response(JSON.stringify({ ...PUBLISHER_ACCOUNT_INFO, published, updated }), { headers: ACTIVITYPUB_RES_HEADERS });
+    const body = await _getPublisherActorInfo({ fetch });
+    return new Response(JSON.stringify(body), { headers: ACTIVITYPUB_RES_HEADERS });
   } catch (err) {
     if (isHttpError(err)) throw err;
     console.error(err);
