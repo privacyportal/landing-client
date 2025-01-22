@@ -4,6 +4,7 @@ import { storeFollowersIterator } from '$lib/modules/activitypub/apStorageUtil';
 import { authorize } from '$lib/modules/auth';
 import { APUB_MSG_CONTEXT, APUB_MICROBLOG_ACCOUNT, DEFAULT_RES_HEADERS, UNAUTHORIZED_ERR } from '$lib/modules/constants';
 import { error, isHttpError } from '@sveltejs/kit';
+import { _getRssActorInfo } from '../+server';
 
 export const prerender = false;
 
@@ -75,7 +76,7 @@ export async function GET({ request, url, fetch }) {
 
     const type = url.searchParams.get('type');
     if (type === 'actor') {
-      const data = await fetch('/federated/rss').then((res) => res.json());
+      const data = await _getRssActorInfo({ fetch });
       if (!data) throw new Error('Failed to fetch blog data.');
       await _publishItemToFollowers({
         message: _wrapItemForPublishing(data, true),

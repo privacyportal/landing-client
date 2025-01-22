@@ -32,6 +32,11 @@ const RSS_ACCOUNT_INFO = {
   discoverable: true
 };
 
+export async function _getRssActorInfo({ fetch }) {
+  const { published, updated } = await fetch('/blog/meta.json').then((res) => res.json());
+  return { ...RSS_ACCOUNT_INFO, published, updated };
+}
+
 /** @type {import('./$types').RequestHandler} */
 export async function GET({ request, fetch }) {
   try {
@@ -44,8 +49,8 @@ export async function GET({ request, fetch }) {
       });
     }
 
-    const { published, updated } = await fetch('/blog/meta.json').then((res) => res.json());
-    return new Response(JSON.stringify({ ...RSS_ACCOUNT_INFO, published, updated }), { headers: ACTIVITYPUB_RES_HEADERS });
+    const body = await _getRssActorInfo({ fetch });
+    return new Response(JSON.stringify(body), { headers: ACTIVITYPUB_RES_HEADERS });
   } catch (err) {
     if (isHttpError(err)) throw err;
     console.error(err);
