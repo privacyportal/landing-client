@@ -17,7 +17,7 @@ const BLOG_ACCOUNT_INFO = {
   featured: APUB_GROUP.FEATURED_URL,
   followers: APUB_GROUP.FOLLOWERS_URL,
   attributedTo: APUB_GROUP.ATTRIBUTED_TO_URL,
-  postingRestrictedToMods: false,
+  postingRestrictedToMods: true,
   publicKey: {
     id: APUB_GROUP.KEY_ID,
     owner: APUB_GROUP.PROFILE,
