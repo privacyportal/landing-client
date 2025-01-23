@@ -12,10 +12,8 @@ export async function GET({ request, params, fetch }) {
     if (!validateStatusId(params.post_id)) return error(404, 'Page not found');
     const data = await fetch(`/federated/publisher/statuses/${params.post_id}/activity`).then(res => res.ok ? res.json() : null);
     if (!data) return error(404, 'page not found');
-
     if (!(request.headers.get('Accept') || '').includes('application/activity+json')) {
-      // https://privacyportal.local/blog/private-e2ee-pdf-file-sharing
-      const slug = (data?.content || '').match(SLUG_REGEX)[1];
+      const slug = (data?.object?.attachment?.[0]?.href || '').match(SLUG_REGEX)[1];
       return new Response(null, {
         status: 302,
         headers: {
