@@ -71,3 +71,19 @@ export async function* storeFollowersIterator(account_username) {
     }
   }
 }
+
+export async function storeGetFollowerCount(account_username) {
+  const method = 'GET';
+  const path = `/activity-pub/accounts/${account_username}/followers?count_only=true`;
+
+  const response = await fetch(`${API_URL}${path}`, {
+    method,
+    headers: {
+      ...DEFAULT_HEADERS,
+      ...(await signApiRequest({ method, path }))
+    }
+  });
+
+  if (!response.ok) throw new Error(FOLLOWERS_ERROR_MSG);
+  return response.json();
+}
