@@ -11,6 +11,7 @@
   import config from '$lib/modules/config';
   import { onMount } from 'svelte';
   import Pricing from './Pricing.svelte';
+  import MastodonLogo from '$lib/components/brandIcons/MastodonLogo.svelte';
 
   export let meta = config.meta;
 
@@ -169,14 +170,21 @@
     <p class="no-margin">Follow us</p>
     <GridContainer justify_items="stretch" width="max(170px, 15%)" template_columns="1fr" gap="0.5rem">
       <a class="social-btn" href="https://twitter.com/Privacy_Portal">
-        <FlexContainer height="33.5px" align_items="center" justify_content="center" bgColor="#444" padding="0rem 0.7rem" gap="0.3rem" rounded>
+        <FlexContainer height="33.5px" align_items="center" justify_content="start" bgColor="#444" padding="0rem 0.7rem" gap="0.5rem" rounded>
           <XLogo dimension="1rem" color="#fff" />
           <h6 class="mono no-margin">@Privacy_Portal</h6>
         </FlexContainer>
       </a>
 
+      <a class="social-btn" href="https://mastodon.social/@rss@privacyportal.org">
+        <FlexContainer height="33.5px" align_items="center" justify_content="start" bgColor="#444" padding="0rem 0.7rem" gap="0.5rem" rounded>
+          <MastodonLogo dimension="1.25rem" color="#fff" />
+          <h6 class="mono no-margin">@rss@privacyportal.org</h6>
+        </FlexContainer>
+      </a>
+
       <a class="social-btn" href="https://github.com/privacyportal">
-        <FlexContainer height="33.5px" align_items="center" justify_content="center" bgColor="#444" padding="0rem 0.7rem" gap="0.3rem" rounded>
+        <FlexContainer height="33.5px" align_items="center" justify_content="start" bgColor="#444" padding="0rem 0.7rem" gap="0.5rem" rounded>
           <Octocat dimension="1.25rem" dark={false} />
           <h6 class="mono no-margin">@privacyportal</h6>
         </FlexContainer>

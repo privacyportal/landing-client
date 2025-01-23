@@ -1,4 +1,4 @@
-import { APUB_MSG_CONTEXT, ACTIVITYPUB_RES_HEADERS, APUB_BLOG_ACCOUNT, APUB_GROUP } from '$lib/modules/constants';
+import { ACTIVITYPUB_RES_HEADERS, APUB_BLOG_ACCOUNT, APUB_GROUP, APUB_MSG_CONTEXT } from '$lib/modules/constants';
 import { error, isHttpError } from '@sveltejs/kit';
 
 export const prerender = true;

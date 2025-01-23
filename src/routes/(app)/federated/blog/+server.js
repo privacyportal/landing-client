@@ -1,10 +1,10 @@
 import config from '$lib/modules/config';
-import { APUB_MSG_CONTEXT, ACTIVITYPUB_RES_HEADERS, APUB_GROUP } from '$lib/modules/constants';
+import { ACTIVITYPUB_RES_HEADERS, APUB_GROUP, APUB_MSG_CONTEXT } from '$lib/modules/constants';
 import { error, isHttpError } from '@sveltejs/kit';
 
 export const prerender = false;
 
-const { image } = config.meta;
+const { image, banner } = config.meta;
 
 const BLOG_ACCOUNT_INFO = {
   ...APUB_MSG_CONTEXT,
@@ -36,7 +36,7 @@ const BLOG_ACCOUNT_INFO = {
   image: {
     type: 'Image',
     mediaType: 'image/png',
-    url: image
+    url: banner
   },
   language: [],
   sensitive: false,

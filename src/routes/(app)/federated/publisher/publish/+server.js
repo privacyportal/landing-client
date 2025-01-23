@@ -2,14 +2,14 @@ import { env } from '$env/dynamic/private';
 import { authorize } from '$lib/modules/auth';
 import { APUB_BLOG_ACCOUNT, DEFAULT_RES_HEADERS, UNAUTHORIZED_ERR } from '$lib/modules/constants';
 import { error, isHttpError } from '@sveltejs/kit';
-import { _processPublishRequest, _publishItemToFollowers, _wrapItemForPublishing } from '../../rss/publish/+server';
 import { _getPublisherActorInfo } from '../+server';
+import { _processPublishRequest, _publishItemToFollowers, _wrapItemForPublishing } from '../../rss/publish/+server';
 
 export const prerender = false;
 
-// we should not publish more than 5 posts in order to not spam servers
+// we should not publish more than 10 posts in order to not spam servers
 // this shouldn't happen anyway
-const MAX_ITEMS = 5;
+const MAX_ITEMS = 10;
 
 /** @type {import('./$types').RequestHandler} */
 export async function GET({ request, url, fetch }) {

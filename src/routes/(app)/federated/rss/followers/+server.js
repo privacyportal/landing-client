@@ -1,12 +1,12 @@
 import { storeGetFollowerCount } from '$lib/modules/activitypub/apStorageUtil';
-import { ACTIVITYPUB_RES_HEADERS, APUB_GROUP, APUB_MSG_CONTEXT } from '$lib/modules/constants';
+import { ACTIVITYPUB_RES_HEADERS, APUB_MICROBLOG_ACCOUNT, APUB_MSG_CONTEXT } from '$lib/modules/constants';
 import { error, isHttpError } from '@sveltejs/kit';
 
 export const prerender = false;
 
 const FOLLOWERS_RESPONSE = {
   ...APUB_MSG_CONTEXT,
-  id: APUB_GROUP.FOLLOWERS_URL,
+  id: APUB_MICROBLOG_ACCOUNT.FOLLOWERS_URL,
   type: 'Collection',
   items: [], // we do not include followers for privacy
   totalItems: 0
@@ -15,7 +15,7 @@ const FOLLOWERS_RESPONSE = {
 /** @type {import('./$types').RequestHandler} */
 export async function GET() {
   try {
-    const { count } = await storeGetFollowerCount(APUB_GROUP.USERNAME);
+    const { count } = await storeGetFollowerCount(APUB_MICROBLOG_ACCOUNT.USERNAME);
     return new Response(
       JSON.stringify({
         ...FOLLOWERS_RESPONSE,
