@@ -68,7 +68,7 @@ export const DEFAULT_RES_HEADERS = {
   Expires: '0',
   Pragma: 'no-cache',
   'Cache-Control': 'no-cache, no-store, max-age=0, must-revalidate, proxy-revalidate',
-  'Content-Type': 'application/activity+json'
+  'Content-Type': 'application/json'
 };
 
 export const ACTIVITYPUB_REQ_HEADERS = {
