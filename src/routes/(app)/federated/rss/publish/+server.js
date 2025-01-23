@@ -42,7 +42,16 @@ export async function _processPublishRequest({ accountObj, keyInfo, orderedItems
     let itemsToPublish;
     const lastPublishedIndex = orderedItems.findIndex((item) => item.id === lastPublished);
     if (lastPublishedIndex > -1) {
-      itemsToPublish = orderedItems.slice(0, lastPublishedIndex).map((item) => _wrapItemForPublishing(item, update));
+      itemsToPublish = orderedItems.slice(0, lastPublishedIndex).map((item) => {
+        return [
+          // Send Announce/Page for compatibility with Mastodon
+          ...(item?.type === 'Announce' && item?.object?.type === 'Create' && item?.object?.object?.type === 'Page' ? [
+            _wrapItemForPublishing({ ...item, object: item.object.object }, update)
+          ] : []),
+          // Send Announce/Create/Page for compatibility with Lemmy
+          _wrapItemForPublishing(item, update)
+        ]
+      }).flat();
     }
 
     if (itemsToPublish?.length) {
