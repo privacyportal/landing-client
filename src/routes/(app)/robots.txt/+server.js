@@ -8,6 +8,7 @@ export async function GET() {
     'User-Agent: *',
     '  Disallow: /federated/inbox',
     '  Disallow: /federated/publish',
+    '  Disallow: /federated/blog/followers',
   ].join('\n');
 
   return new Response(body, {

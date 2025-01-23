@@ -15,6 +15,7 @@ const BLOG_ACCOUNT_INFO = {
   inbox: APUB_GROUP.INBOX_URL,
   outbox: APUB_GROUP.OUTBOX_URL,
   featured: APUB_GROUP.FEATURED_URL,
+  followers: APUB_GROUP.FOLLOWERS_URL,
   attributedTo: APUB_GROUP.ATTRIBUTED_TO_URL,
   postingRestrictedToMods: false,
   publicKey: {

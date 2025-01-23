@@ -55,6 +55,7 @@ export const APUB_GROUP = {
   INBOX_URL: `https://${PUBLIC_DOMAIN}/federated/blog/inbox`,
   OUTBOX_URL: `https://${PUBLIC_DOMAIN}/federated/blog/outbox`,
   FEATURED_URL: `https://${PUBLIC_DOMAIN}/federated/blog/featured`,
+  FOLLOWERS_URL: `https://${PUBLIC_DOMAIN}/federated/blog/followers`,
   ATTRIBUTED_TO_URL: `https://${PUBLIC_DOMAIN}/federated/blog/moderators`,
   KEY_ID: `https://${PUBLIC_DOMAIN}/federated/blog#main-key`,
   INBOX_PATH: '/federated/blog/inbox',
