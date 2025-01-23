@@ -25,7 +25,7 @@ export function createBlogPost(postMetadata) {
   const postUrl = `${APUB_BLOG_ACCOUNT.PROFILE}/statuses/${postMetadata.id}`;
   const published = formatPublishDate(postMetadata);
 
-  const content = [`<h1>${postMetadata.title}</h1>`, `<p>${postMetadata.description}</p>`].join('\n\n');
+  const content = undefined;
 
   return {
     id: `${postUrl}/activity`,
@@ -41,7 +41,7 @@ export function createBlogPost(postMetadata) {
       to: [APUB_GROUP.PROFILE, `${ACTIVITYPUB_CONTEXTS.ACTIVITY_STREAMS}#Public`],
       cc: [],
       name: postMetadata.title,
-      content,
+      ...(content && { content }),
       mediaType: 'text/html',
       attachment: [
         {

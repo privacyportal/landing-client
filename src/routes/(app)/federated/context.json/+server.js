@@ -4,7 +4,7 @@ import { error, isHttpError } from '@sveltejs/kit';
 export const prerender = true;
 
 const CONTEXT = {
-  "@context": [
+  '@context': [
     ACTIVITYPUB_CONTEXTS.W3ID_SECURITY,
     {
       as: `${ACTIVITYPUB_CONTEXTS.ACTIVITY_STREAMS}#`,

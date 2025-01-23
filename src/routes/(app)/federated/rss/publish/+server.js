@@ -2,15 +2,15 @@ import { env } from '$env/dynamic/private';
 import { signAndSendMessage } from '$lib/modules/activitypub/apSignatureUtil';
 import { storeFollowersIterator } from '$lib/modules/activitypub/apStorageUtil';
 import { authorize } from '$lib/modules/auth';
-import { APUB_MSG_CONTEXT, APUB_MICROBLOG_ACCOUNT, DEFAULT_RES_HEADERS, UNAUTHORIZED_ERR } from '$lib/modules/constants';
+import { APUB_MICROBLOG_ACCOUNT, APUB_MSG_CONTEXT, DEFAULT_RES_HEADERS, UNAUTHORIZED_ERR } from '$lib/modules/constants';
 import { error, isHttpError } from '@sveltejs/kit';
 import { _getRssActorInfo } from '../+server';
 
 export const prerender = false;
 
-// we should not publish more than 5 posts in order to not spam servers
+// we should not publish more than 10 posts in order to not spam servers
 // this shouldn't happen anyway
-const MAX_ITEMS = 5;
+const MAX_ITEMS = 10;
 
 export async function _publishItemToFollowers({ message, accountObj, keyInfo }) {
   for await (const inbox of storeFollowersIterator(accountObj.USERNAME)) {
@@ -25,33 +25,43 @@ export async function _publishItemToFollowers({ message, accountObj, keyInfo }) 
   }
 }
 
-export function _wrapItemForPublishing(item, update=false) {
+export function _wrapItemForPublishing(item, update = false) {
   return {
     ...APUB_MSG_CONTEXT,
     ...item,
-    ...(update && {
-      type: 'Update',
-      updated: new Date().toISOString().slice(0, -5) + 'Z'
-    })
+    ...(update &&
+      item?.type === 'Create' && {
+        type: 'Update',
+        updated: new Date().toISOString().slice(0, -5) + 'Z'
+      }),
+    ...(update &&
+      item?.object?.type === 'Create' && {
+        object: {
+          ...item.object,
+          type: 'Update',
+          updated: new Date().toISOString().slice(0, -5) + 'Z'
+        }
+      })
   };
 }
 
-export async function _processPublishRequest({ accountObj, keyInfo, orderedItems, lastPublished, update=false }) {
+export async function _processPublishRequest({ accountObj, keyInfo, orderedItems, lastPublished, update = false }) {
   // prepare items to publish
   if (orderedItems.length) {
     let itemsToPublish;
     const lastPublishedIndex = orderedItems.findIndex((item) => item.id === lastPublished);
     if (lastPublishedIndex > -1) {
-      itemsToPublish = orderedItems.slice(0, lastPublishedIndex).map((item) => {
-        return [
-          // Send Announce/Page for compatibility with Mastodon
-          ...(item?.type === 'Announce' && item?.object?.type === 'Create' && item?.object?.object?.type === 'Page' ? [
-            _wrapItemForPublishing({ ...item, object: item.object.object }, update)
-          ] : []),
-          // Send Announce/Create/Page for compatibility with Lemmy
-          _wrapItemForPublishing(item, update)
-        ]
-      }).flat();
+      itemsToPublish = orderedItems
+        .slice(0, lastPublishedIndex)
+        .map((item) => {
+          return [
+            // Send Announce/Page for compatibility with Mastodon
+            ...(item?.type === 'Announce' && item?.object?.type === 'Create' && item?.object?.object?.type === 'Page' ? [_wrapItemForPublishing({ ...item, object: item.object.object }, update)] : []),
+            // Send Announce/Create/Page for compatibility with Lemmy
+            _wrapItemForPublishing(item, update)
+          ];
+        })
+        .flat();
     }
 
     if (itemsToPublish?.length) {

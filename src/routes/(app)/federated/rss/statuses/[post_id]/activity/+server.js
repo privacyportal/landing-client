@@ -1,5 +1,5 @@
 import { createMicroblogPost } from '$lib/modules/activitypub/apRssUtil';
-import { APUB_MSG_CONTEXT, ACTIVITYPUB_RES_HEADERS } from '$lib/modules/constants';
+import { ACTIVITYPUB_RES_HEADERS, APUB_MSG_CONTEXT } from '$lib/modules/constants';
 import getBlogPosts from '$lib/server/getBlogPosts';
 import { error, isHttpError } from '@sveltejs/kit';
 
@@ -24,7 +24,7 @@ export async function GET({ params }) {
     const post = {
       ...APUB_MSG_CONTEXT,
       ...createMicroblogPost(postMetadata)
-    }
+    };
     return new Response(JSON.stringify(post), { headers: ACTIVITYPUB_RES_HEADERS });
   } catch (err) {
     if (isHttpError(err)) throw err;

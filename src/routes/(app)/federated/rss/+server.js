@@ -1,10 +1,10 @@
 import config from '$lib/modules/config';
-import { APUB_MSG_CONTEXT, ACTIVITYPUB_RES_HEADERS, APUB_MICROBLOG_ACCOUNT } from '$lib/modules/constants';
+import { ACTIVITYPUB_RES_HEADERS, APUB_MICROBLOG_ACCOUNT, APUB_MSG_CONTEXT } from '$lib/modules/constants';
 import { error, isHttpError } from '@sveltejs/kit';
 
 export const prerender = false;
 
-const { image } = config.meta;
+const { image, banner } = config.meta;
 
 const RSS_ACCOUNT_INFO = {
   ...APUB_MSG_CONTEXT,
@@ -27,7 +27,7 @@ const RSS_ACCOUNT_INFO = {
   image: {
     type: 'Image',
     mediaType: 'image/png',
-    url: image
+    url: banner
   },
   discoverable: true
 };

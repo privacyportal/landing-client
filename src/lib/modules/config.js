@@ -8,6 +8,7 @@ export default {
     title: 'Privacy Portal: Your gateway to online privacy',
     description: "Keep your personal information safe with our privacy leading products. It's time to take serious actions for your privacy rights.",
     image: `https://${DOMAIN}/favicons/logo-square-256.png`,
+    banner: `https://${DOMAIN}/assets/banner.png`,
     keywords: ['privacyportal', 'privacy portal', 'privacy solutions', 'privacy tools', 'privacy apps', 'online privacy', 'email privacy', 'online anonymity', 'privacy software'],
     twitter: 'Privacy_Portal',
     github: 'privacyportal'
