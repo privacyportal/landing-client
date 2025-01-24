@@ -51,12 +51,16 @@ export function createAcceptMessage({ messageBody, actor }) {
 export async function verifyActorWithWebfinger({ actor, domain, username }) {
   try {
     // lookup the user using webfinger and verify that it exists
-    const response = await fetch(`https://${domain}/.well-known/webfinger?resource=acct:${username}@${domain}`);
+    const url = `https://${domain}/.well-known/webfinger?resource=acct:${username}@${domain}`;
+    const response = await fetch(url);
     if (!response.ok) return false;
 
     // Parse the JSON response
     const { subject, links } = await response.json();
-    if (subject !== `acct:${username}@${domain}` || !links.some((l) => l?.rel === 'self' && l?.href === actor)) return false;
+    if (subject !== `acct:${username}@${domain}` || !links.some((l) => l?.rel === 'self' && l?.href === actor)) {
+      console.error('webfinger response:', { url, subject, links });
+      return false;
+    }
     return true;
   } catch {
     // do nothing
