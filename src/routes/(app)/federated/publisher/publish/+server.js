@@ -37,7 +37,7 @@ export async function GET({ request, url, fetch }) {
     const lastPublished = url.searchParams.get('last');
     if (!lastPublished) return error(403, '"last" param required.');
 
-    const update = !!url.searchParams.get('update');
+    const update = url.searchParams.get('update') === 'true';
 
     const orderedItems = await fetch(APUB_BLOG_ACCOUNT.OUTBOX_PATH)
       .then((res) => res.json())
