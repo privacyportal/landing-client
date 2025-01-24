@@ -53,7 +53,14 @@ export async function verifyActorWithWebfinger({ actor, domain, username }) {
     // lookup the user using webfinger and verify that it exists
     const url = `https://${domain}/.well-known/webfinger?resource=acct:${username}@${domain}`;
     const response = await fetch(url);
-    if (!response.ok) return false;
+    if (!response.ok) {
+      console.error('webfinger response:', {
+        url,
+        status:
+        response.status, res: await response.text().catch(() => '')
+      });
+      return false;
+    }
 
     // Parse the JSON response
     const { subject, links } = await response.json();
