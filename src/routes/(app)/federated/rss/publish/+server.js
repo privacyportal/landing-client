@@ -56,7 +56,7 @@ export async function _processPublishRequest({ accountObj, keyInfo, orderedItems
         .map((item) => {
           return [
             // Send Announce/Page for compatibility with Mastodon
-            ...(item?.type === 'Announce' && item?.object?.type === 'Create' && item?.object?.object?.type === 'Page' ? [_wrapItemForPublishing({ ...item, object: item.object.object }, update)] : []),
+            ...(!update && item?.type === 'Announce' && item?.object?.type === 'Create' && item?.object?.object?.type === 'Page' ? [_wrapItemForPublishing({ ...item, object: item.object.object }, update)] : []),
             // Send Announce/Create/Page for compatibility with Lemmy
             _wrapItemForPublishing(item, update)
           ];
@@ -111,7 +111,7 @@ export async function GET({ request, url, fetch }) {
     const lastPublished = url.searchParams.get('last');
     if (!lastPublished) return error(403, '"last" param required.');
 
-    const update = !!url.searchParams.get('update');
+    const update = url.searchParams.get('update') === 'true';
 
     const orderedItems = await fetch(APUB_MICROBLOG_ACCOUNT.OUTBOX_PATH)
       .then((res) => res.json())

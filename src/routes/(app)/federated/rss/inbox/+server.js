@@ -20,7 +20,7 @@ export async function _processInboxMessage({ message, headers, accountObj }) {
 
   const { hostname: domain, username } = await parseActor(actor).catch(() => {});
   if (!domain || !username) {
-    console.error('"actor" param invalid.');
+    console.error('"actor" param invalid.', { domain, username });
     return error(403, '"actor" param invalid.');
   }
 
@@ -48,14 +48,14 @@ export async function _processInboxMessage({ message, headers, accountObj }) {
   // validate url
   const isActorValid = await verifyActorWithWebfinger({ actor, domain, username });
   if (!isActorValid) {
-    console.error('"actor" param invalid.');
+    console.error('"actor" param invalid. Webfinger verification failed.');
     return error(403, '"actor" param invalid.');
   }
 
   // get actor account
   const actorAccount = await getActivityPubAccount(actor).catch(() => null);
   if (!actorAccount) {
-    console.error('"actor" param invalid.');
+    console.error('"actor" param invalid. Unabled to fetch account info.');
     return error(403, '"actor" param invalid.');
   }
 
