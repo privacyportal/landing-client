@@ -32,7 +32,7 @@ export async function storeUnsetFollow({ account_username, follower, message }) 
 
   const method = 'DELETE';
   const path = `/activity-pub/followers/${id}`;
-  const body = message ? { message } : undefined;
+  const body = message ? JSON.stringify({ message }) : undefined;
 
   const response = await fetch(`${API_URL}${path}`, {
     method,
