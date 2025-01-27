@@ -32,6 +32,11 @@ export async function getActivityPubAccount(accountUrl) {
   return response.json();
 }
 
+export function messageContent(message) {
+  const { ['@context']: _, ...content } = message;
+  return content;
+}
+
 export function createAcceptMessage({ messageBody, actor }) {
   // eslint-disable-next-line no-unused-vars
   const { ['@context']: _, ...object } = messageBody;

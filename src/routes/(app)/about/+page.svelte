@@ -1,5 +1,6 @@
 <script>
   import SvelteHead from '$lib/components/SvelteHead.svelte';
+  import MastodonLogo from '$lib/components/brandIcons/MastodonLogo.svelte';
   import Octocat from '$lib/components/brandIcons/Octocat.svelte';
   import XLogo from '$lib/components/brandIcons/XLogo.svelte';
   import FlexContainer from '$lib/components/common/FlexContainer.svelte';
@@ -41,6 +42,13 @@
         <FlexContainer height="33.5px" align_items="center" justify_content="center" bgColor="#444" padding="0rem 0.7rem" gap="0.3rem" rounded>
           <XLogo dimension="1rem" color="#fff" />
           <h6 class="mono no-margin">@Privacy_Portal</h6>
+        </FlexContainer>
+      </a>
+
+      <a class="social-btn" href="https://mastodon.social/@rss@privacyportal.org">
+        <FlexContainer height="33.5px" align_items="center" justify_content="start" bgColor="#444" padding="0rem 0.7rem" gap="0.5rem" rounded>
+          <MastodonLogo dimension="1.25rem" color="#fff" />
+          <h6 class="mono no-margin">@rss@privacyportal.org</h6>
         </FlexContainer>
       </a>
 

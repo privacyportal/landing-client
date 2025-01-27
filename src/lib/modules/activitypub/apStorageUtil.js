@@ -10,10 +10,10 @@ const DEFAULT_HEADERS = {
   'Content-Type': 'application/json'
 };
 
-export async function storeSetFollow({ account_username, domain, username, inbox, shared_inbox }) {
+export async function storeSetFollow({ account_username, domain, username, inbox, shared_inbox, message }) {
   const method = 'POST';
   const path = `/activity-pub/accounts/${account_username}/followers/new`;
-  const body = JSON.stringify({ domain, username, inbox, shared_inbox });
+  const body = JSON.stringify({ domain, username, inbox, shared_inbox, ...(message && { message }) });
 
   const response = await fetch(`${API_URL}${path}`, {
     method,
@@ -27,17 +27,20 @@ export async function storeSetFollow({ account_username, domain, username, inbox
   if (!response.ok) throw new Error(FOLLOW_ERROR_MSG);
 }
 
-export async function storeUnsetFollow({ account_username, follower }) {
+export async function storeUnsetFollow({ account_username, follower, message }) {
   const id = getStorageKey(account_username, follower);
 
   const method = 'DELETE';
   const path = `/activity-pub/followers/${id}`;
+  const body = message ? { message } : undefined;
+
   const response = await fetch(`${API_URL}${path}`, {
     method,
     headers: {
       ...DEFAULT_HEADERS,
-      ...(await signApiRequest({ method, path }))
-    }
+      ...(await signApiRequest({ method, path, ...(body && { body }) }))
+    },
+    ...(body && { body })
   });
 
   if (!response.ok) throw new Error(UNFOLLOW_ERROR_MSG);
