@@ -72,7 +72,13 @@ export const DEFAULT_RES_HEADERS = {
   'Content-Type': 'application/json'
 };
 
+export const DEFAULT_REQ_HEADERS = {
+  'User-Agent': 'node-fetch',
+  'Accept': 'application/json'
+}
+
 export const ACTIVITYPUB_REQ_HEADERS = {
+  ...DEFAULT_REQ_HEADERS,
   Accept: 'application/activity+json'
 };
 
