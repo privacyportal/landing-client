@@ -1,5 +1,5 @@
 import crypto from 'node:crypto';
-import { ACTIVITYPUB_CONTEXTS, ACTIVITYPUB_REQ_HEADERS, DOMAIN } from '../constants';
+import { ACTIVITYPUB_CONTEXTS, ACTIVITYPUB_REQ_HEADERS, DEFAULT_REQ_HEADERS, DOMAIN } from '../constants';
 
 const STATUS_ID_REGEX = new RegExp('^[0-9a-fA-F]{32}$');
 
@@ -57,7 +57,7 @@ export async function verifyActorWithWebfinger({ actor, domain, username }) {
   try {
     // lookup the user using webfinger and verify that it exists
     const url = `https://${domain}/.well-known/webfinger?resource=acct:${username}@${domain}`;
-    const response = await fetch(url);
+    const response = await fetch(url, { headers: DEFAULT_REQ_HEADERS });
     if (!response.ok) {
       console.error('webfinger response:', {
         url,
