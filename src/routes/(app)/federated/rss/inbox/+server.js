@@ -1,6 +1,7 @@
-import { verifyRequestSignature } from '$lib/modules/activitypub/apSignatureUtil';
+import { env } from '$env/dynamic/private';
+import { signAndSendMessage, verifyRequestSignature } from '$lib/modules/activitypub/apSignatureUtil';
 import { storeSetFollow, storeUnsetFollow } from '$lib/modules/activitypub/apStorageUtil';
-import { getActivityPubAccount, messageContent, parseActor, validateFollowMessage, verifyActorWithWebfinger } from '$lib/modules/activitypub/apUtil';
+import { createAcceptMessage, getActivityPubAccount, parseActor, validateFollowMessage, verifyActorWithWebfinger } from '$lib/modules/activitypub/apUtil';
 import { ACTIVITYPUB_CONTEXTS, ACTIVITYPUB_RES_HEADERS, APUB_MICROBLOG_ACCOUNT, UNAUTHORIZED_ERR } from '$lib/modules/constants';
 import { error, isHttpError } from '@sveltejs/kit';
 
@@ -90,11 +91,22 @@ export async function _processInboxMessage({ message, headers, accountObj }) {
       console.error('shared inbox not found.');
       return error(400, 'shared inbox not found.');
     }
-    await storeSetFollow({ account_username: accountObj.USERNAME, domain, username, inbox, shared_inbox, message: messageContent(body) });
+    await storeSetFollow({ account_username: accountObj.USERNAME, domain, username, inbox, shared_inbox });
   } else {
     // handle undo follow
-    await storeUnsetFollow({ account_username: accountObj.USERNAME, follower: `${username}@${domain}`, message: messageContent(body) });
+    await storeUnsetFollow({ account_username: accountObj.USERNAME, follower: `${username}@${domain}` });
   }
+
+  // send accept message
+  const acceptMessage = createAcceptMessage({ messageBody: body, actor: accountObj.PROFILE });
+  await signAndSendMessage({
+    message: acceptMessage,
+    inbox,
+    keyInfo: {
+      id: accountObj.KEY_ID,
+      private: env[accountObj.PRIVKEY_NAME]
+    }
+  });
 
   return new Response(JSON.stringify({ message: 'Data received successfully' }), {
     status: 200,

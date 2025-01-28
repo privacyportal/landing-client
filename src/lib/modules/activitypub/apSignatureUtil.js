@@ -1,6 +1,6 @@
 import crypto from 'node:crypto';
 import { BufferSourceConverter, Convert } from 'pvtsutils';
-import { DOMAIN, UNAUTHORIZED_ERR } from '../constants';
+import { ACTIVITYPUB_REQ_HEADERS, DOMAIN, UNAUTHORIZED_ERR } from '../constants';
 
 const DIGEST_ALGORITHMS = ['SHA-256', 'SHA-1', 'sha256', 'sha1'];
 const IS_QUOTED_STRING_REGEX = new RegExp('^".*"$');
@@ -58,7 +58,7 @@ export async function signAndSendMessage({ message, inbox, keyInfo }) {
   const response = await fetch(inbox, {
     method: 'POST',
     headers: {
-      Accept: 'application/activity+json',
+      ...ACTIVITYPUB_REQ_HEADERS,
       ...sigHeaders
     },
     body
