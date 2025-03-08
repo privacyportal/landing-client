@@ -334,13 +334,12 @@
                     name: 'client_id',
                     required: true,
                     type: 'string',
-                    description: 'Relying Party client_id created using the Privacy Portal app'
+                    description: 'Relying Party client_id created using the Privacy Portal app.'
                   },
                   {
                     name: 'client_secret',
-                    required: true,
                     type: 'string',
-                    description: 'Relying Party client_secret created using the Privacy Portal app'
+                    description: 'Relying Party client_secret created using the Privacy Portal app. Required for Confidential clients.'
                   },
                   {
                     name: 'grant_type',
@@ -396,13 +395,12 @@
                     name: 'client_id',
                     required: true,
                     type: 'string',
-                    description: 'Relying Party client_id created using the Privacy Portal app'
+                    description: 'Relying Party client_id created using the Privacy Portal app.'
                   },
                   {
                     name: 'client_secret',
-                    required: true,
                     type: 'string',
-                    description: 'Relying Party client_secret created using the Privacy Portal app'
+                    description: 'Relying Party client_secret created using the Privacy Portal app. Required for Confidential clients.'
                   },
                   {
                     name: 'grant_type',
@@ -531,13 +529,12 @@
                     name: 'client_id',
                     required: true,
                     type: 'string',
-                    description: 'Relying Party client_id created using the Privacy Portal app'
+                    description: 'Relying Party client_id created using the Privacy Portal app.'
                   },
                   {
                     name: 'client_secret',
-                    required: true,
                     type: 'string',
-                    description: 'Relying Party client_secret created using the Privacy Portal app'
+                    description: 'Relying Party client_secret created using the Privacy Portal app. Required for Confidential clients.'
                   },
                   {
                     name: 'refresh_token',
