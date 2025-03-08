@@ -22,7 +22,7 @@
       <span class="sm oneline">No credit card required!</span>
     </FlexContainer>
     <FlexContainer align_items="baseline" gap="0.5rem">
-      <h3 class="no-margin strikethrough wide">€4</h3>
+      <h3 class="no-margin strikethrough wide">€3</h3>
       <h1 class="no-margin beta"><small class="wide">€0</small></h1>
       <h3 class="no-margin oneline mono">/ month</h3>
       <span class="sm oneline beta">Free upgrade during beta!</span>
