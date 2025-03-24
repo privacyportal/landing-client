@@ -8,7 +8,7 @@
   const KEYS = ['user_id', 'email', 'name'];
   const DEFAULT_DATA = {
     user_id: '111111-11111111-11111111-111111',
-    email: '1111.1111.1111@id.pportal.io',
+    email: 'anon_user_1111@id.pportal.io',
     name: 'Anonymous'
   };
   let element;
@@ -18,7 +18,7 @@
   $: updateItem(KEYS[selected], displayed);
 
   function sleep() {
-    return new Promise((resolve) => setTimeout(resolve, 80));
+    return new Promise((resolve) => setTimeout(resolve, 20));
   }
 
   function randomSubstring(length = 1, suffix = 'X') {
@@ -84,7 +84,7 @@
   <g transform="matrix(2.33918,0,0,2.6383,-28.0702,-139.83)">
     <path
       d="M183,53L12,53L12,147L183,147L183,53ZM108.5,57C108.5,56.448 108.052,56 107.5,56L87.5,56C86.948,56 86.5,56.448 86.5,57L86.5,59C86.5,59.552 86.948,60 87.5,60L107.5,60C108.052,60 108.5,59.552 108.5,59L108.5,57Z"
-      style="fill:url(#_Linear1);"
+      style="fill:#ccc;"
     />
     <g transform="matrix(1,0,0,1,-0.5,48.681)">
       <g transform="matrix(1.73388,0,0,0.15625,41.0399,62.6779)">

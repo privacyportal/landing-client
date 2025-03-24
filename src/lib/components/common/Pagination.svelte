@@ -19,7 +19,9 @@
     <div class="container">
       <Button on:click={() => goto(`${parentPath}/1`)} padding="0.3rem 0.5rem" disabled={isFirstPage}><FirstPageIcon dimension="22" disabled={isFirstPage} /></Button>
       <Button on:click={() => goto(`${parentPath}/${Number(currentPage) - 1}`)} padding="0.3rem 0.5rem" disabled={isFirstPage}><ChevronLeftIcon dimension="22" disabled={isFirstPage} /></Button>
-      <Button on:click={() => goto(`${parentPath}/${Number(currentPage) + 1}`)} padding="0.3rem 0.5rem" disabled={isLastPage}><ChevronLeftIcon dimension="22" disabled={isLastPage} right /></Button>
+      <Button on:click={() => goto(`${parentPath}/${Number(currentPage) + 1}`)} padding="0.3rem 0.5rem" disabled={isLastPage}
+        ><ChevronLeftIcon dimension="22" disabled={isLastPage} rotate="180deg" /></Button
+      >
       <Button on:click={() => goto(`${parentPath}/${pageCount}`)} padding="0.3rem 0.5rem" disabled={isLastPage}><LastPageIcon dimension="22" disabled={isLastPage} /></Button>
     </div>
   </FlexContainer>
