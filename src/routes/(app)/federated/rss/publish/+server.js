@@ -56,7 +56,9 @@ export async function _processPublishRequest({ accountObj, keyInfo, orderedItems
         .map((item) => {
           return [
             // Send Announce/Page for compatibility with Mastodon
-            ...(!update && item?.type === 'Announce' && item?.object?.type === 'Create' && item?.object?.object?.type === 'Page' ? [_wrapItemForPublishing({ ...item, object: item.object.object }, update)] : []),
+            ...(!update && item?.type === 'Announce' && item?.object?.type === 'Create' && item?.object?.object?.type === 'Page'
+              ? [_wrapItemForPublishing({ ...item, object: item.object.object }, update)]
+              : []),
             // Send Announce/Create/Page for compatibility with Lemmy
             _wrapItemForPublishing(item, update)
           ];

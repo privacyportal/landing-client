@@ -878,7 +878,7 @@
       {/each}
     </FlexContainer>
   </div>
-  <FlexContainer column nooverflow>
+  <FlexContainer column nooverflowX nooverflowY>
     <GridContainer width="100%" align_items="stretch" template_columns="1fr 1fr" mobile_template_columns="1fr" gap="1rem">
       <Introduction />
       <FlexContainer {bgColor} nomobile />

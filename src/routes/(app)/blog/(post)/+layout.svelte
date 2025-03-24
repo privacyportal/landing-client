@@ -101,7 +101,7 @@
           <h5 class="no-margin">Previous Article</h5>
           <span class="sm oneline">{data.prev?.title || '-'}</span>
           <div class="full-column grid-col-2">
-            <ChevronLeftIcon dimension="40px" right />
+            <ChevronLeftIcon dimension="40px" rotate="180deg" />
           </div>
         </GridContainer>
       </Button>

@@ -117,14 +117,14 @@
       </p>
     </FlexContainer>
     <GridContainer align_items="start" justify_items="start" template_columns="1fr 1fr 1.5fr" mobile_template_columns="1fr" gap="2.5rem 5%">
-      <FlexContainer align_items="flex-start" column gap="0.5rem" nooverflow>
+      <FlexContainer align_items="flex-start" column gap="0.5rem" nooverflowX nooverflowY>
         <h4 class="no-margin"><small>When registering on apps</small></h4>
         <span class="sm"
           >Using Privacy Aliases when registering for new online accounts complicates the task for entities attempting to profile you. Matching your email address across accounts becomes impossible
           and less reliable techniques would have to be used.</span
         >
       </FlexContainer>
-      <FlexContainer align_items="flex-start" justify_content="flex-start" column gap="0.5rem" nooverflow>
+      <FlexContainer align_items="flex-start" justify_content="flex-start" column gap="0.5rem" nooverflowX nooverflowY>
         <h4 class="no-margin"><small>When enrolling for newsletters</small></h4>
         <span class="sm"
           >With Mail Relay, subscribing to newsletters becomes an easy decision. If not satisfied by the content, you get the power to revoke access to your email at any time by deactivating the
@@ -154,14 +154,14 @@
         </div>
       </FlexContainer>
 
-      <FlexContainer align_items="flex-start" column gap="0.5rem" nooverflow>
+      <FlexContainer align_items="flex-start" column gap="0.5rem" nooverflowX nooverflowY>
         <h4 class="no-margin"><small>When your provider is intrusive</small></h4>
         <span class="sm"
           >Unfortunately, many email providers have little regard for your privacy. With Mail Relay, you can encrypt both inbound and outbound mail, thus protecting your data against indexing and
           abuse.</span
         >
       </FlexContainer>
-      <FlexContainer align_items="flex-start" column gap="0.5rem" nooverflow>
+      <FlexContainer align_items="flex-start" column gap="0.5rem" nooverflowX nooverflowY>
         <h4 class="no-margin"><small>When filling out forms</small></h4>
         <span class="sm"
           >After completing a form, one typically expects to be contacted only a few times. So why provide your permanent, easily traceable, and identifiable email address for such a temporary

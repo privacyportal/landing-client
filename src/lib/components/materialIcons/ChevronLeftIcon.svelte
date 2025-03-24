@@ -4,15 +4,15 @@
   export let disabledColor = 'var(--disabled-color)';
   export let opacity = '1';
   export let disabled = false;
-  export let right = false;
+  export let rotate = undefined;
 </script>
 
-<svg xmlns="http://www.w3.org/2000/svg" class:right viewBox="0 0 24 24" width={dimension} height={dimension} fill={disabled ? disabledColor : color} {opacity}>
+<svg xmlns="http://www.w3.org/2000/svg" style:--rotate={rotate} viewBox="0 0 24 24" width={dimension} height={dimension} fill={disabled ? disabledColor : color} {opacity}>
   <path d="m14 18-6-6 6-6 1.4 1.4-4.6 4.6 4.6 4.6Z" />
 </svg>
 
 <style>
-  svg.right {
-    rotate: 180deg;
+  svg {
+    rotate: var(--rotate);
   }
 </style>

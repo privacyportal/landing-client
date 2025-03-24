@@ -114,7 +114,7 @@
             <Button on:click={() => goto(url)} width="100%" height="100%" padding="0.7rem 0.2rem 0.7rem 1rem" blendin>
               <GridContainer align_items="center" justify_items="start" template_columns="auto 30px" gap="0.5rem">
                 <h5 class="left-align no-margin">{title}</h5>
-                <ChevronLeftIcon dimension="30px" right />
+                <ChevronLeftIcon dimension="30px" rotate="180deg" />
               </GridContainer>
             </Button>
           {/each}

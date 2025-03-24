@@ -61,8 +61,8 @@ export async function verifyActorWithWebfinger({ actor, domain, username }) {
     if (!response.ok) {
       console.error('webfinger response:', {
         url,
-        status:
-        response.status, res: await response.text().catch(() => '')
+        status: response.status,
+        res: await response.text().catch(() => '')
       });
       return false;
     }

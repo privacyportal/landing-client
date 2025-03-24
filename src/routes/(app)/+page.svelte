@@ -164,7 +164,7 @@
   {/await}
 {/if}
 
-<FlexContainer column bgColor="var(--primary-color)" color="var(--text-light-color)" align_items="center" justify_content="center" padding="6rem 4rem" gap="4rem" mobileScale nooverflow>
+<FlexContainer column bgColor="var(--primary-color)" color="var(--text-light-color)" align_items="center" justify_content="center" padding="6rem 4rem" gap="4rem" mobileScale nooverflowX nooverflowY>
   <Logo dimension="min(15rem, 60%)" />
   <FlexContainer column align_items="center" gap="1rem" mobileScale>
     <p class="no-margin">Follow us</p>

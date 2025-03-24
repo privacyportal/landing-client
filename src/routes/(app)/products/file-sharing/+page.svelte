@@ -111,7 +111,7 @@
       <CheckCircleIcon dimension="25px" /><span>Your file is opened in memory in the recipient's browser, allowing them to read or print the document without saving it to disk.</span>
     </GridContainer>
   </FlexContainer>
-  <FlexContainer column width="100%" align_items="center" justify_content="center" mobile_justify_content="center" padding="2rem 0px" nooverflow>
+  <FlexContainer column width="100%" align_items="center" justify_content="center" mobile_justify_content="center" padding="2rem 0px" nooverflowX nooverflowY>
     <TiltEffect width="min(80%, 350px)" transform="translateX(0%) rotateX(5deg) rotateY(-10deg) rotateZ(5deg)" mobileTransform="translateX(0%) rotateX(10deg) rotateY(0deg) rotateZ(0deg)">
       <img class="rounded shadow" width="100%" alt="File Sharing Receiving File Screenshot" src={fileSharingReceivingFile} />
     </TiltEffect>

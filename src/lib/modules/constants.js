@@ -11,6 +11,13 @@ export {
 
 export const SIGNUP_URL = PUBLIC_APP_ENDPOINT + '/signup';
 export const WORDPRESS_PLUGIN_URL = 'https://wordpress.org/plugins/privacy-portal-sso';
+export const PRIVACY_KIT_URL = 'https://github.com/privacyportal/privacy-kit/blob/production/README.md';
+export const PRIVACY_KIT_NPM_PKG = 'https://www.npmjs.com/package/@privacyportal.org/privacy-kit';
+export const DOCS_URL = {
+  SIWPP: '/blog/sign-in-with-privacy-portal-tutorial',
+  API: '/developers/api-docs',
+  WP_PLUGIN: '/blog/setting-up-subscribe-anonymously-on-your-wordpress-newsletter'
+};
 
 export const APUB_MICROBLOG_ACCOUNT = {
   IS_MICROBLOGGER: true,
@@ -74,8 +81,8 @@ export const DEFAULT_RES_HEADERS = {
 
 export const DEFAULT_REQ_HEADERS = {
   'User-Agent': 'node-fetch',
-  'Accept': 'application/json'
-}
+  Accept: 'application/json'
+};
 
 export const ACTIVITYPUB_REQ_HEADERS = {
   ...DEFAULT_REQ_HEADERS,
