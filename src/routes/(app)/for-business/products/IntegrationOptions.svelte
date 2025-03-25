@@ -13,7 +13,7 @@
   const ITEMS = [
     {
       title: 'Privacy-Kit',
-      subtitle: '(JS Library)',
+      subtitle: ' (JS Library)',
       desc: 'One-line integration on any website, adds Hide-my-email and anonymous subscriptions.',
       difficulty: 2,
       btns: [
