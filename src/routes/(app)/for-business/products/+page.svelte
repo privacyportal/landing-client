@@ -59,7 +59,7 @@
       </FlexContainer>
       <FlexContainer column align_items="center" gap="0.5rem">
         <Button on:click={() => (window.location.href = SIGNUP_URL)} padding="0.7rem 1rem" rounded><strong>Get Started for free</strong></Button>
-        <Button on:click={() => goto('#how-it-works')} padding="0.7rem 1rem" rounded><strong>See How It Works</strong></Button>
+        <Button on:click={() => goto('#product-overview')} padding="0.7rem 1rem" rounded><strong>See How It Works</strong></Button>
       </FlexContainer>
     </FlexContainer>
     <FlexContainer height="100%" relative nomobile>
@@ -151,7 +151,6 @@
   </FlexContainer>
   <FlexContainer column align_items="center" gap="0.5rem">
     <Button on:click={() => (window.location.href = SIGNUP_URL)} padding="0.7rem 1rem" rounded><strong>Get Started for free</strong></Button>
-    <Button on:click={() => goto(DOCS_URL.SIWPP)} padding="0.7rem 1rem" rounded><strong>View Documentation</strong></Button>
   </FlexContainer>
 </Section>
 
