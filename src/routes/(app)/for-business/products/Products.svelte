@@ -60,9 +60,9 @@
   <GridContainer bind:element={container} template_columns="1fr" gap="0.3rem">
     {#each ITEMS as { name, text, btns }, index}
       <div class="btn-container" class:selected={selected === index || (index === 0 && selected === undefined)}>
-        <FlexContainer height="100%" column align_items="center" justify_content="center" padding="0px 2rem" gap="0.5rem">
+        <FlexContainer height="100%" column align_items="center" justify_content="center" padding="0px 1rem" gap="0.5rem" mobileScale>
           <span class="product-name">{name}</span>
-          <FlexContainer globalClass={['expandable']} column align_items="center" justify_content="center" padding="0px 2rem" gap="3rem" mobileScale>
+          <FlexContainer globalClass={['expandable']} column align_items="center" justify_content="center" gap="3rem" mobileScale>
             <span>{text}</span>
             <MobileDemo mode={0} onlymobile height="auto" />
             <FlexContainer width="auto" column bgColor="var(--new-layer-color)" padding="0.5rem 2rem 1rem 2rem" gap="0.5rem" rounded>
