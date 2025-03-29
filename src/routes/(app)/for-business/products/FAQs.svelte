@@ -42,4 +42,23 @@
       want, just as our Privacy Policy outlines. We’re all about giving you control and peace of mind.</span
     >
   </ExpandableArea>
+
+  <ExpandableArea title="How does Privacy Portal ensure secure communication for my website or newsletter with email aliases?">
+    <span
+      >At Privacy Portal, we understand that as a website or newsletter owner, you want to ensure secure and reliable communication with your users and subscribers who rely on our email aliases.
+      Here’s how we make that happen:</span
+    >
+    <ul>
+      <li>
+        <strong>Automatic In-Transit Encryption:</strong><br />Every email sent to our aliases is encrypted in-transit using TLS (Transport Layer Security)—the same industry-standard protection
+        trusted by banks and online retailers. This ensures your messages are safeguarded from interception or tampering as they move across the internet, keeping your communications with your
+        audience secure.
+      </li>
+      <br />
+      <li>
+        <strong>Optional Content Encryption:</strong><br />For users seeking additional privacy, we support PGP and S/MIME encryption, ensuring that message contents are encrypted and can only be
+        decrypted on their devices.
+      </li>
+    </ul>
+  </ExpandableArea>
 </GridContainer>
