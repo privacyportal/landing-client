@@ -272,6 +272,13 @@
   </FlexContainer>
 </GridContainer>
 
+<FlexContainer justify_content="center">
+  <GridContainer width="auto" align_items="center" template_columns="20px 1fr" color="var(--text-color)" gap="0.3rem">
+    <InfoIcon dimension="20px" />
+    <span class="sm">For Anonymous Newsletter Subscriptions, choose the plan based on the number of Relayed Emails.</span>
+  </GridContainer>
+</FlexContainer>
+
 <style>
   .beta {
     color: var(--info-contrasted-color);
