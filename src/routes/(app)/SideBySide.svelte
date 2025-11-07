@@ -111,6 +111,11 @@
     <hr class="divider sm-v-margin" />
     <hr class="divider sm-v-margin" />
 
+    <h5 class="no-margin mobile-full-row">End-to-End Encryption</h5>
+    <GridContainer align_items="center" template_columns="25px 1fr" gap="0.5rem"><CheckIcon dimension="25px" color="var(--positive-color)" /><span class="sm">Labels and Notes are encrypted</span></GridContainer>
+    <GridContainer align_items="center" template_columns="25px 1fr" gap="0.5rem"><CloseIcon dimension="25px" color="var(--danger-color)" bold /><span class="sm">No</span></GridContainer>
+    <span class="xs-v-margin mobile-full-row mobile" />
+
     <h5 class="no-margin mobile-full-row">PGP Encryption</h5>
     <GridContainer align_items="center" template_columns="25px 1fr" gap="0.5rem"><CheckIcon dimension="25px" color="var(--positive-color)" /><span class="sm">Inbound & Outbound</span></GridContainer>
     <GridContainer align_items="center" template_columns="25px 1fr" gap="0.5rem"><CloseIcon dimension="25px" color="var(--danger-color)" bold /><span class="sm">No</span></GridContainer>

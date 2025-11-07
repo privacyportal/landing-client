@@ -116,7 +116,7 @@
   <GridContainer template_columns="1fr" bgColor="var(--new-layer-color)" color="var(--text-color)" padding="1rem" gap="0.5rem 2rem" rounded onlymobile border>
     <h3 class="no-margin">Enhanced Protection</h3>
     <FlexContainer align_items="baseline" gap="0.5rem">
-      <h3 class="no-margin strikethrough wide">€4</h3>
+      <h3 class="no-margin strikethrough wide">€3</h3>
       <h1 class="no-margin beta"><small class="wide">€0</small></h1>
       <h3 class="no-margin oneline mono">/ month</h3>
       <span class="sm oneline beta"><strong>during beta!</strong></span>

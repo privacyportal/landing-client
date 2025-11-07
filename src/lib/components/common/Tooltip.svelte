@@ -27,7 +27,7 @@
     backdrop-filter: blur(5px);
     color: var(--text-light-opaque-color);
     text-align: center;
-    padding: 5px 0;
+    padding: 5px 2px;
     border-radius: 6px;
     font-size: 0.9rem;
 

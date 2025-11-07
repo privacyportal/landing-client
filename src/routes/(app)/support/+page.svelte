@@ -190,7 +190,7 @@
     </ExpandableArea>
     <ExpandableArea title="How does Privacy Portal protect my data?" bgColor="var(--landing-outer-bg-color)">
       <span
-        >We minimize our use of personal data to the strictest minimum. We process all relayed emails in-memory. We do not store any of your emails. Check out our <a
+        >We minimize our use of personal data to the absolute minimum. We use end-to-end encryption to encrypt your account data when feasible (e.g., the labels and notes of your aliases are encrypted). We process all relayed emails in memory. We do not store any of your emails. Check out our <a
           href="/privacy"
           bgColor="var(--landing-outer-bg-color)">Privacy Policy</a
         >.</span
